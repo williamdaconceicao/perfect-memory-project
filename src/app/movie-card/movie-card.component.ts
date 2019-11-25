@@ -8,6 +8,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class MovieCardComponent implements OnInit {
 	Movie_id: any;
+  @Input() showMePartially: boolean;
 	@Input() public id: string;
 
   private MovieUrl: string;

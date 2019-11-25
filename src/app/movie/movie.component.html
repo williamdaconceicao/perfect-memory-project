@@ -2,3 +2,8 @@
 <p>{{ data.release_date }}</p>
 <p>{{ data.runtime }} minutes</p>
 <img src="https://image.tmdb.org/t/p/w185//{{data.poster_path}}" alt="">
+<button type="button" (click)="toggleChild()">Show the complete movie</button>
+<div>
+  <movie-card [id]="500" [showMePartially]="showVar"></movie-card>
+</div>
+

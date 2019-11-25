@@ -7,6 +7,11 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent implements OnInit {
+  showVar: boolean = true;
+
+  toggleChild(){
+    this.showVar = !this.showVar;
+  }
 	Movie_id: any;
 	@Input() public id: number;
 

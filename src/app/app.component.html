@@ -1,13 +1,10 @@
 <h2>My class' favorite movies</h2>
 
 <div *ngFor="let movie of movies">
-  <movie (click)="onClickMe()" [id]="movie.id"></movie>
-  {{clickMessage}}
+  <movie [id]="movie.id"></movie>
 </div>
 
-<h2>Zoom in movie</h2>
 
-<movie-card id="14"></movie-card>
 
 
 <router-outlet></router-outlet>
