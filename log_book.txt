@@ -1,0 +1,35 @@
+Day 1: 
+	- I've created the project using the command "ng new perfect-memory-project" (note that I've say Yes to the Angular rooting prompt and I'm using CSS )
+	- Next, Using the command "ng generate component Movie", I've created a new component
+	- Inside this component, I fetch the api using the movie id ( which is passed as a parameter ) 
+
+
+
+
+
+Objectif : Le but de l'interface est de permettre à un utilisateur de rechercher des informations sur un film.
+
+  Scénario 1 : Une liste de 10 films  est affichée par défaut. Chaque résultat doit afficher le poster, le titre, l'année de sortie, la durée.
+
+  Scénario 2 : Depuis la liste, l'utilisateur doit pouvoir accéder à une fiche plus complète, indiquant, en plus : les principaux acteurs, le réalisateur, d'autres informations intéressantes au choix.
+
+  Scénario 3 : Dans la liste, l'utilisateur peut saisir une chaîne de caractère correspondant au titre d'un média pour obtenir la liste des 10 premiers résultats correspondants.
+
+  Scénario 4 : Dans la liste, l'utilisateur doit pouvoir filtrer les médias sur leur année de sortie.
+
+  L'interface doit être agréable à utiliser.
+
+* Pour réaliser cet exercice, je m'attends à ce que tu :
+  - utilises le framework Angular.io
+  - utilises l'API https://www.themoviedb.org/documentation/api
+  - me livres le code versionné sur un projet git via github, bitbucket, ou autre, public ou non, du moment qu'il m'est accessible.
+  - commentes le code en anglais lorsque nécessaire
+  - prévoies l'interface uniquement en anglais
+  - rédiges un journal de bord en anglais permettant d’expliquer l’architecture, les étapes de réflexions et les pistes d’améliorations.
+
+* Si tu veux aller plus loin dans cet exercice, voici quelques idées supplémentaires :
+  - Chaque média peut être ajouté à la liste des films vus, ou à la liste des films à voir. Ici une sauvegarde dans le localStorage suffira.
+  - Afficher une icône selon la note du film. Horrible en dessous de 4, Mauvaise en dessous de 7, Bonne au dessus de 7
+  - L'utilisateur peut noter lui-même chaque film qu'il ajoute à ses listes
+  - Utiliser une pagination ou un scroll virtuel pour afficher plus de résultats
+  - Publier l'interface sur github pages, ou autre

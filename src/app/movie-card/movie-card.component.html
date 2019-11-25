@@ -1,0 +1,6 @@
+<p>{{ data.directors }}</p>
+<img src="https://image.tmdb.org/t/p/w185//{{data.poster_path}}" alt="">
+
+<div *ngFor="let cast of data.credits.cast | slice:0:10; let i=index">
+	<p>{{ cast.name }} act in this movie as {{ cast.character }}</p>
+</div>
