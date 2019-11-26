@@ -7,16 +7,21 @@ import { AppComponent } from './app.component';
 import { MovieComponent } from './movie/movie.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 
+import { FormsModule }   from '@angular/forms';
+import { FilterPipe } from './filter.pipe';
+
 @NgModule({
   declarations: [
     AppComponent,
     MovieComponent,
-    MovieCardComponent
+    MovieCardComponent,
+    FilterPipe,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

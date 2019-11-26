@@ -2,6 +2,11 @@ Day 1:
 	- I've created the project using the command "ng new perfect-memory-project" (note that I've say Yes to the Angular rooting prompt and I'm using CSS )
 	- Next, Using the command "ng generate component Movie", I've created a new component
 	- Inside this component, I fetch the api using the movie id ( which is passed as a parameter ) 
+	- Next, I've created an list where I store the names and the ids of 10 movies and display them as a list.
+	- I choose to create an new component to show the complete information of a movie, which is showed on click with a boolean. 
+Day 2:
+	- I've create a filter pipe to make possible the searching of a specified movie in the list with his name
+	- Next I've choose to create a new page , where an user can search for a movie with his name.
 
 
 

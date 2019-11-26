@@ -12,7 +12,6 @@ export class MovieCardComponent implements OnInit {
 	@Input() public id: string;
 
   private MovieUrl: string;
-  private CreditsUrl: string;
   data: any = {};
 
   constructor(private http: HttpClient){
@@ -20,7 +19,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   ngOnInit() {
-  	this.Movie_id = this.id || -1;
+  	this.Movie_id = this.id;
     this.MovieUrl = "https://api.themoviedb.org/3/movie/" + this.Movie_id + "?api_key=3d50a317456bb9c2c28d3f0956c86cc3&append_to_response=credits";
   	this.showData();
   }
@@ -40,7 +39,6 @@ export class MovieCardComponent implements OnInit {
 			})
 			data.directors = directors.join(', ');
 			this.data = data
-    	console.log(data)
     });
   }
 }

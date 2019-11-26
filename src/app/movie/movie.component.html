@@ -1,9 +1,14 @@
-<p>{{ data.original_title }}</p>
-<p>{{ data.release_date }}</p>
-<p>{{ data.runtime }} minutes</p>
-<img src="https://image.tmdb.org/t/p/w185//{{data.poster_path}}" alt="">
-<button type="button" (click)="toggleChild()">Show the complete movie</button>
 <div>
-  <movie-card [id]="500" [showMePartially]="showVar"></movie-card>
-</div>
-
+	<div>
+		<img src="https://image.tmdb.org/t/p/w185//{{data.poster_path}}" alt="">
+		<div>
+			<p>{{ data.original_title }}</p>
+			<p>{{ data.release_date }}</p>
+			<p>{{ data.runtime }} minutes</p>
+		</div>
+		<div>
+		  <movie-card [id]="id" [showMePartially]="showVar"></movie-card>
+		</div>
+	</div>
+	<button  (click)="toggleChild()">More</button>
+<div>

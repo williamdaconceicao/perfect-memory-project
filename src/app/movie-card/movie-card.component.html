@@ -1,6 +1,6 @@
 <div *ngIf="showMePartially">
-	<p>{{ data.directors }}</p>
+	<p>Directed by {{ data.directors }}</p>
 	<div *ngFor="let cast of data.credits.cast | slice:0:10; let i=index">
-		<p>{{ cast.name }} act in this movie as {{ cast.character }}</p>
+		<p>{{ cast.name }} as {{ cast.character }}</p>
 	</div>
 </div>

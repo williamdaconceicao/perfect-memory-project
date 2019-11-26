@@ -6,11 +6,13 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent {
  	title = 'perfect-memory-project';
+  private url: string;
   movies = [
       {
-          name: 'Forest Gump',
+          name: 'Forrest Gump',
           id: 13
       },
   ]
@@ -24,37 +26,50 @@ export class AppComponent {
           id: 27205
       },
       {
-          name: 'Le loup de wall street',
+          name: 'The Wolf of Wall Street',
           id: 106646
       },
       {
-          name: 'Le prestige',
+          name: 'The Prestige',
           id: 1124
       },
       {
-          name: 'Orgueil et Préjugé',
+          name: 'Pride & Prejudice',
           id: 4348
       },
       {
-          name: 'Vaiana',
+          name: 'Moana',
           id: 277834
       },
       {
-          name: 'Sin city',
+          name: 'Sin City',
           id: 187
       },
       {
-          name: "2001, l'Odyssée de l'Espace",
+          name: '2001: A Space Odyssey',
           id: 62
       },
       {
-          name: 'La ligne verte',
+          name: 'The Green Mile',
           id: 497
       }
   ];
-  clickMessage = '';
+  constructor(private http: HttpClient){}
+  performSearch(name: string){
+    this.url = "https://api.themoviedb.org/3/search/movie?api_key=3d50a317456bb9c2c28d3f0956c86cc3&query="+name;
+    this.showData();
+  }
 
-  onClickMe() {
-    this.clickMessage = 'You are my hero!';
+  getData(){
+    console.log(this.url)
+    return this.http.get(this.url);
+  }
+
+  showData(){
+    this.getData()
+    .subscribe((data) => {
+      console.log(data)
+      this.data = data
+    });
   }
 }

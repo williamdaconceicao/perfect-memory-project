@@ -1,10 +1,23 @@
 <h2>My class' favorite movies</h2>
 
-<div *ngFor="let movie of movies">
+<input [(ngModel)]="searchText" placeholder="search text goes here">
+<div *ngFor="let movie of movies | filter : searchText">
   <movie [id]="movie.id"></movie>
 </div>
 
+<!-- <form (ngSubmit)="onSubmit(input.value)">
+  <input id="name" placeholder="Search a movie with his name" type="text">
+  <button class="button" type="submit">Search</button>
+</form> -->
 
+
+<form (ngSubmit)="performSearch(name.value)">
+  <div class="form-group">
+    <label>Search with movie name</label>
+    <input #name type="text" name="name">
+  </div>
+  <button type="submit" for='name'>Search</button>
+</form>
 
 
 <router-outlet></router-outlet>
