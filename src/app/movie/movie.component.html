@@ -1,14 +1,14 @@
-<div>
-	<div>
+<div class="card">
+	<div class="card-image">
 		<img src="https://image.tmdb.org/t/p/w185//{{data.poster_path}}" alt="">
-		<div>
-			<p>{{ data.original_title }}</p>
-			<p>{{ data.release_date }}</p>
-			<p>{{ data.runtime }} minutes</p>
-		</div>
-		<div>
-		  <movie-card [id]="id" [showMePartially]="showVar"></movie-card>
-		</div>
 	</div>
-	<button  (click)="toggleChild()">More</button>
-<div>
+	<div class="card-text">
+		<p class="date">{{ data.runtime }} minutes</p>
+		<h2>{{ data.original_title }}</h2>
+		<p>Release date: {{ data.release_date }}</p>
+	</div>
+	<div class="card-casts" (click)="toggleChild()">
+  	<movie-card [id]="id" [showMePartially]="showVar"></movie-card>
+  	<a >More</a>
+	</div>
+</div>

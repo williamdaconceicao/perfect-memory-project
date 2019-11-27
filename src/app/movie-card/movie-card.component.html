@@ -1,6 +1,8 @@
 <div *ngIf="showMePartially">
-	<p>Directed by {{ data.directors }}</p>
-	<div *ngFor="let cast of data.credits.cast | slice:0:10; let i=index">
-		<p>{{ cast.name }} as {{ cast.character }}</p>
+	<p class="director">Directed by {{ data.directors }}</p>
+	<div class="grid">
+		<div *ngFor="let cast of data.credits.cast | slice:0:10; let i=index">
+			<p class="cast">{{ cast.name }} as {{ cast.character }}</p>
+		</div>		
 	</div>
 </div>

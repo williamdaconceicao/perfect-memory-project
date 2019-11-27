@@ -15,8 +15,6 @@ export class AppComponent {
           name: 'Forrest Gump',
           id: 13
       },
-  ]
-  toto = [
       {
           name: 'Shutter Island',
           id: 11324
@@ -69,7 +67,6 @@ export class AppComponent {
     this.getData()
     .subscribe((data) => {
       console.log(data)
-      this.data = data
     });
   }
 }

@@ -7,8 +7,9 @@ Day 1:
 Day 2:
 	- I've create a filter pipe to make possible the searching of a specified movie in the list with his name
 	- Next I've choose to create a new page , where an user can search for a movie with his name.
-
-
+  - But I realize really fast that the new page was useless, so I put the searching engine on the same page
+Day 3:
+  - Let's add some CSS ! 
 
 
 
