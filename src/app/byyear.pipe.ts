@@ -4,9 +4,9 @@ import { Pipe, PipeTransform } from '@angular/core';
   name: 'byyear'
 })
 export class ByYearPipe implements PipeTransform {
-
-  transform(value: any, ...args: any[]): any {
-    return null;
+	transform(items: any[], searchYear: string): any[] {
+    if(!items) return [];
+    if(!searchYear) return items;
+		return items.filter((item) => item.date.split('-')[0].includes(searchYear));
   }
-
 }

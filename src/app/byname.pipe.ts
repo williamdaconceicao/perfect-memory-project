@@ -10,5 +10,5 @@ export class ByNamePipe implements PipeTransform {
     if(!searchText) return items;
     searchText = searchText.toUpperCase();
 		return items.filter( (item) => item.name.toUpperCase().includes(searchText));
-   }
+  }
 }

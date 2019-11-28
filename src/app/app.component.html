@@ -15,7 +15,7 @@
 	</div>
 </div>
 <div class="container">
-	<div *ngFor="let movie of movies | byname : searchText ">
+	<div *ngFor="let movie of movies | byname: searchText | byyear: searchYear">
 	  <movie [id]="movie.id"></movie>
 	</div>
 </div>

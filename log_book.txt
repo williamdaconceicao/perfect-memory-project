@@ -15,7 +15,6 @@ Day 3:
   - Next I've change the name of the filter pipe and create a new one for the year, I'll figured out later for the bug on the update
 
 
-
 Objectif : Le but de l'interface est de permettre à un utilisateur de rechercher des informations sur un film.
 
   Scénario 1 : Une liste de 10 films  est affichée par défaut. Chaque résultat doit afficher le poster, le titre, l'année de sortie, la durée.
