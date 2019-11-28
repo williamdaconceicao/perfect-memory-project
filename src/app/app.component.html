@@ -1,16 +1,21 @@
 <h1>Perfect Memory movie search</h1>
-<br/><br/><br/>
+<br/><br/>
 <form class="search-box" (ngSubmit)="performSearch(name.value)">
     <input class="search-text" placeholder="Search for a movie name" #name type="text" name="name">
   <button class="search-button" type="submit" for='name'><i class="fas fa-search"></i></button>
 </form>
-
-<div class="searcher">
-	<input [(ngModel)]="searchText"  class="byname" placeholder="Filter the list by name">
+<br/>
+<div class="filterer">
+	<div class="searcher name">
+		<input [(ngModel)]="searchText"  class="filter" placeholder="Filter the list by name">
+	</div>
+	<div></div>
+	<div class="searcher year">
+		<input [(ngModel)]="searchYear"  class="filter" placeholder="Filter By Years">
+	</div>
 </div>
-
 <div class="container">
-	<div *ngFor="let movie of movies | filter : searchText">
+	<div *ngFor="let movie of movies | byname : searchText ">
 	  <movie [id]="movie.id"></movie>
 	</div>
 </div>

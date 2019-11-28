@@ -10,6 +10,9 @@ Day 2:
   - But I realize really fast that the new page was useless, so I put the searching engine on the same page
 Day 3:
   - Let's add some CSS ! 
+  - Add a new property for the "movies" called date to permit the creation of a filter by date
+  - Search engine is up but I have a wierd bug , the movie list don't update , I have to filter the list by name and by hand with a random string to update it to the user
+  - Next I've change the name of the filter pipe and create a new one for the year, I'll figured out later for the bug on the update
 
 
 

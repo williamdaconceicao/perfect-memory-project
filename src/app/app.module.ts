@@ -8,14 +8,16 @@ import { MovieComponent } from './movie/movie.component';
 import { MovieCardComponent } from './movie-card/movie-card.component';
 
 import { FormsModule }   from '@angular/forms';
-import { FilterPipe } from './filter.pipe';
+import { ByNamePipe } from './byname.pipe';
+import { ByYearPipe } from './byyear.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MovieComponent,
     MovieCardComponent,
-    FilterPipe,
+    ByNamePipe,
+    ByYearPipe,
   ],
   imports: [
     BrowserModule,
