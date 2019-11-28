@@ -8,6 +8,8 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class AppComponent {
+  searchYear: any;
+  searchText: any;
   private url: string;
   movies = [
       {
