@@ -4,7 +4,7 @@ import { HttpClient } from '@angular/common/http';
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 
 export class AppComponent {
@@ -61,6 +61,7 @@ export class AppComponent {
           date: '1999-12-10',
       }
   ];
+
   constructor(private http: HttpClient){}
   
   performSearch(name: string){
@@ -74,8 +75,7 @@ export class AppComponent {
 
   showData(){
     this.getData()
-    .subscribe((data) => {
-      console.log(data)
+    .subscribe((data: any) => {
       for (let i = 0; i < 10; i++) {
         this.movies[i].name = data.results[i].original_title
         this.movies[i].id = data.results[i].id

@@ -13,6 +13,7 @@ Day 3:
   - Add a new property for the "movies" called date to permit the creation of a filter by date
   - Search engine is up but I have a wierd bug , the movie list don't update , I have to filter the list by name and by hand with a random string to update it to the user
   - Next I've change the name of the filter pipe and create a new one for the year, I'll figured out later for the bug on the update
+  - Now that I've add the filter by year, the work is done but the bug for the list still remain, let's put our mind on ! Note for later, add comments on the code.
 
 
 Objectif : Le but de l'interface est de permettre à un utilisateur de rechercher des informations sur un film.
