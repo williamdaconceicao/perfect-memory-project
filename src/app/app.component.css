@@ -1,18 +1,45 @@
-h1{
-	text-align: center;
+h1 { 
 	color: #2f3644;
+	font-family: 'Open Sans Condensed', sans-serif;
+	font-size: 48px;
+	font-weight: 700;
+	line-height: 48px;
+	margin: 0 0 0;
+	padding: 20px 30px;
+	text-align: center;
+	text-transform: uppercase;
 }
-
+.subtitle { 
+	color: #FF3E00;
+	display: block;
+	font-family: 'Open Sans', sans-serif;
+	font-size: 16px;
+	position: relative;
+	text-align: center;
+	z-index: 1;
+}
+.subtitle:before  { 
+	border-top: 1px solid #2f3644;
+	content: "";
+	position: absolute;
+	top: 12px;
+	left: 0;
+	width: 100%;
+	z-index: -1;
+}
+.subtitle span {
+	background: #fdfdfd;
+	padding: 0 10px;
+}
 
 
 
 .search-box{
 	background: #2f3644;
 	border-radius: 40px;
-	position: absolute;
-	top: 15%;
-	left:50%;
-	transform: translate(-50%,-50%);
+	margin-left:50%;
+	transform: translate(-50%);
+	width: 300px;
 	height: 40px;
 	padding: 10px;
 }
@@ -54,7 +81,7 @@ h1{
 	width: 84%;
 	margin-left: 8%;
 	display: grid;
-  grid-template-columns: minmax(240px,1fr) minmax(0px,2fr) minmax(240px,1fr);
+  grid-template-columns: minmax(240px,1fr) 2fr minmax(240px,1fr);
   grid-template-rows: auto;
 	grid-gap: 0 40px;
 	text-align: center;
