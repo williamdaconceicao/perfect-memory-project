@@ -1,3 +1,4 @@
+<!-- Here's the movie information part which is store in a variable called data -->
 <div class="card">
 	<div class="card-image">
 		<img src="https://image.tmdb.org/t/p/w185//{{data.poster_path}}" alt="">
@@ -8,6 +9,7 @@
 		<p>Release date: {{ data.release_date }}</p>
 		<p>Average vote: {{ data.vote_average }} </p>
 	</div>
+	<!-- Here's the castig part which is toogle on click -->
 	<div class="card-casts" (click)="toggleChild()">
   	<movie-card [id]="id" [showMePartially]="showVar"></movie-card>
   	<a >More</a>

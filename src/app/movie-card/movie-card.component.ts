@@ -27,7 +27,8 @@ export class MovieCardComponent implements OnInit {
   getMovie(){
   	return this.http.get(this.MovieUrl);
   }
-
+  // Here's once again we fetch the movie using his id, and store the value tah we need in a variable called data
+  // But we want only the director name and the first 10 actors
   showData(){
   	this.getMovie()
     .subscribe((data?: any) => {

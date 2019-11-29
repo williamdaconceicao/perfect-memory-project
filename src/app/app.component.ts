@@ -9,6 +9,7 @@ import { HttpClient } from '@angular/common/http';
 
 export class AppComponent {
   private url: string;
+  // The movie list, with the ten movies which is displayed by default. We use the ID key to display the content, the name and the date one's is used by the filterers
   movies = [
       {
           name: 'Forrest Gump',
@@ -64,6 +65,7 @@ export class AppComponent {
 
   constructor(private http: HttpClient){}
   
+  // Here's the function called when a user enter a name of a movie
   performSearch(name: string){
     this.url = "https://api.themoviedb.org/3/search/movie?api_key=3d50a317456bb9c2c28d3f0956c86cc3&query="+name;
     this.showData();
@@ -73,6 +75,8 @@ export class AppComponent {
     return this.http.get(this.url);
   }
 
+  // Here's the function called after the performSearch function is called
+  // We fetch the data, using and url and a name enter by the user and change the movies list using this data
   showData(){
     this.getData()
     .subscribe((data: any) => {

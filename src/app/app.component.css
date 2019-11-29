@@ -1,3 +1,6 @@
+/*
+ Here's the title part
+*/
 h1 { 
 	color: #2f3644;
 	font-family: 'Open Sans Condensed', sans-serif;
@@ -28,12 +31,15 @@ h1 {
 	z-index: -1;
 }
 .subtitle span {
-	background: #fdfdfd;
+	background: #FBFAF8;
 	padding: 0 10px;
 }
 
 
 
+/*
+ Here's the search part
+*/
 .search-box{
 	background: #2f3644;
 	border-radius: 40px;
@@ -75,7 +81,9 @@ h1 {
 }
 
 
-
+/*
+ Here's the filtering part, with a css native grid
+*/
 .filterer{		
 	position: relative;
 	width: 84%;
@@ -107,6 +115,9 @@ h1 {
 }
 
 
+/*
+ Here's the movie list part, with also css native grid
+*/
 .container{
 	position: relative;
 	width: 90%;

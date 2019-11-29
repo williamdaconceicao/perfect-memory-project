@@ -1,3 +1,4 @@
+/* Here's the movie-card grid's creation */
 .grid{
   display: grid;
   grid-template-columns: 1fr 1fr ;

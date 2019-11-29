@@ -1,3 +1,4 @@
+/* Here's the card part*/
 .card{
 	border-radius: 18px;
   background: white;
@@ -17,7 +18,7 @@
   font-size:13px;
 }
 .card-text p {
-  color: grey;
+  color: #59A5D8;
   font-size:15px;
   font-weight: 300;
 }
@@ -27,6 +28,7 @@
   font-size:28px;
 }
 
+/* Here's the casting part */
 .card-casts {
 	text-align: center;
   background: #FF3E00;
