@@ -14,31 +14,9 @@ Day 3:
   - Search engine is up but I have a wierd bug , the movie list don't update , I have to filter the list by name and by hand with a random string to update it to the user
   - Next I've change the name of the filter pipe and create a new one for the year, I'll figured out later for the bug on the update
   - Now that I've add the filter by year, the work is done but the bug for the list still remain, let's put our mind on ! Note for later, add comments on the code.
+Day 4:
+  - Not a very happy day, after one day at trying to solve this bug I've give up, it's maybe due to a way that I haven't cross or my lack of knowledge of the angular framework..
+  - Nevermind, I add some comments and change a little bit the css.
 
-
-Objectif : Le but de l'interface est de permettre à un utilisateur de rechercher des informations sur un film.
-
-  Scénario 1 : Une liste de 10 films  est affichée par défaut. Chaque résultat doit afficher le poster, le titre, l'année de sortie, la durée.
-
-  Scénario 2 : Depuis la liste, l'utilisateur doit pouvoir accéder à une fiche plus complète, indiquant, en plus : les principaux acteurs, le réalisateur, d'autres informations intéressantes au choix.
-
-  Scénario 3 : Dans la liste, l'utilisateur peut saisir une chaîne de caractère correspondant au titre d'un média pour obtenir la liste des 10 premiers résultats correspondants.
-
-  Scénario 4 : Dans la liste, l'utilisateur doit pouvoir filtrer les médias sur leur année de sortie.
-
-  L'interface doit être agréable à utiliser.
-
-* Pour réaliser cet exercice, je m'attends à ce que tu :
-  - utilises le framework Angular.io
-  - utilises l'API https://www.themoviedb.org/documentation/api
-  - me livres le code versionné sur un projet git via github, bitbucket, ou autre, public ou non, du moment qu'il m'est accessible.
-  - commentes le code en anglais lorsque nécessaire
-  - prévoies l'interface uniquement en anglais
-  - rédiges un journal de bord en anglais permettant d’expliquer l’architecture, les étapes de réflexions et les pistes d’améliorations.
-
-* Si tu veux aller plus loin dans cet exercice, voici quelques idées supplémentaires :
-  - Chaque média peut être ajouté à la liste des films vus, ou à la liste des films à voir. Ici une sauvegarde dans le localStorage suffira.
-  - Afficher une icône selon la note du film. Horrible en dessous de 4, Mauvaise en dessous de 7, Bonne au dessus de 7
-  - L'utilisateur peut noter lui-même chaque film qu'il ajoute à ses listes
-  - Utiliser une pagination ou un scroll virtuel pour afficher plus de résultats
-  - Publier l'interface sur github pages, ou autre
+The work is finish now and I'm proud of me, it's not perfect but it's working and it's reflet my work and my way to code. 
+The subject was very interesting and makes me grow. The biggest point to learn was the angular framework, that I had the opportunity to try only when I was working on the ionic framework.
