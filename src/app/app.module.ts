@@ -3,13 +3,14 @@ import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { MovieComponent } from './movie/movie.component';
-import { MovieCardComponent } from './movie-card/movie-card.component';
+import { AppComponent } from './components/app/app.component';
+import { MovieComponent } from './components/movie/movie.component';
+import { MovieCardComponent } from './components/movie-card/movie-card.component';
 
-import { FormsModule }   from '@angular/forms';
-import { ByNamePipe } from './byname.pipe';
-import { ByYearPipe } from './byyear.pipe';
+import { FormsModule } from '@angular/forms';
+import { ByNamePipe } from './pipes/byname/byname.pipe';
+import { ByYearPipe } from './pipes/byyear/byyear.pipe';
+import { API_BASE_URL, API_KEY } from './services/tokens';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,10 @@ import { ByYearPipe } from './byyear.pipe';
     HttpClientModule,
     FormsModule
   ],
-  providers: [],
+  providers: [
+    { provide: API_BASE_URL, useValue: 'https://api.themoviedb.org/3' },
+    { provide: API_KEY, useValue: '3d50a317456bb9c2c28d3f0956c86cc3' },
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
