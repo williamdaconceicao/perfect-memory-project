@@ -1,7 +1,10 @@
 import { Injectable, Inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
+
 import { API_BASE_URL, API_KEY } from '../tokens';
+import { Movie } from 'src/model/Movie.model';
 
 @Injectable({
   providedIn: 'root',
@@ -20,7 +23,6 @@ export class TheMovieDbService {
     const query = Object.keys(options)
       .map(key => key + '=' + options[key])
       .join('&');
-
     return this.http.get<T>(base + '&' + query);
   }
 }

@@ -1,12 +1,7 @@
 import { Injectable } from '@angular/core';
 import { TheMovieDbService } from '../themovidedb/themovidedb.service';
 import { Observable } from 'rxjs';
-
-export interface Movie {
-  original_title: string;
-  id: number;
-  release_date: string;
-}
+import { Movie } from 'src/model/Movie.model';
 
 @Injectable({
   providedIn: 'root'
@@ -21,7 +16,18 @@ export class MovieService {
     // region: string;
     // year: string;
     // primaryReleaseYear: string;
-  }): Observable<{ results: Movie[] }> {
-    return this.db.get<{ results: Movie[] }>('/search/movie', options);
+  }): Observable<Movie[]> {
+    return this.db.get<Movie[]>('/search/movie', options);
   }
+
+  public popular(): Observable<Movie[]> {
+    return this.db.get<Movie[]>('/movie/popular');
+  }
+
+  public searchMovie(options: {
+    id: string;
+  }): Observable<Movie> {
+    return this.db.get<Movie>(`/movie/${options.id}`);
+  }
+
 }

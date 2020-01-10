@@ -1,17 +1,17 @@
 <!-- Here's the movie information part which is store in a variable called data -->
-<div class="card">
-	<div class="card-image">
-		<img src="https://image.tmdb.org/t/p/w185//{{data.poster_path}}" alt="">
+<div class="card" *ngIf="data$ | async as movie">
+	<div class="card-image" >
+    <img src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}" alt="">
 	</div>
 	<div class="card-text">
-		<p class="date">{{ data.runtime }} minutes</p>
-		<h2>{{ data.original_title }}</h2>
-		<p>Release date: {{ data.release_date }}</p>
-		<p>Average vote: {{ data.vote_average }} </p>
+		<p class="date">{{ movie.runtime }} minutes</p>
+		<h2>{{ movie.original_title }}</h2>
+		<p>Release date: {{ movie.release_date }}</p>
+		<p>Average vote: {{ movie.vote_average }} </p>
 	</div>
-	<!-- Here's the castig part which is toogle on click -->
+  <!-- Here's the castig part which is toogle on click -->
 	<div class="card-casts" (click)="toggleChild()">
-  	<movie-card [id]="id" [showMePartially]="showVar"></movie-card>
+  	<app-movie-card [id]="id" [showMePartially]="showVar"></app-movie-card>
   	<a >More</a>
 	</div>
 </div>

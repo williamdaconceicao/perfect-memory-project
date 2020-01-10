@@ -23,10 +23,10 @@
 </div>
 
 <!-- Here's the movie list part, and we use the value of the two filterer  -->
-<div class="container">
-	<div *ngFor="let movie of movies | byname: searchText | byyear: searchYear">
-	  <movie [id]="movie.id"></movie>
-	</div>
+<div class="container" *ngIf="movies$ | async as movies">
+  <div *ngFor="let movie of movies.results ; let i=index">
+    <app-movie *ngIf="i < 10" [id]="movie.id"></app-movie>
+  </div>
 </div>
 
 <router-outlet></router-outlet>

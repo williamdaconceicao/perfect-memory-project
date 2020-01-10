@@ -1,44 +1,47 @@
+
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { Observable, EMPTY } from 'rxjs';
+import { MovieService } from 'src/app/services/movie/movie.service';
+import { Movie } from 'src/model/Movie.model';
+
 
 @Component({
-  selector: 'movie',
+  selector: 'app-movie',
   templateUrl: './movie.component.html',
   styleUrls: ['./movie.component.css']
 })
 export class MovieComponent implements OnInit {
   // this variable is use to show the movie-card component of a movie
-  showVar: boolean = false;
-	Movie_id: any;
-	@Input() public id: number;
+  public showVar = false;
+  private MovieId: any;
 
-  private url: string;
-  data: any = {};
+  @Input() public id: number;
 
-  constructor(private http: HttpClient){
-		this.Movie_id = '';
+  /**
+   * @internal
+   */
+
+  public data$: Observable<Movie>;
+  constructor(private movieService: MovieService) {
+    this.MovieId = '';
   }
 
   // On init we fetch for a movie using his id and store the result in a variable called data
   // who is send to the .html page to be displayed to the user
   ngOnInit() {
-  	this.Movie_id = this.id || -1;
-    this.url = "https://api.themoviedb.org/3/movie/" + this.Movie_id + "?api_key=3d50a317456bb9c2c28d3f0956c86cc3";
-  	this.showData();
+    this.MovieId = this.id || -1;
+    this.showData(this.MovieId);
   }
 
-  toggleChild(){
+  public toggleChild() {
     this.showVar = !this.showVar;
   }
 
-  getData(){
-  	return this.http.get(this.url);
+  private getData(id: string) {
+    return this.movieService.searchMovie({ id });
   }
 
-  showData(){
-  	this.getData()
-    .subscribe((data) => {
-    	this.data = data
-    });
+  private showData(id: string) {
+    this.data$ = this.getData(id);
   }
 }

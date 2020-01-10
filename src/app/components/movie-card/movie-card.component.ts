@@ -1,46 +1,39 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { CreditService } from 'src/app/services/credits/credits.service';
+import { Observable } from 'rxjs';
+import { Credits } from 'src/model/Credits.model';
+import { map } from 'rxjs/operators';
+
 
 @Component({
-  selector: 'movie-card',
+  selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
   styleUrls: ['./movie-card.component.css']
 })
 export class MovieCardComponent implements OnInit {
-	Movie_id: any;
-  @Input() showMePartially: boolean;
-	@Input() public id: string;
+  private MovieId: string;
+  @Input() public showMePartially: boolean;
+  @Input() private id: string;
 
-  private MovieUrl: string;
-  data: any = {};
+  public data$: Observable<Credits>;
 
-  constructor(private http: HttpClient){
-		this.Movie_id = '';
+  constructor(private creditService: CreditService) {
+    this.MovieId = '';
   }
 
   ngOnInit() {
-  	this.Movie_id = this.id;
-    this.MovieUrl = "https://api.themoviedb.org/3/movie/" + this.Movie_id + "?api_key=3d50a317456bb9c2c28d3f0956c86cc3&append_to_response=credits";
-  	this.showData();
+    this.MovieId = this.id;
+    this.showData(this.MovieId);
   }
 
-  getMovie(){
-  	return this.http.get(this.MovieUrl);
+  private getData(id: string) {
+    return this.creditService.searchCredit({ id });
   }
+
   // Here's once again we fetch the movie using his id, and store the value tah we need in a variable called data
   // But we want only the director name and the first 10 actors
-  showData(){
-  	this.getMovie()
-    .subscribe((data?: any) => {
-    	let directors = []
-    	data.credits.crew.forEach((entry) =>{
-		    if (entry.job === 'Director') {
-		        directors.push(entry.name);
-		    }
-			})
-			data.directors = directors.join(', ');
-			this.data = data
-    });
+  private showData(id: string) {
+    this.data$ = this.getData(id);
   }
 }
 
