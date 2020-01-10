@@ -1,7 +1,16 @@
 /*
+  Here's the Nav part
+*/
+.nav{
+  position: absolute;
+  top: 5%;
+}
+
+
+/*
  Here's the title part
 */
-h1 { 
+h1 {
 	color: #2f3644;
 	font-family: 'Open Sans Condensed', sans-serif;
 	font-size: 48px;
@@ -12,7 +21,7 @@ h1 {
 	text-align: center;
 	text-transform: uppercase;
 }
-.subtitle { 
+.subtitle {
 	color: #FF3E00;
 	display: block;
 	font-family: 'Open Sans', sans-serif;
@@ -21,7 +30,7 @@ h1 {
 	text-align: center;
 	z-index: 1;
 }
-.subtitle:before  { 
+.subtitle:before  {
 	border-top: 1px solid #2f3644;
 	content: "";
 	position: absolute;
@@ -84,7 +93,7 @@ h1 {
 /*
  Here's the filtering part, with a css native grid
 */
-.filterer{		
+.filterer{
 	position: relative;
 	width: 84%;
 	margin-left: 8%;

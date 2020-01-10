@@ -17,15 +17,20 @@ export class AppComponent implements OnInit {
    * @internal
    */
   public movies$: Observable<Movie[]>;
-
   public searchYear: string;
   public searchText: string;
+  public showNav = true;
+
 
   ngOnInit() {
     this.movies$ = this.movieService.popular();
   }
 
   constructor(private movieService: MovieService) {}
+
+  toggleNav() {
+    this.showNav = !this.showNav;
+  }
 
   /**
    * Called when a user enter a name of a movie

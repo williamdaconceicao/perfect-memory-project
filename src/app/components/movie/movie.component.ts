@@ -37,6 +37,10 @@ export class MovieComponent implements OnInit {
     this.showVar = !this.showVar;
   }
 
+  public addLocal(id: string, value: string) {
+    localStorage[id] = value;
+  }
+
   private getData(id: string) {
     return this.movieService.searchMovie({ id });
   }

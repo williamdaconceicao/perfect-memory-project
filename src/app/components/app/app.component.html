@@ -1,3 +1,14 @@
+<!-- Here's the nav par-->
+<div class="nav">
+  <button (click)="toggleNav()"><i class="fas fa-bars"></i></button>
+  <ul class="nav__list" [hidden]=showNav>
+    <li class="nav__list-item active-nav"><a href="#" class="hover-target">Home</a></li>
+    <li class="nav__list-item"><a href="#" class="hover-target">Seen</a></li>
+    <li class="nav__list-item"><a href="#" class="hover-target">Wishlist</a></li>
+  </ul>
+</div>
+
+<!-- Here's the title part-->
 <p class="subtitle"><span>November 2019</span></p>
 <h1>Perfect Memory movie search</h1>
 <p class="subtitle"><span>BY William Da Conceicao</span></p>

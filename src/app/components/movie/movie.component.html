@@ -8,7 +8,12 @@
 		<h2>{{ movie.original_title }}</h2>
 		<p>Release date: {{ movie.release_date }}</p>
 		<p>Average vote: {{ movie.vote_average }} </p>
-	</div>
+  </div>
+  <div>
+    <button (click)="addLocal(movie.id, 'seen')">Set {{movie.id}} as Seen</button>
+    <button (click)="addLocal(movie.id, 'wish')">Set {{movie.id}} as Wish</button><br/>
+    <button onclick="console.log(localStorage)">Show storage</button>
+  </div>
   <!-- Here's the castig part which is toogle on click -->
 	<div class="card-casts" (click)="toggleChild()">
   	<app-movie-card [id]="id" [showMePartially]="showVar"></app-movie-card>

@@ -16,6 +16,7 @@ export class MovieCardComponent implements OnInit {
   @Input() private id: string;
 
   public data$: Observable<Credits>;
+  public director: string;
 
   constructor(private creditService: CreditService) {
     this.MovieId = '';
@@ -31,9 +32,13 @@ export class MovieCardComponent implements OnInit {
   }
 
   // Here's once again we fetch the movie using his id, and store the value tah we need in a variable called data
-  // But we want only the director name and the first 10 actors
   private showData(id: string) {
     this.data$ = this.getData(id);
+    this.data$.forEach(e => e.crew.forEach( v => {
+      if (v.job === 'Director') {
+        this.director = v.name;
+      }
+    }));
   }
 }
 
