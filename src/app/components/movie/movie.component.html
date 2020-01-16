@@ -9,11 +9,10 @@
 		<p>Release date: {{ movie.release_date }}</p>
 		<p>Average vote: {{ movie.vote_average }} </p>
   </div>
-
-  <div>
-    <button (click)="addLocal('seen')" [class.active]="isSeen">Set {{movie.id}} as Seen</button>
-    <button (click)="addLocal('wish')" [class.active]="isWished">Set {{movie.id}} as Wish</button><br/>
-  </div>
+  <div class="choose">
+    <a (click)="addLocal('seen')" [class.active]="isSeen">Seen <i class="fas fa-check-circle"></i></a>
+    <a (click)="addLocal('wish')" [class.active]="isWished">Wish <i class="fas fa-eye-slash"></i></a>
+  </div><br/>
   <!-- Here's the castig part which is toogle on click -->
 	<div class="card-casts" (click)="toggleChild()">
   	<app-movie-card [id]="id" [showMePartially]="showVar"></app-movie-card>

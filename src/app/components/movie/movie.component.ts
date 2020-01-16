@@ -12,8 +12,8 @@ import { Movie } from 'src/model/Movie.model';
 export class MovieComponent implements OnInit {
   // this variable is use to show the movie-card component of a movie
   public showVar = false;
-  public isSeen = false;
-  public isWished = false;
+  public isSeen: boolean;
+  public isWished: boolean;
   @Input()
   public id: string;
   /**
@@ -28,6 +28,8 @@ export class MovieComponent implements OnInit {
   // who is send to the .html page to be displayed to the user
   ngOnInit() {
     this.MovieId = this.id || '';
+    this.isSeen = this.GetLocalStorage('seen');
+    this.isWished = this.GetLocalStorage('wish');
     this.showData(this.MovieId);
   }
 
@@ -39,11 +41,17 @@ export class MovieComponent implements OnInit {
     localStorage[this.id] = value;
     if (value === 'seen') {
       this.isSeen = true;
+      this.isWished = false;
     }
     if (value === 'wish') {
+      this.isSeen = false;
       this.isWished = true;
     }
+  }
 
+  public GetLocalStorage(value: string): boolean {
+    const storedValue = localStorage.getItem(this.id);
+    return storedValue !== null && storedValue === value;
   }
 
   private getData(id: string): Observable<Movie> {
@@ -53,9 +61,4 @@ export class MovieComponent implements OnInit {
   private showData(id: string): void {
     this.data$ = this.getData(id);
   }
-
-  // public localStorageGet(id: string, value: string): boolean {
-  //   const storedValue = localStorage.getItem(id);
-  //   return storedValue !== null && storedValue === value;
-  // }
 }

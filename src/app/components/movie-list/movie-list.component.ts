@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie } from 'src/model/Movie.model';
 import { map } from 'rxjs/operators';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-movie-list',
@@ -21,11 +22,19 @@ export class MovieListComponent implements OnInit {
   public searchText: string;
   public showNav = true;
 
-  constructor(private movieService: MovieService) {}
+
+  constructor(
+    private movieService: MovieService,
+    public router: Router
+  ) {}
 
   ngOnInit() {
-    this.movies$ = this.movieService.popular()
-      .pipe(map(response => response.results));
+    if (this.router.url.slice(1).substring(0, 8) === '?search=') {
+      this.performSearch(this.router.url.slice(9));
+    } else {
+      this.movies$ = this.movieService.popular()
+        .pipe(map(response => response.results));
+    }
   }
 
   public toggleNav(): void {

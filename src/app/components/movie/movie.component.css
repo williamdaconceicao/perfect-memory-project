@@ -27,13 +27,20 @@
   margin-top:0px;
   font-size:28px;
 }
-div .inactive{
-  color: red;
+.card>.choose>a.active{
+  color: blue !important;
 }
-div .active{
-  color: blue;
+.card>.choose>a {
+  background-color: #FF3E00; /* Green */
+  border: none;
+  padding: 15px 32px;
+  color: white;
+  margin: 2px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
 }
-
 /* Here's the casting part */
 .card-casts {
 	text-align: center;

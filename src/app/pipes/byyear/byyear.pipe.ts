@@ -11,6 +11,6 @@ export class ByYearPipe implements PipeTransform {
     if (!items) { return []; }
     if (!searchYear) { return items; }
     return items
-      .filter((item) => item.date.split('-')[0].includes(searchYear));
+      .filter((item) => item.release_date.split('-')[0].includes(searchYear));
   }
 }
