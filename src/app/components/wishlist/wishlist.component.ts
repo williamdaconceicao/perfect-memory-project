@@ -6,11 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./wishlist.component.css']
 })
 export class WishlistComponent implements OnInit {
-  public movies: string[];
+  public movies: string[] = [];
 
-  constructor() {
-    this.movies = [];
-   }
+  constructor() {}
 
   ngOnInit() {
     for (const props in localStorage) {
@@ -19,5 +17,4 @@ export class WishlistComponent implements OnInit {
       }
     }
   }
-
 }

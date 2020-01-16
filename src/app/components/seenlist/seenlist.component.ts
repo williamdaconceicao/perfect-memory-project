@@ -6,12 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./seenlist.component.css']
 })
 export class SeenlistComponent implements OnInit {
-  public movies: string[];
+  public movies: string[] = [];
 
-  constructor() {
-    this.movies = [];
-   }
-
+  constructor() {}
 
   ngOnInit() {
     for (const props in localStorage) {
@@ -20,5 +17,4 @@ export class SeenlistComponent implements OnInit {
       }
     }
   }
-
 }

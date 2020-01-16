@@ -2,7 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { CreditService } from 'src/app/services/credits/credits.service';
 import { Observable } from 'rxjs';
 import { Credits } from 'src/model/Credits.model';
-import { map } from 'rxjs/operators';
+import { filter, map, shareReplay } from 'rxjs/operators';
 
 
 @Component({
@@ -12,11 +12,13 @@ import { map } from 'rxjs/operators';
 })
 export class MovieCardComponent implements OnInit {
   private MovieId: string;
-  @Input() public showMePartially: boolean;
-  @Input() private id: string;
+  @Input()
+  public showMePartially: boolean;
+  @Input()
+  public id: string;
 
   public data$: Observable<Credits>;
-  public director: string;
+  public director$: Observable<string>;
 
   constructor(private creditService: CreditService) {
     this.MovieId = '';
@@ -33,12 +35,14 @@ export class MovieCardComponent implements OnInit {
 
   // Here's once again we fetch the movie using his id, and store the value tah we need in a variable called data
   private showData(id: string) {
-    this.data$ = this.getData(id);
-    this.data$.forEach(e => e.crew.forEach( v => {
-      if (v.job === 'Director') {
-        this.director = v.name;
-      }
-    }));
+    this.data$ = this.getData(id)
+      .pipe(shareReplay(1));
+
+    this.director$ = this.data$.pipe(
+      map(credits => credits.crew.find(member => member.job === 'Director')),
+      filter(director => !!director),
+      map(director => director.name)
+    );
   }
 }
 

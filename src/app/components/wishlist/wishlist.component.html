@@ -1,6 +1,6 @@
 <!-- Here's the movie list part, and we use the value of the two filterer  -->
 <div class="container">
-  <div *ngFor="let id of movies ; let i=index">
-    <app-movie *ngIf="i < 10" [id]="id"></app-movie>
+  <div *ngFor="let id of movies">
+    <app-movie [id]="id"></app-movie>
   </div>
 </div>

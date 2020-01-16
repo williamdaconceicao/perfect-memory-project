@@ -16,12 +16,12 @@ export class MovieService {
     // region: string;
     // year: string;
     // primaryReleaseYear: string;
-  }): Observable<Movie[]> {
-    return this.db.get<Movie[]>('/search/movie', options);
+  }): Observable<{ results: Movie[]}> {
+    return this.db.get<{ results: Movie[] }>('/search/movie', options);
   }
 
-  public popular(): Observable<Movie[]> {
-    return this.db.get<Movie[]>('/movie/popular');
+  public popular(): Observable<{ results: Movie[] }> {
+    return this.db.get<{ results: Movie[] }>('/movie/popular');
   }
 
   public searchMovie(options: {

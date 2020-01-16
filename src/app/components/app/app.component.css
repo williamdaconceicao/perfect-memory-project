@@ -30,7 +30,7 @@ h1 {
 	width: 100%;
 	z-index: -1;
 }
-.subtitle span {
+.subtitle>span.text {
 	background: #FBFAF8;
 	padding: 0 10px;
 }
