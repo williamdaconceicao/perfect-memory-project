@@ -14,6 +14,7 @@ import { API_BASE_URL, API_KEY } from './services/tokens';
 import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { SeenlistComponent } from './components/seenlist/seenlist.component';
+import { ErrorComponent } from './components/error/error.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { SeenlistComponent } from './components/seenlist/seenlist.component';
     WishlistComponent,
     MovieListComponent,
     SeenlistComponent,
+    ErrorComponent,
   ],
   imports: [
     BrowserModule,

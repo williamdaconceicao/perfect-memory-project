@@ -21,16 +21,17 @@ export class MovieListComponent implements OnInit {
   public searchYear: string;
   public searchText: string;
   public showNav = true;
-
+  public UrlSearch: string;
 
   constructor(
     private movieService: MovieService,
-    public router: Router
+    private router: Router
   ) {}
 
   ngOnInit() {
-    if (this.router.url.slice(1).substring(0, 8) === '?search=') {
-      this.performSearch(this.router.url.slice(9));
+    if (this.router.url.slice(8)) {
+      this.UrlSearch = this.router.url.slice(8);
+      this.performSearch(this.UrlSearch);
     } else {
       this.movies$ = this.movieService.popular()
         .pipe(map(response => response.results));
@@ -45,7 +46,12 @@ export class MovieListComponent implements OnInit {
    * Called when a user enter a name of a movie
    * @param name a movie name
    */
-  public performSearch(name: string): void {
+  public onSubmit(name: string){
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+      this.router.navigate([`search/${name}`]));
+  }
+
+  private performSearch(name: string): void {
     this.showData(name);
   }
 

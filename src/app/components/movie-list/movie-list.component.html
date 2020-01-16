@@ -1,7 +1,7 @@
 <!-- Here's the search part, on submit it call a function called performSearch with the value entered by the user -->
-<form class="search-box" (ngSubmit)="performSearch(name.value)">
-  <input class="search-text" [placeholder]="router.url.slice(9)" #name type="text" name="name">
-  <button class="search-button" type="submit" for='name'><i class="fas fa-search"></i></button>
+<form class="search-box" (ngSubmit)="onSubmit(name.value)">
+  <input class="search-text" [placeholder]="UrlSearch" #name type="text" name="name">
+  <button class="search-button" type="submit" for='name' routerLink="onSubmit(name.value)"><i class="fas fa-search"></i></button>
 </form>
 <br/>
 
