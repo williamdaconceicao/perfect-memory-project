@@ -1,0 +1,13 @@
+/*
+ Here's the movie list part, with also css native grid
+*/
+.container{
+	position: relative;
+	width: 90%;
+	margin-left: 5%;
+	display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-rows: auto;
+	grid-gap: 0 40px;
+	text-align: center;
+}

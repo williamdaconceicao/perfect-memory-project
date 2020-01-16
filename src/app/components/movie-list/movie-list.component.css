@@ -1,0 +1,91 @@
+/*
+ Here's the search part
+*/
+.search-box{
+	background: #2f3644;
+	border-radius: 40px;
+	margin-left:50%;
+	transform: translate(-50%);
+	width: 300px;
+	height: 40px;
+	padding: 10px;
+}
+.search-box:hover .search-text{
+	width: 240px;
+	padding: 0 6px;
+}
+.search-box:hover .search-button{
+	background: white
+}
+.search-button{
+	color: #FF3E00;
+	float: right;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	background: #2f3644;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+.search-text{
+	border:none;
+	background: none;
+	float: left;
+	outline: none;
+	color: white;
+	padding: 0;
+	font-size: 16px;
+	transition: 0.5s;
+	line-height: 40px;
+	width: 0px;
+}
+
+
+/*
+ Here's the filtering part, with a css native grid
+*/
+.filterer{
+	position: relative;
+	width: 84%;
+	margin-left: 8%;
+	display: grid;
+  grid-template-columns: minmax(240px,1fr) 2fr minmax(240px,1fr);
+  grid-template-rows: auto;
+	grid-gap: 0 40px;
+	text-align: center;
+	margin-bottom: 8px;
+}
+.searcher{
+	background: #2f3644;
+	border-radius: 40px;
+	width: 240px;
+	height: 40px;
+	padding: 10px;
+}
+.filter{
+	border:none;
+	background: none;
+	outline: none;
+	padding-left: 8px;
+	color: white;
+	font-size: 16px;
+	transition: 0.5s;
+	margin-bottom: 20px;
+	line-height: 40px;
+}
+
+
+/*
+ Here's the movie list part, with also css native grid
+*/
+.container{
+	position: relative;
+	width: 90%;
+	margin-left: 5%;
+	display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  grid-template-rows: auto;
+	grid-gap: 0 40px;
+	text-align: center;
+}

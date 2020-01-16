@@ -1,43 +1,15 @@
-<!-- Here's the nav par-->
-<div class="nav">
-  <button (click)="toggleNav()"><i class="fas fa-bars"></i></button>
-  <ul class="nav__list" [hidden]=showNav>
-    <li class="nav__list-item active-nav"><a href="#" class="hover-target">Home</a></li>
-    <li class="nav__list-item"><a href="#" class="hover-target">Seen</a></li>
-    <li class="nav__list-item"><a href="#" class="hover-target">Wishlist</a></li>
-  </ul>
-</div>
-
 <!-- Here's the title part-->
 <p class="subtitle"><span>November 2019</span></p>
 <h1>Perfect Memory movie search</h1>
 <p class="subtitle"><span>BY William Da Conceicao</span></p>
 
-<br/><br/>
-<!-- Here's the search part, on submit it call a function called performSearch with the value entered by the user -->
-<form class="search-box" (ngSubmit)="performSearch(name.value)">
-    <input class="search-text" placeholder="Search for a movie name" #name type="text" name="name">
-  <button class="search-button" type="submit" for='name'><i class="fas fa-search"></i></button>
-</form>
-<br/>
-
-
-<!-- Here's the filtering part, with 2 filterer, one for the name and one for the year -->
-<div class="filterer">
-	<div class="searcher">
-		<input [(ngModel)]="searchText"  class="filter" placeholder="Filter By Name">
-	</div>
-	<div></div>
-	<div class="searcher">
-		<input [(ngModel)]="searchYear"  class="filter" placeholder="Filter By Year">
-	</div>
+<!-- Here's the nav par-->
+<div class="nav">
+  <button (click)="toggleNav()"><i class="fas fa-bars"></i></button>
+  <nav [hidden]=showNav>
+    <a routerLink="/" routerLinkActive="active">Home</a><br/>
+    <a routerLink="/seen" routerLinkActive="active">SeenList</a><br/>
+    <a routerLink="/wish" routerLinkActive="active">WishList</a>
+  </nav>
 </div>
-
-<!-- Here's the movie list part, and we use the value of the two filterer  -->
-<div class="container" *ngIf="movies$ | async as movies">
-  <div *ngFor="let movie of movies.results ; let i=index">
-    <app-movie *ngIf="i < 10" [id]="movie.id"></app-movie>
-  </div>
-</div>
-
 <router-outlet></router-outlet>

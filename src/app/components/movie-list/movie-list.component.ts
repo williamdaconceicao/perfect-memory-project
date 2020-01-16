@@ -4,12 +4,12 @@ import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie } from 'src/model/Movie.model';
 
 @Component({
-  selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css'],
+  selector: 'app-movie-list',
+  templateUrl: './movie-list.component.html',
+  styleUrls: ['./movie-list.component.css'],
 })
 
-export class AppComponent implements OnInit {
+export class MovieListComponent implements OnInit {
   // The movie list, with the ten movies which is displayed by default.
   // We use the ID key to display the content, the name and the date one's is used by the filterers
   /**

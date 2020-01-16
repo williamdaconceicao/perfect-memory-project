@@ -1,0 +1,25 @@
+<!-- Here's the search part, on submit it call a function called performSearch with the value entered by the user -->
+<form class="search-box" (ngSubmit)="performSearch(name.value)">
+  <input class="search-text" placeholder="Search for a movie name" #name type="text" name="name">
+<button class="search-button" type="submit" for='name'><i class="fas fa-search"></i></button>
+</form>
+<br/>
+
+
+<!-- Here's the filtering part, with 2 filterer, one for the name and one for the year -->
+<div class="filterer">
+<div class="searcher">
+  <input [(ngModel)]="searchText"  class="filter" placeholder="Filter By Name">
+</div>
+<div></div>
+<div class="searcher">
+  <input [(ngModel)]="searchYear"  class="filter" placeholder="Filter By Year">
+</div>
+</div>
+
+<!-- Here's the movie list part, and we use the value of the two filterer  -->
+<div class="container" *ngIf="movies$ | async as movies">
+<div *ngFor="let movie of movies.results; let i=index">
+  <app-movie *ngIf="i < 10" [id]="movie.id"></app-movie>
+</div>
+</div>
