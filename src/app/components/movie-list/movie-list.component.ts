@@ -44,7 +44,6 @@ export class MovieListComponent implements OnInit {
     } else {
       this.movies$ = this.movieService.popular()
         .pipe(map(response => response.results));
-      this.UrlSearch = 'Search movie by name';
     }
   }
 

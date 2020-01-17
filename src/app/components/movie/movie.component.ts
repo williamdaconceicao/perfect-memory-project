@@ -57,8 +57,8 @@ export class MovieComponent implements OnInit {
   }
 
   private getLocalStorage(value: string): boolean {
-    const temp = localStorage.getItem('movie');
-    const storedValue = temp ? JSON.parse(temp)[this.id] : {};
+    const local = localStorage.getItem('movie');
+    const storedValue = local ? JSON.parse(local)[this.id] : {};
     return storedValue !== null && storedValue === value;
   }
 
