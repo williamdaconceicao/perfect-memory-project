@@ -15,7 +15,8 @@ export class AppComponent {
   public showNav = true;
 
 
-  constructor() {}
+  constructor() {
+  }
 
   public toggleNav(): void {
     this.showNav = !this.showNav;

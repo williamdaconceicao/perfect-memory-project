@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="ProjectDate" datatype="html">
+        <source>November 2019</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/app/app.component.html</context>
+          <context context-type="linenumber">2</context>
+        </context-group>
+        <note priority="1" from="description"> This is the released date of the project</note>
+        <note priority="1" from="meaning">Project Release Date </note>
+      </trans-unit>
+      <trans-unit id="ProjectTitle" datatype="html">
+        <source>Perfect Memory movie search</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/app/app.component.html</context>
+          <context context-type="linenumber">3</context>
+        </context-group>
+        <note priority="1" from="description"> This is the main title of the project</note>
+        <note priority="1" from="meaning">Main title </note>
+      </trans-unit>
+      <trans-unit id="ProjectAuthor" datatype="html">
+        <source>BY William Da Conceicao</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/app/app.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+        <note priority="1" from="description"> This is the name of the creator of the project</note>
+        <note priority="1" from="meaning">Author name </note>
+      </trans-unit>
+      <trans-unit id="HomeNav" datatype="html">
+        <source>Home</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/app/app.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Home Nav Button</note>
+      </trans-unit>
+      <trans-unit id="SeenNav" datatype="html">
+        <source>SeenList</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/app/app.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+        <note priority="1" from="description">SeenList Nav Button</note>
+      </trans-unit>
+      <trans-unit id="WishNav" datatype="html">
+        <source>WishList</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/app/app.component.html</context>
+          <context context-type="linenumber">12</context>
+        </context-group>
+        <note priority="1" from="description">WishList Nav Button</note>
+      </trans-unit>
+      <trans-unit id="MovieReleaseDate" datatype="html">
+        <source>Release date</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/movie/movie.component.html</context>
+          <context context-type="linenumber">9</context>
+        </context-group>
+        <note priority="1" from="description">Movie Release Date</note>
+      </trans-unit>
+      <trans-unit id="MovieAverageVote" datatype="html">
+        <source>Average vote</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/movie/movie.component.html</context>
+          <context context-type="linenumber">10</context>
+        </context-group>
+        <note priority="1" from="description">Movie Average Vote</note>
+      </trans-unit>
+      <trans-unit id="SeenListAdd" datatype="html">
+        <source>Seen</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/movie/movie.component.html</context>
+          <context context-type="linenumber">13</context>
+        </context-group>
+        <note priority="1" from="description">Add movie to the Seenlist</note>
+      </trans-unit>
+      <trans-unit id="WishListAdd" datatype="html">
+        <source>Wish</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/movie/movie.component.html</context>
+          <context context-type="linenumber">14</context>
+        </context-group>
+        <note priority="1" from="description">Add movie to the Wishlist</note>
+      </trans-unit>
+      <trans-unit id="ShowCast" datatype="html">
+        <source>More</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/movie/movie.component.html</context>
+          <context context-type="linenumber">19</context>
+        </context-group>
+        <note priority="1" from="description">Show the casting of a movie</note>
+      </trans-unit>
+      <trans-unit id="DirectedBy" datatype="html">
+        <source>Directed by</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/movie-card/movie-card.component.html</context>
+          <context context-type="linenumber">4</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="CastAsCharacter" datatype="html">
+        <source>as</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/movie-card/movie-card.component.html</context>
+          <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="7bf2f122651436f08094bf287c99ca1b85e722e1" datatype="html">
+        <source>Filter By Name</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/movie-list/movie-list.component.html</context>
+          <context context-type="linenumber">11</context>
+        </context-group>
+      </trans-unit>
+      <trans-unit id="66640d311b8ff6f2a75db8b8e24505cadfe637cc" datatype="html">
+        <source>Filter By Year</source>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/movie-list/movie-list.component.html</context>
+          <context context-type="linenumber">15</context>
+        </context-group>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

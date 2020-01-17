@@ -1,15 +1,16 @@
 <!-- Here's the title part-->
-<p class="subtitle"><span class="text">November 2019</span></p>
-<h1>Perfect Memory movie search</h1>
-<p class="subtitle"><span class="text">BY William Da Conceicao</span></p>
+<p class="subtitle"><span i18n='Project Release Date | This is the released date of the project@@ProjectDate' class="text">November 2019</span></p>
+<h1 i18n='Main title | This is the main title of the project@@ProjectTitle'>Perfect Memory movie search</h1>
+<p class="subtitle"><span class="text" i18n='Author name | This is the name of the creator of the project@@ProjectAuthor'>BY William Da Conceicao</span></p>
 
 <!-- Here's the nav par-->
 <div class="nav">
   <button (click)="toggleNav()"><i class="fas fa-bars"></i></button>
   <nav [hidden]=showNav>
-    <a routerLink="/search" routerLinkActive="active">Home</a><br/>
-    <a routerLink="/seen" routerLinkActive="active">SeenList</a><br/>
-    <a routerLink="/wish" routerLinkActive="active">WishList</a>
+    <a routerLink="/search" i18n="Home Nav Button@@HomeNav" routerLinkActive="active">Home</a><br/>
+    <a routerLink="/seen" i18n="SeenList Nav Button@@SeenNav" routerLinkActive="active">SeenList</a><br/>
+    <a routerLink="/wish" i18n="WishList Nav Button@@WishNav" routerLinkActive="active">WishList</a>
   </nav>
 </div>
+
 <router-outlet></router-outlet>

@@ -1,18 +1,17 @@
 <!-- Here's the search part, on submit it call a function called performSearch with the value entered by the user -->
 <form class="search-box" [routerLink]="['/search', name.value]">
-  <input class="search-text" [placeholder]="UrlSearch" #name type="text" name="name">
+  <input class="search-text" i18n-placeholder [placeholder]="UrlSearch" #name type="text" name="name">
   <button class="search-button" type="submit" for='name' [routerLink]="['/search', name.value]"><i class="fas fa-search"></i></button>
 </form>
 <br/>
-
 <!-- Here's the filtering part, with 2 filterer, one for the name and one for the year -->
 <div class="filterer">
   <div class="searcher">
-    <input [(ngModel)]="searchText"  class="filter" placeholder="Filter By Name">
+    <input [(ngModel)]="searchText"  class="filter" i18n-placeholder placeholder="Filter By Name">
   </div>
   <div></div>
   <div class="searcher">
-    <input [(ngModel)]="searchYear"  class="filter" placeholder="Filter By Year">
+    <input [(ngModel)]="searchYear"  class="filter" i18n-placeholder placeholder="Filter By Year">
   </div>
 </div>
 

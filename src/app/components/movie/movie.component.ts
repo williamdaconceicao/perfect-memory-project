@@ -28,8 +28,8 @@ export class MovieComponent implements OnInit {
   // who is send to the .html page to be displayed to the user
   ngOnInit() {
     this.MovieId = this.id || '';
-    this.isSeen = this.GetLocalStorage('seen');
-    this.isWished = this.GetLocalStorage('wish');
+    this.isSeen = this.getLocalStorage('seen');
+    this.isWished = this.getLocalStorage('wish');
     this.showData(this.MovieId);
   }
 
@@ -38,7 +38,7 @@ export class MovieComponent implements OnInit {
   }
 
   public addLocal(value: string): void {
-    this.StoreLocal(value);
+    this.storeLocal(value);
     if (value === 'seen') {
       this.isSeen = true;
       this.isWished = false;
@@ -49,15 +49,16 @@ export class MovieComponent implements OnInit {
     }
   }
 
-  private StoreLocal(value: string) {
+  private storeLocal(value: string) {
     let MovieLocal = localStorage.getItem('movie');
     MovieLocal = MovieLocal ? JSON.parse(MovieLocal) : {};
     MovieLocal[this.id] = value;
     localStorage.setItem('movie', JSON.stringify(MovieLocal));
   }
 
-  private GetLocalStorage(value: string): boolean {
-    const storedValue = JSON.parse(localStorage.getItem('movie'))[this.id];
+  private getLocalStorage(value: string): boolean {
+    const temp = localStorage.getItem('movie');
+    const storedValue = temp ? JSON.parse(temp)[this.id] : {};
     return storedValue !== null && storedValue === value;
   }
 

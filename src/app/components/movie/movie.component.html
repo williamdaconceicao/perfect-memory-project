@@ -1,21 +1,21 @@
 <!-- Here's the movie information part which is store in a variable called data -->
 <div class="card" *ngIf="data$ | async as movie">
 	<div class="card-image" >
-    <img src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}" [alt]="movie.original_title">
+    <img src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}" i18n-alt [alt]="movie.original_title">
 	</div>
 	<div class="card-text">
 		<p class="date">{{ movie.runtime }} minutes</p>
 		<h2>{{ movie.original_title }}</h2>
-		<p>Release date: {{ movie.release_date }}</p>
-		<p>Average vote: {{ movie.vote_average }} </p>
+		<p><ng-container i18n="Movie Release Date@@MovieReleaseDate">Release date</ng-container>: {{ movie.release_date }}</p>
+		<p><ng-container i18n="Movie Average Vote@@MovieAverageVote">Average vote</ng-container>: {{ movie.vote_average }} </p>
   </div>
   <div class="choose">
-    <a (click)="addLocal('seen')" [class.active]="isSeen">Seen <i class="fas fa-check-circle"></i></a>
-    <a (click)="addLocal('wish')" [class.active]="isWished">Wish <i class="fas fa-eye-slash"></i></a>
+    <a (click)="addLocal('seen')" [class.active]="isSeen"><ng-container i18n="Add movie to the Seenlist@@SeenListAdd">Seen</ng-container> <i class="fas fa-check-circle"></i></a>
+    <a (click)="addLocal('wish')" [class.active]="isWished"><ng-container i18n="Add movie to the Wishlist@@WishListAdd">Wish</ng-container> <i class="fas fa-eye-slash"></i></a>
   </div><br/>
   <!-- Here's the castig part which is toogle on click -->
 	<div class="card-casts" (click)="toggleChild()">
   	<app-movie-card [id]="id" [showMePartially]="showVar"></app-movie-card>
-  	<a >More</a>
+  	<a i18n="Show the casting of a movie@@ShowCast">More</a>
 	</div>
 </div>
