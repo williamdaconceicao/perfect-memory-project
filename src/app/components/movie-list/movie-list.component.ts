@@ -3,7 +3,8 @@ import { Observable } from 'rxjs';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie } from 'src/model/Movie.model';
 import { map } from 'rxjs/operators';
-import { Router } from '@angular/router';
+import { Router, NavigationStart } from '@angular/router';
+
 
 @Component({
   selector: 'app-movie-list',
@@ -26,7 +27,15 @@ export class MovieListComponent implements OnInit {
   constructor(
     private movieService: MovieService,
     private router: Router
-  ) {}
+  ) {
+    router.events.subscribe( event => {
+      if (event instanceof NavigationStart) {
+        if (event.url.substring(0, 7) === '/search' && event.url.slice(8)) {
+          this.performSearch(event.url.slice(8));
+        }
+      }
+    });
+  }
 
   ngOnInit() {
     if (this.router.url.slice(8)) {
@@ -46,11 +55,6 @@ export class MovieListComponent implements OnInit {
    * Called when a user enter a name of a movie
    * @param name a movie name
    */
-  public onSubmit(name: string) {
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
-      this.router.navigate([`search/${name}`]));
-  }
-
   private performSearch(name: string): void {
     this.showData(name);
   }
