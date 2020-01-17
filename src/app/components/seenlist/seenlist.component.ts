@@ -8,11 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class SeenlistComponent implements OnInit {
   public movies: string[] = [];
 
-  constructor() {}
+  constructor() { }
 
   ngOnInit() {
-    for (const props in localStorage) {
-      if (localStorage[props] === 'seen') {
+    const MovieLocal = JSON.parse(localStorage.getItem('movie'));
+    for (const props in MovieLocal) {
+      if (MovieLocal[props] === 'seen') {
         this.movies.push(props);
       }
     }

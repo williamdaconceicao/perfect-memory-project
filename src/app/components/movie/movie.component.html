@@ -1,7 +1,7 @@
 <!-- Here's the movie information part which is store in a variable called data -->
 <div class="card" *ngIf="data$ | async as movie">
 	<div class="card-image" >
-    <img src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}" alt="">
+    <img src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}" [alt]="movie.original_title">
 	</div>
 	<div class="card-text">
 		<p class="date">{{ movie.runtime }} minutes</p>

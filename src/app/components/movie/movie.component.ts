@@ -22,7 +22,7 @@ export class MovieComponent implements OnInit {
   public data$: Observable<Movie>;
   private MovieId = '';
 
-  constructor(private movieService: MovieService) {}
+  constructor(private movieService: MovieService) { }
 
   // On init we fetch for a movie using his id and store the result in a variable called data
   // who is send to the .html page to be displayed to the user
@@ -38,7 +38,7 @@ export class MovieComponent implements OnInit {
   }
 
   public addLocal(value: string): void {
-    localStorage[this.id] = value;
+    this.StoreLocal(value);
     if (value === 'seen') {
       this.isSeen = true;
       this.isWished = false;
@@ -49,8 +49,17 @@ export class MovieComponent implements OnInit {
     }
   }
 
-  public GetLocalStorage(value: string): boolean {
-    const storedValue = localStorage.getItem(this.id);
+  private StoreLocal(value: string) {
+    let MovieLocal = localStorage.getItem('movie');
+    MovieLocal = MovieLocal ? JSON.parse(MovieLocal) : {};
+    MovieLocal[this.id] = value;
+    localStorage.setItem('movie', JSON.stringify(MovieLocal));
+    console.log(localStorage);
+
+  }
+
+  private GetLocalStorage(value: string): boolean {
+    const storedValue = JSON.parse(localStorage.getItem('movie'))[this.id];
     return storedValue !== null && storedValue === value;
   }
 

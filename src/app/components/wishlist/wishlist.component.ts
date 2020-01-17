@@ -11,8 +11,9 @@ export class WishlistComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    for (const props in localStorage) {
-      if (localStorage[props] === 'wish') {
+    const MovieLocal = JSON.parse(localStorage.getItem('movie'));
+    for (const props in MovieLocal) {
+      if (MovieLocal[props] === 'wish') {
         this.movies.push(props);
       }
     }

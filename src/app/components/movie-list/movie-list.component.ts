@@ -46,8 +46,8 @@ export class MovieListComponent implements OnInit {
    * Called when a user enter a name of a movie
    * @param name a movie name
    */
-  public onSubmit(name: string){
-    this.router.navigateByUrl('/', {skipLocationChange: true}).then(()=>
+  public onSubmit(name: string) {
+    this.router.navigateByUrl('/', {skipLocationChange: true}).then(() =>
       this.router.navigate([`search/${name}`]));
   }
 
