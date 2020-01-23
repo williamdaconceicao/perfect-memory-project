@@ -11,9 +11,9 @@ export class SeenlistComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const MovieLocal = JSON.parse(localStorage.getItem('movie'));
-    for (const props in MovieLocal) {
-      if (MovieLocal[props] === 'seen') {
+    const movieLocal = JSON.parse(localStorage.getItem('movie'));
+    for (const props in movieLocal) {
+      if (movieLocal[props] === 'seen') {
         this.movies.push(props);
       }
     }

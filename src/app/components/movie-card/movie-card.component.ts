@@ -11,7 +11,6 @@ import { filter, map, shareReplay } from 'rxjs/operators';
   styleUrls: ['./movie-card.component.css']
 })
 export class MovieCardComponent implements OnInit {
-  private MovieId: string;
   @Input()
   public showMePartially: boolean;
   @Input()
@@ -20,13 +19,15 @@ export class MovieCardComponent implements OnInit {
   public data$: Observable<Credits>;
   public director$: Observable<string>;
 
+  private movieId: string;
+
   constructor(private creditService: CreditService) {
-    this.MovieId = '';
+    this.movieId = '';
   }
 
   ngOnInit() {
-    this.MovieId = this.id;
-    this.showData(this.MovieId);
+    this.movieId = this.id;
+    this.showData(this.movieId);
   }
 
   private getData(id: string) {

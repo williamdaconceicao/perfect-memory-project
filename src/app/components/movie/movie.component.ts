@@ -20,17 +20,17 @@ export class MovieComponent implements OnInit {
    * @internal
    */
   public data$: Observable<Movie>;
-  private MovieId = '';
+  private movieId = '';
 
   constructor(private movieService: MovieService) { }
 
   // On init we fetch for a movie using his id and store the result in a variable called data
   // who is send to the .html page to be displayed to the user
   ngOnInit() {
-    this.MovieId = this.id || '';
+    this.movieId = this.id || '';
     this.isSeen = this.getLocalStorage('seen');
     this.isWished = this.getLocalStorage('wish');
-    this.showData(this.MovieId);
+    this.showData(this.movieId);
   }
 
   public toggleChild(): void {
@@ -50,10 +50,10 @@ export class MovieComponent implements OnInit {
   }
 
   private storeLocal(value: string) {
-    let MovieLocal = localStorage.getItem('movie');
-    MovieLocal = MovieLocal ? JSON.parse(MovieLocal) : {};
-    MovieLocal[this.id] = value;
-    localStorage.setItem('movie', JSON.stringify(MovieLocal));
+    let movieLocal = localStorage.getItem('movie');
+    movieLocal = movieLocal ? JSON.parse(movieLocal) : {};
+    movieLocal[this.id] = value;
+    localStorage.setItem('movie', JSON.stringify(movieLocal));
   }
 
   private getLocalStorage(value: string): boolean {
