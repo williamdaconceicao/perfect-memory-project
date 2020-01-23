@@ -1,5 +1,10 @@
 {
   "main":{
-    "title": "Rechercheur de film pour Perfect Memory"
+    "title": "Trouveur de film pour Perfect Memory"
+  },
+  "nav":{
+    "home": "Accueil",
+    "seenlist": "Film vu",
+    "wishlist": "Film a voir"
   }
 }

@@ -14,7 +14,7 @@ export class AppComponent {
    * @internal
    */
   public showNav = true;
-
+  public urlSearch  = '';
 
   constructor(public translate: TranslateService) {
     translate.addLangs(['en', 'fr']);

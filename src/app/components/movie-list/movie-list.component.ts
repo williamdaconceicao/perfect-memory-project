@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie } from 'src/model/Movie.model';
@@ -22,7 +22,8 @@ export class MovieListComponent implements OnInit {
   public searchYear: string;
   public searchText: string;
   public showNav = true;
-  public UrlSearch: string;
+  @Input()
+  public urlSearch: string;
 
   constructor(
     private movieService: MovieService,
@@ -39,8 +40,8 @@ export class MovieListComponent implements OnInit {
 
   ngOnInit() {
     if (this.router.url.slice(8)) {
-      this.UrlSearch = this.router.url.slice(8);
-      this.performSearch(this.UrlSearch);
+      this.urlSearch = this.router.url.slice(8);
+      this.performSearch(this.urlSearch);
     } else {
       this.movies$ = this.movieService.popular()
         .pipe(map(response => response.results));

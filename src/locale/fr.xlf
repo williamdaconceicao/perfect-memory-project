@@ -32,7 +32,7 @@
         <note priority="1" from="description"> This is the name of the creator of the project</note>
         <note priority="1" from="meaning">Author name </note>
       </trans-unit>
-      <trans-unit id="HomeNav" datatype="html">
+      <trans-unit id="app.home-nav" datatype="html">
         <source>Home</source>
         <target>Accueil</target>
         <context-group purpose="location">
@@ -41,7 +41,7 @@
         </context-group>
         <note priority="1" from="description">Home Nav Button</note>
       </trans-unit>
-      <trans-unit id="SeenNav" datatype="html">
+      <trans-unit id="app.seen-nav" datatype="html">
         <source>SeenList</source>
         <target>Film Vus</target>
         <context-group purpose="location">
@@ -50,7 +50,7 @@
         </context-group>
         <note priority="1" from="description">SeenList Nav Button</note>
       </trans-unit>
-      <trans-unit id="WishNav" datatype="html">
+      <trans-unit id="app.wish-nav" datatype="html">
         <source>WishList</source>
         <target>Film a voir</target>
         <context-group purpose="location">
@@ -118,6 +118,14 @@
         <context-group purpose="location">
           <context context-type="sourcefile">src/app/components/movie-card/movie-card.component.html</context>
           <context context-type="linenumber">7</context>
+        </context-group>
+      </trans-unit>
+            <trans-unit id="44fc58a7e6ceaa6ab447084879d34495668b4e0f" datatype="html">
+        <source>Type your search</source>
+        <target>Chercher des films avec leurs titres</target>
+        <context-group purpose="location">
+          <context context-type="sourcefile">src/app/components/movie-list/movie-list.component.html</context>
+          <context context-type="linenumber">3</context>
         </context-group>
       </trans-unit>
       <trans-unit id="7bf2f122651436f08094bf287c99ca1b85e722e1" datatype="html">

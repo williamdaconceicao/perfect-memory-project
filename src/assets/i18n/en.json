@@ -1,5 +1,10 @@
 {
   "main":{
     "title": "Perfect Memory movie search"
+  },
+  "nav":{
+    "home": "Home",
+    "seenlist": "Seenlist",
+    "wishlist": "Wishlist"
   }
 }

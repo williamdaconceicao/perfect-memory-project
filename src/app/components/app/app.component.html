@@ -8,14 +8,20 @@
 <div class="nav">
   <button (click)="toggleNav()"><i class="fas fa-bars"></i></button>
   <nav [hidden]=showNav>
-    <a routerLink="/search" i18n="Home Nav Button@@HomeNav" routerLinkActive="active">Home</a><br/>
-    <a routerLink="/seen" i18n="SeenList Nav Button@@SeenNav" routerLinkActive="active">SeenList</a><br/>
-    <a routerLink="/wish" i18n="WishList Nav Button@@WishNav" routerLinkActive="active">WishList</a>
+    <a routerLink="/search" i18n="Home Nav Button@@app.home-nav" routerLinkActive="active">Home</a><br/>
+    <a routerLink="/seen" i18n="SeenList Nav Button@@app.seen-nav" routerLinkActive="active">SeenList</a><br/>
+    <a routerLink="/wish" i18n="WishList Nav Button@@app.wish-nav" routerLinkActive="active">WishList</a>
   </nav>
 </div>
 
 <select #langSelect (change)="translate.use(langSelect.value)">
   <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
 </select>
+
+<!-- Here's the search part, on submit it call a function called performSearch with the value entered by the user -->
+<form class="search-box" [routerLink]="['/search', name.value]">
+  <input class="search-text" i18n-placeholder placeholder="Type your search" #name type="text" name="name" [ngModel]="urlSearch">
+  <button class="search-button" type="button" for='name' [routerLink]="['/search', name.value]"><i class="fas fa-search"></i></button>
+</form>
 
 <router-outlet></router-outlet>
