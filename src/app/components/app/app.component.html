@@ -19,7 +19,7 @@
 </select>
 
 <!-- Here's the search part, on submit it call a function called performSearch with the value entered by the user -->
-<form class="search-box" [routerLink]="['/search', name.value]">
+<form class="search-box">
   <input class="search-text" i18n-placeholder placeholder="Type your search" #name type="text" name="name" [ngModel]="urlSearch">
   <button class="search-button" type="button" for='name' [routerLink]="['/search', name.value]"><i class="fas fa-search"></i></button>
 </form>
