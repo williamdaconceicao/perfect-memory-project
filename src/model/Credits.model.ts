@@ -5,22 +5,22 @@ export interface Credits {
 }
 
 export interface Cast {
-  cast_id: number;
+  cast_id?: number;
   character: string;
-  credit_id: string;
-  gender: number;
-  id: number;
+  credit_id?: string;
+  gender?: number;
+  id?: number;
   name: string;
-  order: number;
-  profile_path: null | string;
+  order?: number;
+  profile_path?: null | string;
 }
 
 export interface Crew {
-  credit_id: string;
-  department: string;
-  gender: number;
-  id: number;
+  credit_id?: string;
+  department?: string;
+  gender?: number;
+  id?: number;
   job: string;
   name: string;
-  profile_path: null | string;
+  profile_path?: null | string;
 }

@@ -1,7 +1,7 @@
 import { ByYearPipe } from './byyear.pipe';
 import { Movie } from 'src/model/Movie.model';
 
-fdescribe('ByYearPipe', () => {
+describe('ByYearPipe', () => {
   let pipe: ByYearPipe;
   let items: Movie[];
 

@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { TheMovieDbService } from '../themovidedb/themovidedb.service';
-import { Observable } from 'rxjs';
+import { Observable, throwError } from 'rxjs';
 import { Movie } from 'src/model/Movie.model';
 
 @Injectable({

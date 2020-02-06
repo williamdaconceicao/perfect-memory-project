@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CreditService } from 'src/app/services/credits/credits.service';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Credits } from 'src/model/Credits.model';
-import { filter, map, shareReplay } from 'rxjs/operators';
+import { map, shareReplay, switchMap } from 'rxjs/operators';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { filter, map, shareReplay } from 'rxjs/operators';
 })
 export class MovieCardComponent implements OnInit {
   @Input()
-  public showMePartially: boolean;
+  public showMePartially = false;
   @Input()
   public id: string;
 
@@ -41,8 +41,9 @@ export class MovieCardComponent implements OnInit {
 
     this.director$ = this.data$.pipe(
       map(credits => credits.crew.find(member => member.job === 'Director')),
-      filter(director => !!director),
-      map(director => director.name)
+      switchMap(director => {
+        return director ? of(director.name) : of('Unknown director');
+      })
     );
   }
 }

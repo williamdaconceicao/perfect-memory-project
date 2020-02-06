@@ -4,7 +4,7 @@ import { TheMovieDbService } from '../themovidedb/themovidedb.service';
 import { MockTheMovieDbService } from '../themovidedb/themoviedb.service.mock';
 import { of } from 'rxjs';
 
-fdescribe('CreditService', () => {
+describe('CreditService', () => {
   let service: CreditService;
   let dbService: TheMovieDbService;
 

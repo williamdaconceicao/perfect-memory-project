@@ -1,6 +1,6 @@
 <!-- Here's the movie-card component displayed with a boolean called "showMePartially" and filled with a variable called data -->
 <div *ngIf="data$ | async as data">
-  <div *ngIf="showMePartially">
+  <div class="show" *ngIf="showMePartially">
     <p class="director"><ng-container i18n="@@DirectedBy">Directed by</ng-container> {{ director$ | async }}</p>
     <div class="grid">
       <div *ngFor="let cast of data.cast | slice:0:10">
