@@ -9,7 +9,7 @@ import { of } from 'rxjs';
 import { CreditService } from 'src/app/services/credits/credits.service';
 import { MockCreditService } from 'src/app/services/credits/credit.service.mock';
 
-fdescribe('MovieCardComponent', () => {
+describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
   let fixture: ComponentFixture<MovieCardComponent>;
   let showEl: DebugElement;
@@ -41,7 +41,21 @@ fdescribe('MovieCardComponent', () => {
   });
 
   it('should init with showMePartially at false', () => {
-    component.showMePartially = false;
+    expect(component.showMePartially).toBeFalsy();
+  });
+
+  it('should be possible have showMePartially at true', () => {
+    component.showMePartially = true;
+    expect(component.showMePartially).toBeTruthy();
+  });
+
+  it('should init with id undefined', () => {
+    expect(component.id).toBeUndefined();
+  });
+
+  it('should be possible to have an id', () => {
+    component.id = '';
+    expect(component.id).toBeDefined();
   });
 
   describe('#ngOnInit', () => {

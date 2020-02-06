@@ -21,7 +21,6 @@ export class MovieListComponent implements OnInit {
   public movies$: Observable<Movie[]>;
   public searchYear: string;
   public searchText: string;
-  public showNav = true;
   @Input()
   public urlSearch: string;
 
@@ -48,9 +47,6 @@ export class MovieListComponent implements OnInit {
     }
   }
 
-  public toggleNav(): void {
-    this.showNav = !this.showNav;
-  }
 
   /**
    * Called when a user enter a name of a movie

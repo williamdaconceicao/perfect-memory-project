@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {TranslateService} from '@ngx-translate/core';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -8,12 +8,11 @@ import {TranslateService} from '@ngx-translate/core';
 })
 
 export class AppComponent {
-  // The movie list, with the ten movies which is displayed by default.
-  // We use the ID key to display the content, the name and the date one's is used by the filterers
+  title = 'PerfectMemoryProject';
   /**
    * @internal
    */
-  public showNav = true;
+  public showNav = false;
   public urlSearch  = '';
 
   constructor(public translate: TranslateService) {

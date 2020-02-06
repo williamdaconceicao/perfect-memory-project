@@ -11,6 +11,7 @@ const routes: Routes = [
   {
     path: 'search',
     component: MovieListComponent,
+    pathMatch: 'prefix',
     children: [
       {path: ':name', component: MovieListComponent}
     ]

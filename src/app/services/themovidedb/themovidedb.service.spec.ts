@@ -14,6 +14,8 @@ describe('TheMovieDbService', () => {
   let baseUrl: string;
 
   beforeEach(() => {
+    apiKey = 'toto';
+    baseUrl = 'https://api.themoviedb.org/3';
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
       providers: [
@@ -35,11 +37,9 @@ describe('TheMovieDbService', () => {
 
     beforeEach(() => {
       spyGet = spyOn(httpClient, 'get');
-      apiKey = 'toto';
-      baseUrl = 'https://api.themoviedb.org/3';
     });
 
-    it('should call the API', done => {
+    it('should call the API', () => {
       spyGet.and.returnValue(of({
         id: 1,
         original_title: '',
@@ -50,7 +50,6 @@ describe('TheMovieDbService', () => {
       }));
       service.get('/movie/300').subscribe();
       expect(httpClient.get).toHaveBeenCalledWith(`${baseUrl}/movie/300?api_key=${apiKey}&`);
-      done();
     });
 
     it('should throw an error when the API throw an error', done => {
@@ -61,6 +60,20 @@ describe('TheMovieDbService', () => {
           done();
         }
       });
+    });
+
+    it('can have some keys passed as parameters', () => {
+      spyGet.and.returnValue(of({
+        id: 1,
+        original_title: '',
+        poster_path: '',
+        release_date: '',
+        runtime: 0,
+        vote_average: 0,
+      }));
+      service.get('/movie/300', { toto: 'test' }).subscribe();
+      expect(httpClient.get)
+        .toHaveBeenCalledWith(`${baseUrl}/movie/300?api_key=${apiKey}&toto=test`);
     });
   });
 });

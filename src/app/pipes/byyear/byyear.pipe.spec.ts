@@ -58,7 +58,7 @@ describe('ByYearPipe', () => {
     });
 
     it('should return an empty array when items are empty', () => {
-      expect(pipe.transform([], '2019')).toEqual([]);
+      expect(pipe.transform(null, '')).toEqual([]);
     });
 
     it('should return the list when searchYear is empty', () => {
