@@ -52,11 +52,6 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title in a h1 tag', () => {
-    const compiled = fixture.debugElement.nativeElement;
-    expect(compiled.querySelector('h1').textContent).toContain('Perfect Memory movie search');
-  });
-
   it(`should have as title 'PerfectMemoryProject'`, () => {
     const app = fixture.debugElement.componentInstance;
     expect(app.title).toEqual('PerfectMemoryProject');

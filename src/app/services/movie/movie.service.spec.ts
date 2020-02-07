@@ -30,6 +30,7 @@ describe('MovieService', () => {
         original_title: '',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       },
@@ -38,6 +39,7 @@ describe('MovieService', () => {
         original_title: '',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       }]}));
@@ -47,6 +49,7 @@ describe('MovieService', () => {
           original_title: '',
           poster_path: '',
           release_date: '',
+          genre_ids: [1, 2],
           runtime: 0,
           vote_average: 0,
         },
@@ -55,6 +58,7 @@ describe('MovieService', () => {
           original_title: '',
           poster_path: '',
           release_date: '',
+          genre_ids: [1, 2],
           runtime: 0,
           vote_average: 0,
         }]});
@@ -68,6 +72,7 @@ describe('MovieService', () => {
         original_title: '',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       },
@@ -76,6 +81,7 @@ describe('MovieService', () => {
         original_title: '',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       }));
@@ -94,15 +100,17 @@ describe('MovieService', () => {
         original_title: '',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
-      },]}));
+      }, ]}));
       service.popular().subscribe(popular => {
         expect(popular).toEqual({results: [{
           id: 1,
           original_title: '',
           poster_path: '',
           release_date: '',
+          genre_ids: [1, 2],
           runtime: 0,
           vote_average: 0,
         }]});
@@ -118,6 +126,7 @@ describe('MovieService', () => {
         original_title: '',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       },
@@ -126,6 +135,7 @@ describe('MovieService', () => {
         original_title: '',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       }));
@@ -135,6 +145,7 @@ describe('MovieService', () => {
           original_title: '',
           poster_path: '',
           release_date: '',
+          genre_ids: [1, 2],
           runtime: 0,
           vote_average: 0,
         });
@@ -148,6 +159,7 @@ describe('MovieService', () => {
         original_title: '',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       },
@@ -156,6 +168,7 @@ describe('MovieService', () => {
         original_title: '',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       }));

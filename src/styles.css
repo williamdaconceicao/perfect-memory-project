@@ -1,4 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-	background-color: #FBFAF8;
+  background: transparent url('./assets/imgs/background-blur.jpg') 0% 0%;
+  background-size: cover;
 }
+
+
+
+@font-face {
+  font-family: "Avenir";
+  src: url("/app/assets/fonts/") format("otf");
+ }

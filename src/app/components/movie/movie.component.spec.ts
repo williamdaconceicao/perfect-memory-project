@@ -8,6 +8,7 @@ import { MockTheMovieDbService } from 'src/app/services/themovidedb/themoviedb.s
 import { of } from 'rxjs';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { MockMovieService } from 'src/app/services/movie/movie.service.mock';
+import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
 
 describe('MovieComponent', () => {
   let component: MovieComponent;
@@ -17,7 +18,11 @@ describe('MovieComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      declarations: [MovieComponent, MovieCardComponent],
+      declarations: [
+        MovieComponent,
+        MovieCardComponent,
+        FormatTitlePipe,
+      ],
       providers: [
         { provide: TheMovieDbService, useClass: MockTheMovieDbService },
         { provide: MovieService, useClass: MockMovieService },
@@ -57,6 +62,7 @@ describe('MovieComponent', () => {
         original_title: '',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       }));
@@ -68,6 +74,7 @@ describe('MovieComponent', () => {
           original_title: '',
           poster_path: '',
           release_date: '',
+          genre_ids: [1, 2],
           runtime: 0,
           vote_average: 0,
         });
@@ -95,6 +102,13 @@ describe('MovieComponent', () => {
     });
 
     it('should change none of isWished and isSeen when value is not wish or seen', () => {
+      component.addLocal('');
+      expect(component.isWished).toBe(false);
+      expect(component.isSeen).toBe(false);
+    });
+
+    it('should work even if the local storage is empty', () => {
+      localStorage.clear();
       component.addLocal('');
       expect(component.isWished).toBe(false);
       expect(component.isSeen).toBe(false);

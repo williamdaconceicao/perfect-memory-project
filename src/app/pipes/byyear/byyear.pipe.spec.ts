@@ -14,6 +14,7 @@ describe('ByYearPipe', () => {
         poster_path: '',
         id: 1,
         release_date: '2019-25-12',
+        genre_ids: [1, 2],
         runtime: 0
       },
       {
@@ -22,6 +23,7 @@ describe('ByYearPipe', () => {
         poster_path: '',
         id: 2,
         release_date: '2018-25-12',
+        genre_ids: [1, 2],
         runtime: 0
       },
       {
@@ -30,6 +32,7 @@ describe('ByYearPipe', () => {
         poster_path: '',
         id: 3,
         release_date: '2017-25-12',
+        genre_ids: [1, 2],
         runtime: 0
       },
       {
@@ -38,6 +41,7 @@ describe('ByYearPipe', () => {
         poster_path: '',
         id: 4,
         release_date: '2016-25-12',
+        genre_ids: [1, 2],
         runtime: 0
       },
     ];

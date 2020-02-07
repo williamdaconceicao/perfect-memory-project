@@ -6,6 +6,7 @@ import { MovieComponent } from '../movie/movie.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TheMovieDbService } from 'src/app/services/themovidedb/themovidedb.service';
 import { MockTheMovieDbService } from 'src/app/services/themovidedb/themoviedb.service.mock';
+import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
 
 describe('SeenlistComponent', () => {
   let component: SeenlistComponent;
@@ -20,6 +21,7 @@ describe('SeenlistComponent', () => {
         SeenlistComponent,
         MovieComponent,
         MovieCardComponent,
+        FormatTitlePipe,
       ],
       providers: [
         { provide: TheMovieDbService, useClass: MockTheMovieDbService },

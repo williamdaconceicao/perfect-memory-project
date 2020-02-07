@@ -10,9 +10,10 @@ import { MovieService } from 'src/app/services/movie/movie.service';
 import { MockMovieService } from 'src/app/services/movie/movie.service.mock';
 import { FormsModule } from '@angular/forms';
 import { ByYearPipe } from 'src/app/pipes/byyear/byyear.pipe';
-import { ByNamePipe } from 'src/app/pipes/byname/byname.pipe';
+import { ByGenrePipe } from 'src/app/pipes/bygenre/bygenre.pipe';
 import { RouterTestingModule } from '@angular/router/testing';
 import { Router } from '@angular/router';
+import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
 
 describe('MovieListComponent', () => {
   let component: MovieListComponent;
@@ -40,7 +41,8 @@ describe('MovieListComponent', () => {
       declarations: [
         MovieListComponent,
         ByYearPipe,
-        ByNamePipe,
+        ByGenrePipe,
+        FormatTitlePipe,
       ],
       providers: [
         { provide: TheMovieDbService, useClass: MockTheMovieDbService },
@@ -76,6 +78,7 @@ describe('MovieListComponent', () => {
         original_title: 'popular1',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       },
@@ -84,6 +87,7 @@ describe('MovieListComponent', () => {
         original_title: 'popular2',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       }]}));
@@ -94,6 +98,7 @@ describe('MovieListComponent', () => {
           original_title: 'popular1',
           poster_path: '',
           release_date: '',
+          genre_ids: [1, 2],
           runtime: 0,
           vote_average: 0,
         },
@@ -102,6 +107,7 @@ describe('MovieListComponent', () => {
           original_title: 'popular2',
           poster_path: '',
           release_date: '',
+          genre_ids: [1, 2],
           runtime: 0,
           vote_average: 0,
         }]);
@@ -117,6 +123,7 @@ describe('MovieListComponent', () => {
         original_title: 'title1',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       },
@@ -125,6 +132,7 @@ describe('MovieListComponent', () => {
         original_title: 'title2',
         poster_path: '',
         release_date: '',
+        genre_ids: [1, 2],
         runtime: 0,
         vote_average: 0,
       }]}));
@@ -135,6 +143,7 @@ describe('MovieListComponent', () => {
           original_title: 'title1',
           poster_path: '',
           release_date: '',
+          genre_ids: [1, 2],
           runtime: 0,
           vote_average: 0,
         },
@@ -143,6 +152,7 @@ describe('MovieListComponent', () => {
           original_title: 'title2',
           poster_path: '',
           release_date: '',
+          genre_ids: [1, 2],
           runtime: 0,
           vote_average: 0,
         }]);

@@ -1,18 +1,23 @@
 <br/>
 <!-- Here's the filtering part, with 2 filterer, one for the name and one for the year -->
 <div class="filterer">
-  <div class="searcher">
-    <input [(ngModel)]="searchText"  class="filter" i18n-placeholder placeholder="Filter By Name">
-  </div>
-  <div></div>
-  <div class="searcher">
+  <div class="searcher year">
     <input [(ngModel)]="searchYear"  class="filter" i18n-placeholder placeholder="Filter By Year">
+  </div>
+  <div class="searcher category">
+    <select class="filter select" #genreSelect [(ngModel)]="searchGenre">
+      <option [ngValue]="null" selected>All Genres</option>
+      <option *ngFor="let genre of genresList" [ngValue]="genre">{{ genre.name }}</option>
+    </select>
   </div>
 </div>
 
 <!-- Here's the movie list part, and we use the value of the two filterer  -->
 <div class="container">
-  <div *ngFor="let movie of movies$ | async | byname: searchText | byyear: searchYear ; let i=index ">
-    <app-movie *ngIf="i < 10" [id]="movie.id"></app-movie>
+  <h2>P<span class="o">o</span>pular M<span class="o">o</span>vies</h2>
+  <div class="grid">
+    <div *ngFor="let movie of movies$ | async | bygenre: searchGenre | byyear: searchYear ; let i=index ">
+      <app-movie *ngIf="i < 45" [id]="movie.id"></app-movie>
+    </div>
   </div>
 </div>

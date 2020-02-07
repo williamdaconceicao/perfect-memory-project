@@ -6,6 +6,7 @@ import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { TheMovieDbService } from 'src/app/services/themovidedb/themovidedb.service';
 import { MockTheMovieDbService } from 'src/app/services/themovidedb/themoviedb.service.mock';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
 
 describe('WishlistComponent', () => {
   let component: WishlistComponent;
@@ -20,6 +21,7 @@ describe('WishlistComponent', () => {
         WishlistComponent,
         MovieComponent,
         MovieCardComponent,
+        FormatTitlePipe,
       ],
       providers: [
         { provide: TheMovieDbService, useClass: MockTheMovieDbService },
