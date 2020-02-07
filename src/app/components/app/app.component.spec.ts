@@ -28,20 +28,23 @@ describe('AppComponent', () => {
     });
 
     translate = TestBed.get(TranslateService);
-
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
+    translateSpy = spyOn(translate, 'getBrowserLang');
     jasmine.getEnv().allowRespy(true);
   });
 
   it('can have lang set to fr', () => {
-    translateSpy = spyOn(translate, 'getBrowserLang').and.returnValue('fr');
+    translateSpy.and.returnValue('fr');
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
     expect(translate.currentLang).toEqual('fr');
   });
 
   beforeEach(() => {
-    translateSpy = spyOn(translate, 'getBrowserLang').and.returnValue('en');
+    translateSpy.and.returnValue('de');
+    fixture = TestBed.createComponent(AppComponent);
+    component = fixture.componentInstance;
+    fixture.detectChanges();
   });
 
   it('should create the app', () => {
