@@ -1,11 +1,39 @@
 <!-- Here's the movie-card component displayed with a boolean called "showMePartially" and filled with a variable called data -->
-<div *ngIf="data$ | async as data">
-  <div class="show" *ngIf="showMePartially">
+<div class="show" *ngIf="showMePartially">
+  <i class="arrow fas fa-angle-down" (click)="toggleChild()"></i>
+  <div *ngIf="movie$ | async as movie">
+    <img src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}" i18n-alt [alt]="movie.original_title">
+    <p class="release">{{ movie.release_date | date:'longDate'}}</p>
+    <h3 class="title">{{ movie.title | formatTitle }}</h3>
     <p class="director"><ng-container i18n="@@DirectedBy">Directed by</ng-container> {{ director$ | async }}</p>
-    <div class="grid">
-      <div *ngFor="let cast of data.cast | slice:0:10">
-        <p class="cast">{{ cast.name }} <ng-container i18n="@@CastAsCharacter">as</ng-container>  {{ cast.character }}</p>
-      </div>
+    <p class="runtime">{{ movie.runtime }}</p>
+    <div class="choose">
+      <a (click)="addLocal('seen')" [class.active]="isSeen">
+        <i class="fas fa-check"></i>
+        <span>
+          <i class="fas fa-plus-circle"></i>
+        </span>
+      </a>
+      <a (click)="addLocal('wish')" [class.active]="isWished">
+        <i class="fas fa-heart"></i>
+        <span>
+          <i class="fas fa-plus-circle"></i>
+        </span>
+      </a>
+    </div>
+    <div class="resume">
+      <h4>RESUME</h4>
+      <p>{{ movie.overview }}</p>
+    </div>
+  </div>
+  <div *ngIf="data$ | async as data">
+    <div class="casting">
+      <h4>CASTING</h4>
+      <ul>
+        <li *ngFor="let cast of data.cast | slice:0:10">
+          {{ cast.name }} <ng-container i18n="@@CastAsCharacter">as</ng-container>  {{ cast.character }}
+        </li>
+      </ul>
     </div>
   </div>
 </div>

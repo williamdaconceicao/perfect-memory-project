@@ -1,21 +1,31 @@
 <!-- Here's the movie information part which is store in a variable called data -->
-<div class="card" *ngIf="data$ | async as movie">
+<div class="card" *ngIf="data$ | async as movie" (click)="toggleChild()">
+  <div class="hovered">
+    <div class="card-casts" >
+      <a i18n="Show the casting of a movie@@ShowCast" *ngIf="!showVar">See More</a>
+    </div>
+    <div class="choose" *ngIf="!showVar">
+      <a (click)="addLocal('seen')" [class.active]="isSeen">
+        <i class="fas fa-check"></i>
+        <span>
+          <i class="fas fa-plus-circle"></i>
+        </span>
+      </a>
+      <a (click)="addLocal('wish')" [class.active]="isWished">
+        <i class="fas fa-heart"></i>
+        <span>
+          <i class="fas fa-plus-circle"></i>
+        </span>
+      </a>
+    </div>
+  </div>
 	<div class="card-image" >
     <img src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}" i18n-alt [alt]="movie.original_title">
 	</div>
 	<div class="card-text">
     <h2>{{ movie.title | formatTitle }}</h2>
-    <!-- movie.title.replace(/\s*\(.*?\)\s*/g, '')); -->
-		<p>{{ movie.release_date }}</p>
-  </div>
-  <div class="hovered">
-    <div class="card-casts" (click)="toggleChild()">
-      <app-movie-card [id]="id" [showMePartially]="showVar"></app-movie-card>
-      <a i18n="Show the casting of a movie@@ShowCast">See More</a>
-    </div>
-    <div class="choose">
-      <a (click)="addLocal('seen')" [class.active]="isSeen"><i class="fas fa-check"></i></a>
-      <a (click)="addLocal('wish')" [class.active]="isWished"><i class="fas fa-heart"></i></a>
-    </div>
+		<p>{{ movie.release_date | date:'longDate'  }}</p>
   </div>
 </div>
+<app-movie-card [id]="id" [showMePartially]="showVar"></app-movie-card>
+

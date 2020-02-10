@@ -1,17 +1,123 @@
-/* Here's the movie-card grid's creation */
-.grid{
-  display: grid;
-  grid-template-columns: 1fr 1fr ;
-  grid-template-rows: auto;
+.director {
+  position: absolute;
+  top: 45%;
+  left: 35%;
+}
+.runtime{
+  position: absolute;
+  top: 50%;
+  left: 35%;
+}
+.arrow {
+  color: #707070;
+  width: 100%;
+  font-size: 3.4em;
+  padding-top: 18px;
+  padding-bottom: 5px;
+}
+.title{
+  position: absolute;
+  top: 30%;
+  left: 35%;
+  font-size: 36px;
+}
+.release{
+  position: absolute;
+  top: 30%;
+  left: 35%;
+}
+.show {
+  text-align: center;
+  z-index: 2 !important;
+  opacity: 1;
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(50px);
+  width: 100vw;
+  height: 500px;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  border-top: 1px solid #707070;
+  background-color: rgba(0, 0, 0, 0.6);
 }
 
-.director{
-	text-align: center;
-	padding: 10px;
+img {
+  width: 252px;
+  height: 377px;
+  position: fixed;
+  bottom: 36px;
+  left: 330px;
 }
-.grid .cast {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
+
+h4 {
+  position: relative;
+  font: Medium 14px/19px Avenir;
+  letter-spacing: 0.08px;
+  margin: 0;
+  color: #FFAD16;
+  opacity: 1;
+  padding-bottom: 10px;
+}
+.resume{
+  text-align: left;
+  position: relative;
+  top: 2%;
+  margin: 0;
+  left: 55%;
+  width: 28%;
+}
+.resume p{
+  position: relative;
+  left: 1%;
+  margin: 0 0 40px 0;
+  word-wrap: break-word;
+}
+.casting h4{
+  left: 7%;
+}
+
+ul {
+  margin: 0;
+  position: relative;
+  left: 55%;
+}
+
+li {
+  text-align: left;
+}
+
+.choose{
+  position: absolute;
+  top: 60%;
+  left: 35%;
+}
+.choose>a.active>i {
+  color: #FFAD16 !important;
+  border: solid 1px #FFAD16;
+}
+
+.choose>a.active>span {
+  color: #FFAD16 !important;
+}
+
+.choose>a>i {
+  border: solid 1px white;
+  border-radius: 50%;
+  padding: 7px 8px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.choose>a>span {
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  position: absolute;
+  margin-top: -5px;
+  margin-left: -9px;
+}
+
+.choose>a:last-child {
+  margin-left: 20px;
 }

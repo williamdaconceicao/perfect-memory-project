@@ -16,7 +16,6 @@ describe('TranslateServiceMock', () =>{
     service.get('test').subscribe(result => {
       expect(result).toEqual('i18ntest');
     });
-
   });
 
   it('should return the translation', () => {
@@ -35,6 +34,10 @@ describe('TranslateServiceMock', () =>{
 
   it('should get the instant with an array of string', () => {
     expect(service.instant(['test', 'test'])).toEqual('i18ntest,test');
+  });
+
+  it('shout get the languages', () =>{
+    expect(service.getLangs()).toEqual(['de']);
   });
 });
 

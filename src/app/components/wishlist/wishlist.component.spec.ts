@@ -7,6 +7,9 @@ import { TheMovieDbService } from 'src/app/services/themovidedb/themovidedb.serv
 import { MockTheMovieDbService } from 'src/app/services/themovidedb/themoviedb.service.mock';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
+import { ByGenrePipe } from 'src/app/pipes/bygenre/bygenre.pipe';
+import { ByYearPipe } from 'src/app/pipes/byyear/byyear.pipe';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('WishlistComponent', () => {
   let component: WishlistComponent;
@@ -22,10 +25,15 @@ describe('WishlistComponent', () => {
         MovieComponent,
         MovieCardComponent,
         FormatTitlePipe,
+        ByGenrePipe,
+        ByYearPipe,
       ],
       providers: [
         { provide: TheMovieDbService, useClass: MockTheMovieDbService },
-      ]
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA
+      ],
     })
     .compileComponents();
   }));

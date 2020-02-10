@@ -1,7 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 body {
-  background: transparent url('./assets/imgs/background-blur.jpg') 0% 0%;
+  background: transparent url('./assets/imgs/backgroundblur.png') 0% 0%;
   background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
 

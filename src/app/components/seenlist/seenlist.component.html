@@ -1,6 +1,25 @@
-<!-- Here's the movie list part, and we use the value of the two filterer  -->
+<!-- Here's the filtering part, with 2 filterer, one for the name and one for the year -->
+<div class="filterer">
+  <form class="search-box">
+    <input class="search-text" i18n-placeholder placeholder="Search" #name type="text" name="name" [ngModel]="urlSearch">
+    <button class="search-button" type="button" for='name' [routerLink]="['/search', name.value]"><i class="fas fa-search"></i></button>
+  </form>
+  <div class="searcher year">
+    <input [(ngModel)]="searchYear"  class="filter" i18n-placeholder placeholder="Filter By Year">
+  </div>
+  <div class="searcher category">
+    <select class="filter select" #genreSelect [(ngModel)]="searchGenre">
+      <option [ngValue]="null" selected>All Genres</option>
+      <option *ngFor="let genre of genresList" [ngValue]="genre">{{ genre.name }}</option>
+    </select>
+  </div>
+</div>
+
 <div class="container">
-  <div *ngFor="let id of movies">
-    <app-movie [id]="id"></app-movie>
+  <h2>S<span class="spantitle">e</span>en Li<span class="spantitle">s</span>t</h2>
+  <div class="grid">
+    <div *ngFor="let id of movies | bygenre: searchGenre | byyear: searchYear">
+      <app-movie [id]="id"></app-movie>
+    </div>
   </div>
 </div>

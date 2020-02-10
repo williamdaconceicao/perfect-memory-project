@@ -1,13 +1,122 @@
 /*
+ Here's the search part
+*/
+
+
+.search-box {
+  position: fixed;
+  border-radius: 8px;
+  border: 2px solid #C6C6C6;
+  left: 930px;
+  width: 389px;
+  height: 38px;
+}
+
+.search-button {
+  color: #9B9898;
+  float: left;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+}
+
+.search-text {
+  border: none;
+  background: none;
+  color: white;
+  line-height: 36px;
+  text-align: left;
+  font: Book 17px/23px Avenir;
+  letter-spacing: 0;
+  color: #9B9898;
+}
+
+
+.filterer{
+  position: fixed;
+  z-index: 2 !important;
+  top: 3%;
+}
+.searcher{
+  text-align: center;
+  background: none;
+  border: 2px solid #C6C6C6;
+  border-radius: 8px;
+  height: 38px;
+  width: 239px;
+}
+.filter{
+  border:none;
+	background: none;
+	outline: none;
+  color: #9B9898;
+  line-height: 36px;
+  text-align: left;
+  font: Book 17px/23px Avenir;
+  letter-spacing: 0;
+}
+
+.category{
+  margin-left: 99.5em;
+  overflow: hidden;
+}
+
+.category select{
+  width: 100%;
+}
+
+.select{
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;       /* Remove default arrow */
+  background: url('./../../../assets/imgs/down-arrow.png') no-repeat 96%;
+  background-size: 1em;
+  -webkit-appearance: none;
+}
+
+.year{
+  position: absolute;
+  margin-left: 83.5em;
+}
+
+
+/*
  Here's the movie list part, with also css native grid
 */
 .container{
-	position: relative;
-	width: 90%;
-	margin-left: 5%;
-	display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  position: relative;
+  margin-top: 6%;
+	width: 76%;
+  margin-left: 20%;
+  color: #ffffff;
+  text-align: left;
+  font: Roman 24px/61px Avenir;
+  letter-spacing: 0.24px;
+}
+
+.spantitle {
+  color:#FFAD16;
+}
+
+.container>h2:after  {
+  content:"";
+  display: inline-block;
+  height: 0.5em;
+  vertical-align: bottom;
+  width: 100%;
+  margin-right: -100%;
+  margin-left: 10px;
+  border-top: 1px solid #9B9898;
+}
+
+.container>h2{
+  overflow: hidden;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(171px, 1fr));
   grid-template-rows: auto;
-	grid-gap: 0 40px;
-	text-align: center;
+	grid-gap: 0 37px;
 }

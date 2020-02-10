@@ -1,57 +1,97 @@
 /* Here's the card part*/
 .card {
   text-align: left;
+  margin-bottom: 40px;
+}
+
+.card:hover .card-image {
+  opacity: 0.5;
 }
 
 .card:hover .hovered {
-  display: inline-block;
+  display: block;
+  z-index: 1;
 }
 
 .card-image {
-  background: transparent;
+  margin: 0;
+}
+
+.card-image img{
+  height: 274px;
+  width: 185px;
 }
 
 .card-text p {
   color: #FFF;
   font-size: 15px;
   font-weight: 300;
+  font-family: Avenir;
+  margin: 0;
 }
 
 .card-text h2 {
   text-align: left;
-  font-family: Avenir;
+  font: 17px Avenir;
   letter-spacing: 0.11px;
+  margin: 0;
+  width: 181px;
   color: #FFAD16;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .hovered {
+  position: relative;
+  top: 125px;
   display: none;
+  margin-left: 45px;
+  height: 0;
 }
 
-.card>.hovered>.choose>a.active {
+.choose {
+  margin-top: 80px;
+}
+
+.enlightement{
+  border: gold 20px;
+}
+
+.card>.hovered>.choose>a.active>i {
   color: #FFAD16 !important;
   border: solid 1px #FFAD16;
 }
 
-.card>.hovered>.choose>a {
-  border: solid 1px black;
+.card>.hovered>.choose>a.active>span {
+  color: #FFAD16 !important;
+}
+
+.card>.hovered>.choose>a>i {
+  border: solid 1px white;
   border-radius: 50%;
-  padding: 10px 12px;
+  padding: 7px 8px;
   color: white;
   text-align: center;
   text-decoration: none;
 }
 
-.card>.choose>a:last-child {
-  margin-left: 25px;
+.card>.hovered>.choose>a>span {
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  position: absolute;
+  margin-top: -5px;
+  margin-left: -9px;
+}
+
+.card>.hovered>.choose>a:last-child {
+  margin-left: 20px;
 }
 
 /* Here's the casting part */
 .card-casts {
-  text-align: center;
-  background: #FF3E00;
-  padding: 10px;
-  border-bottom-left-radius: 15px;
-  border-bottom-right-radius: 15px;
-  color: white;
+  margin-left: 10px;
+  color: #FFAD16;
 }

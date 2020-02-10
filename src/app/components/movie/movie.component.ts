@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie } from 'src/model/Movie.model';
+import { LocalStorageService } from 'src/app/services/localstorage/localstorage.service';
 
 
 @Component({
@@ -22,14 +23,17 @@ export class MovieComponent implements OnInit {
   public data$: Observable<Movie>;
   private movieId = '';
 
-  constructor(private movieService: MovieService) { }
+  constructor(
+    private movieService: MovieService,
+    private localStorageService: LocalStorageService,
+  ) { }
 
   // On init we fetch for a movie using his id and store the result in a variable called data
   // who is send to the .html page to be displayed to the user
   ngOnInit() {
     this.movieId = this.id || '';
-    this.isSeen = this.getLocalStorage('seen');
-    this.isWished = this.getLocalStorage('wish');
+    this.isSeen = this.localStorageService.getLocalStorage('seen', this.id);
+    this.isWished = this.localStorageService.getLocalStorage('wish', this.id);
     this.showData(this.movieId);
   }
 
@@ -38,7 +42,7 @@ export class MovieComponent implements OnInit {
   }
 
   public addLocal(value: string): void {
-    this.storeLocal(value);
+    this.localStorageService.storeLocal(value, this.id);
     if (value === 'seen') {
       this.isSeen = true;
       this.isWished = false;
@@ -47,19 +51,6 @@ export class MovieComponent implements OnInit {
       this.isSeen = false;
       this.isWished = true;
     }
-  }
-
-  private storeLocal(value: string) {
-    let movieLocal = localStorage.getItem('movie');
-    movieLocal = movieLocal ? JSON.parse(movieLocal) : {};
-    movieLocal[this.id] = value;
-    localStorage.setItem('movie', JSON.stringify(movieLocal));
-  }
-
-  private getLocalStorage(value: string): boolean {
-    const local = localStorage.getItem('movie');
-    const storedValue = local ? JSON.parse(local)[this.id] : {};
-    return storedValue !== null && storedValue === value;
   }
 
   private getData(id: string): Observable<Movie> {

@@ -18,6 +18,7 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { SeenlistComponent } from './components/seenlist/seenlist.component';
 import { ErrorComponent } from './components/error/error.component';
+import { FormatSubtitlePipe } from './pipes/formatSubtitle/formatSubtitle.pipe';
 
 
 
@@ -34,6 +35,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ByGenrePipe,
     ByYearPipe,
     FormatTitlePipe,
+    FormatSubtitlePipe,
     WishlistComponent,
     MovieListComponent,
     SeenlistComponent,

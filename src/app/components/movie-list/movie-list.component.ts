@@ -1,9 +1,9 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Observable, pipe } from 'rxjs';
+import { Observable } from 'rxjs';
 import { MovieService } from 'src/app/services/movie/movie.service';
 import { Movie, Genre } from 'src/model/Movie.model';
-import { map } from 'rxjs/operators';
-import { Router, NavigationStart } from '@angular/router';
+import { map, filter, switchMap } from 'rxjs/operators';
+import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -19,6 +19,7 @@ export class MovieListComponent implements OnInit {
    * @internal
    */
   public movies$: Observable<Movie[]>;
+  public isSearching = false;
   public searchYear: string;
   public searchGenre: Genre;
   public genresList: Genre[] = [
@@ -48,46 +49,41 @@ export class MovieListComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    private router: Router
-  ) {
-    router.events.subscribe( event => {
-      if (event instanceof NavigationStart) {
-        if (event.url.substring(0, 7) === '/search' && event.url.slice(8)) {
-          this.performSearch(event.url.slice(8));
-        }
-      }
-    });
+    private router: Router,
+    private activatedRoute: ActivatedRoute
+  ) {}
+
+  public ngOnInit() {
+    this.movies$ = this.activatedRoute.params
+      .pipe(
+        switchMap(params => {
+          if (!params.name) {
+            // popular
+            this.isSearching = false;
+            return this.getPopularMovies();
+          }
+
+          // search
+          this.isSearching = true;
+          return this.performSearch(this.activatedRoute.snapshot.params.name);
+        }),
+        map(results => results.results)
+      );
   }
 
-  ngOnInit() {
-    if (this.router.url.slice(8)) {
-      this.urlSearch = this.router.url.slice(8);
-      this.performSearch(this.urlSearch);
-    } else {
-      this.movies$ = this.movieService.popular()
-        .pipe(map(response => response.results));
-    }
+  public submit(value: string): void {
+    this.router.navigateByUrl('/search/' + value);
   }
 
+  private getPopularMovies(): Observable<{ results: Movie[] }> {
+    return this.movieService.popular();
+  }
 
   /**
    * Called when a user enter a name of a movie
    * @param name a movie name
    */
-  private performSearch(name: string): void {
-    this.showData(name);
-  }
-
-  /**
-   * Called after the performSearch function is called
-   */
-  private showData(query: string): void {
-    // We fetch the data, using and url and a name enter by the user and change the movies list using this data
-    this.movies$ = this.getData(query)
-      .pipe(map(response => response.results));
-  }
-
-  private getData(query: string): Observable<{ results: Movie[] }> {
+  private performSearch(query: string): Observable<{ results: Movie[] }> {
     return this.movieService.search({ query });
   }
 }

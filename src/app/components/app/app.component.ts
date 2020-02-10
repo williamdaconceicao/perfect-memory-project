@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -26,4 +26,6 @@ export class AppComponent {
   public toggleNav(): void {
     this.showNav = !this.showNav;
   }
+
+
 }

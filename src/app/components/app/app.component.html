@@ -1,5 +1,7 @@
 <!-- Here's the nav par-->
+<div class="topbar"></div>
 <div class="nav">
+  <a routerLink="/search"><img class="logo" src="./../../../assets/imgs/logo_movie-02.png"></a>
   <button (click)="toggleNav()"><i class="fas fa-bars"></i></button>
   <nav [hidden]=showNav>
     <a class="navbutton" routerLink="/search"  routerLinkActive="active">
@@ -21,13 +23,5 @@
 <!-- <select #langSelect (change)="translate.use(langSelect.value)">
   <option *ngFor="let lang of translate.getLangs()" [value]="lang" [selected]="lang === translate.currentLang">{{ lang }}</option>
 </select> -->
-<div class="topbar">
-  <a routerLink="/search"><img class="logo" src="./../../../assets/imgs/logo_movie-02.png"></a>
-  <!-- Here's the search part, on submit it call a function called performSearch with the value entered by the user -->
-  <form class="search-box">
-    <input class="search-text" i18n-placeholder placeholder="Search" #name type="text" name="name" [ngModel]="urlSearch">
-    <button class="search-button" type="button" for='name' [routerLink]="['/search', name.value]"><i class="fas fa-search"></i></button>
-  </form>
-</div>
 
 <router-outlet></router-outlet>

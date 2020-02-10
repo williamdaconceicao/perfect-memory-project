@@ -7,6 +7,9 @@ import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { TheMovieDbService } from 'src/app/services/themovidedb/themovidedb.service';
 import { MockTheMovieDbService } from 'src/app/services/themovidedb/themoviedb.service.mock';
 import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
+import { ByGenrePipe } from 'src/app/pipes/bygenre/bygenre.pipe';
+import { ByYearPipe } from 'src/app/pipes/byyear/byyear.pipe';
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 
 describe('SeenlistComponent', () => {
   let component: SeenlistComponent;
@@ -22,9 +25,14 @@ describe('SeenlistComponent', () => {
         MovieComponent,
         MovieCardComponent,
         FormatTitlePipe,
+        ByGenrePipe,
+        ByYearPipe,
       ],
       providers: [
         { provide: TheMovieDbService, useClass: MockTheMovieDbService },
+      ],
+      schemas: [
+        NO_ERRORS_SCHEMA
       ],
     })
     .compileComponents();

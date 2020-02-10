@@ -1,6 +1,10 @@
-<br/>
+
 <!-- Here's the filtering part, with 2 filterer, one for the name and one for the year -->
 <div class="filterer">
+  <form class="search-box" (ngSubmit)="submit(name.value)">
+    <input class="search-text" autocomplete="off" i18n-placeholder placeholder="Search" #name type="text" name="name" [ngModel]="urlSearch">
+    <button class="search-button" type="button" for='name' [routerLink]="['/search', name.value]"><i class="fas fa-search"></i></button>
+  </form>
   <div class="searcher year">
     <input [(ngModel)]="searchYear"  class="filter" i18n-placeholder placeholder="Filter By Year">
   </div>
@@ -13,10 +17,13 @@
 </div>
 
 <!-- Here's the movie list part, and we use the value of the two filterer  -->
-<div class="container">
-  <h2>P<span class="o">o</span>pular M<span class="o">o</span>vies</h2>
+<div class="container" *ngIf="movies$ | async as movies">
+  <h2>
+    <ng-container *ngIf="!isSearching; else searching">P<span class="spantitle">o</span>pular M<span class="spantitle">o</span>vies</ng-container>
+    <ng-template #searching >Search<span class="spantitle"> > </span>M<span class="spantitle">o</span>vie Results</ng-template>
+  </h2>
   <div class="grid">
-    <div *ngFor="let movie of movies$ | async | bygenre: searchGenre | byyear: searchYear ; let i=index ">
+    <div *ngFor="let movie of movies | bygenre: searchGenre | byyear: searchYear ; let i=index ">
       <app-movie *ngIf="i < 45" [id]="movie.id"></app-movie>
     </div>
   </div>

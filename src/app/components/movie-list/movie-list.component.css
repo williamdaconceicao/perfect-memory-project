@@ -1,12 +1,44 @@
 /*
- Here's the filtering part, with a css native grid
+ Here's the search part
 */
+.search-box {
+  position: fixed;
+  border-radius: 8px;
+  border: 2px solid #C6C6C6;
+  margin-left: 55.5em;
+  width: 389px;
+  height: 38px;
+  background: none;
+}
+
+.search-button {
+  color: #9B9898;
+  float: left;
+  width: 40px;
+  height: 40px;
+  border: none;
+  background: none;
+}
+
+.search-text {
+  border: none;
+  background: none;
+  color: white;
+  line-height: 36px;
+  text-align: left;
+  font: Book 17px/23px Avenir;
+  letter-spacing: 0;
+  color: #9B9898;
+}
+
+
 .filterer{
   position: fixed;
-  z-index: 1 !important;
-	text-align: center;
+  z-index: 2 !important;
+  top: 3%;
 }
 .searcher{
+  text-align: center;
   background: none;
   border: 2px solid #C6C6C6;
   border-radius: 8px;
@@ -25,9 +57,7 @@
 }
 
 .category{
-  position: absolute;
-  top: -5%;
-  margin-left: 100em;
+  margin-left: 97em;
   overflow: hidden;
 }
 
@@ -46,8 +76,7 @@
 
 .year{
   position: absolute;
-  top: -5%;
-  margin-left: 83.5em;
+  margin-left: 81em;
 }
 
 /*
@@ -55,7 +84,7 @@
 */
 .container{
   position: relative;
-  margin-top: 5%;
+  margin-top: 6%;
 	width: 76%;
   margin-left: 20%;
   color: #ffffff;
@@ -64,11 +93,11 @@
   letter-spacing: 0.24px;
 }
 
-.o {
+.spantitle {
   color:#FFAD16;
 }
 
-.container>h2:after  {
+h2:after  {
   content:"";
   display: inline-block;
   height: 0.5em;
@@ -79,12 +108,12 @@
   border-top: 1px solid #9B9898;
 }
 
-.container>h2{
+h2{
   overflow: hidden;
 }
 
 .grid{
-	display: grid;
+  display: grid;
   grid-template-columns: repeat(auto-fit, minmax(171px, 1fr));
   grid-template-rows: auto;
 	grid-gap: 0 37px;
