@@ -1,0 +1,73 @@
+@import '../../Abstracts/abstracts.scss';
+
+.app__logo {
+  top: 0;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  margin: 27px 0px 0px 60px;
+  width: 269px;
+  height: 51px;
+}
+
+.app__topbar{
+  width: 100%;
+  height: 10%;
+  position: fixed;
+  top: 0;
+  z-index: $topbar-z-index !important;
+  opacity: 1;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
+
+@-moz-document url-prefix() {
+  .app__topbar {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+}
+
+
+/*
+  Here's the Nav part
+*/
+.app__leftbar {
+  z-index: 2 !important;
+  position: fixed;
+  top: 11%;
+  .app__nav{
+    margin-left: 60px;
+    .app__nav-button {
+      text-decoration: none;
+      color: white;
+      border-bottom: solid 1px $grey-color;
+      padding-bottom: 20px;
+      width: 100%;
+      &:first-child {
+        border-top: solid 1px $grey-color;
+        padding-top: 20px;
+      }
+      .app__nav-button-i:first-child {
+        margin: 20px 56px 20px 0px;
+      }
+      .app_nav-button-link {
+        padding: 20px 113px 20px 0px;
+        font: 15px $font-avenir-light;
+        letter-spacing: 0.09px;
+      }
+
+    }
+  }
+  .app__toogle-nav {
+    opacity: 0;
+  }
+}
+
+.app__nav-homelink {
+  margin-right: 18px !important;
+}
+
+.active {
+  color: $primary-color !important;
+  font: 16px $font-avenir-heavy !important;
+}

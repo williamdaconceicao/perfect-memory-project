@@ -1,17 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { CreditService } from 'src/app/services/credits/credits.service';
+import { CreditService } from '@app/services/credits/credits.service';
 import { Observable, of } from 'rxjs';
-import { Credits } from 'src/model/Credits.model';
+import { Credits } from '@model/Credits.model';
 import { map, shareReplay, switchMap } from 'rxjs/operators';
-import { Movie } from 'src/model/Movie.model';
-import { MovieService } from 'src/app/services/movie/movie.service';
-import { LocalStorageService } from 'src/app/services/localstorage/localstorage.service';
+import { Movie } from '@model/Movie.model';
+import { MovieService } from '@app/services/movie/movie.service';
+import { LocalStorageService } from '@app/services/localstorage/localstorage.service';
 
 
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
-  styleUrls: ['./movie-card.component.css']
+  styleUrls: ['./../../../assets/stylesheet/Component/movie-card/movie-card.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
   @Input()
@@ -42,10 +42,10 @@ export class MovieCardComponent implements OnInit {
     this.showData(this.movieId);
   }
 
-  public toggleChild(){
+  public toggleChild() {
     this.showMePartially = !this.showMePartially;
-
   }
+
   public addLocal(value: string): void {
     this.localStorageService.storeLocal(value, this.id);
     if (value === 'seen') {

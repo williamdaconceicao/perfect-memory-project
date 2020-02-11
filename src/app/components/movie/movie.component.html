@@ -1,8 +1,8 @@
 <!-- Here's the movie information part which is store in a variable called data -->
-<div class="card" *ngIf="data$ | async as movie" (click)="toggleChild()">
+<div class="card" *ngIf="data$ | async as movie">
   <div class="hovered">
     <div class="card-casts" >
-      <a i18n="Show the casting of a movie@@ShowCast" *ngIf="!showVar">See More</a>
+      <a i18n="Show the casting of a movie@@ShowCast" *ngIf="!showVar" (click)="toggleChild()">See More</a>
     </div>
     <div class="choose" *ngIf="!showVar">
       <a (click)="addLocal('seen')" [class.active]="isSeen">
@@ -19,10 +19,10 @@
       </a>
     </div>
   </div>
-	<div class="card-image" >
-    <img src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}" i18n-alt [alt]="movie.original_title">
+	<div class="card-image" (click)="toggleChild()">
+    <img src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}" i18n-alt [alt]="movie.original_title" [class.enlightment]="showVar">
 	</div>
-	<div class="card-text">
+	<div class="card-text" (click)="toggleChild()">
     <h2>{{ movie.title | formatTitle }}</h2>
 		<p>{{ movie.release_date | date:'longDate'  }}</p>
   </div>

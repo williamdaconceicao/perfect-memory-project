@@ -14,8 +14,8 @@
 .search-button {
   color: #9B9898;
   float: left;
-  width: 40px;
-  height: 40px;
+  width: 10%;
+  height: 100%;
   border: none;
   background: none;
 }
@@ -24,10 +24,12 @@
   border: none;
   background: none;
   color: white;
-  line-height: 36px;
+  line-height: 23px;
   text-align: left;
-  font: Book 17px/23px Avenir;
+  font: 17px "Avenir Book";
   letter-spacing: 0;
+  width: 89%;
+  height: 100%;
   color: #9B9898;
 }
 
@@ -45,14 +47,20 @@
   height: 38px;
   width: 239px;
 }
+.searcher input{
+  width: 95%;
+  height: 100%;
+  margin-left: 5%;
+}
+
 .filter{
   border:none;
 	background: none;
 	outline: none;
   color: #9B9898;
-  line-height: 36px;
+  line-height: 23px;
   text-align: left;
-  font: Book 17px/23px Avenir;
+  font: 17px "Avenir Book";
   letter-spacing: 0;
 }
 
@@ -62,14 +70,15 @@
 }
 
 .category select{
-  width: 100%;
+  width: 90%;
+  height: 100%;
 }
 
 .select{
   -webkit-appearance: none;
   -moz-appearance: none;
-  appearance: none;       /* Remove default arrow */
-  background: url('./../../../assets/imgs/down-arrow.png') no-repeat 96%;
+  appearance: none;
+  background: url('../../../imgs/down-arrow.png') no-repeat 96%;
   background-size: 1em;
   -webkit-appearance: none;
 }
@@ -77,44 +86,4 @@
 .year{
   position: absolute;
   margin-left: 81em;
-}
-
-/*
- Here's the movie list part, with also css native grid
-*/
-.container{
-  position: relative;
-  margin-top: 6%;
-	width: 76%;
-  margin-left: 20%;
-  color: #ffffff;
-  text-align: left;
-  font: Roman 24px/61px Avenir;
-  letter-spacing: 0.24px;
-}
-
-.spantitle {
-  color:#FFAD16;
-}
-
-h2:after  {
-  content:"";
-  display: inline-block;
-  height: 0.5em;
-  vertical-align: bottom;
-  width: 100%;
-  margin-right: -100%;
-  margin-left: 10px;
-  border-top: 1px solid #9B9898;
-}
-
-h2{
-  overflow: hidden;
-}
-
-.grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(171px, 1fr));
-  grid-template-rows: auto;
-	grid-gap: 0 37px;
 }

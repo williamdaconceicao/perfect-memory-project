@@ -8,6 +8,8 @@ import { DebugElement } from '@angular/core';
 import { of } from 'rxjs';
 import { CreditService } from 'src/app/services/credits/credits.service';
 import { MockCreditService } from 'src/app/services/credits/credit.service.mock';
+import { FormatTimePipe } from 'src/app/pipes/formatTime/formatTime.pipe';
+import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
 
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
@@ -18,7 +20,11 @@ describe('MovieCardComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [HttpClientTestingModule],
-      declarations: [ MovieCardComponent ],
+      declarations: [
+        MovieCardComponent,
+        FormatTimePipe,
+        FormatTitlePipe,
+      ],
       providers: [
         { provide: TheMovieDbService, useClass: MockTheMovieDbService },
         { provide: CreditService, useClass: MockCreditService },
@@ -114,4 +120,44 @@ describe('MovieCardComponent', () => {
       });
     });
   });
+
+  describe('#toogleChild', () => {
+    it('should change the value of showMePartially to his oposite', () => {
+      component.toggleChild();
+      expect(component.showMePartially).toEqual(true);
+    });
+  });
+
+  describe('#addLocal', () => {
+    beforeEach(() => {
+      component.isSeen = false;
+      component.isWished = false;
+    });
+
+    it('should set isSeen to true when value is seen', () => {
+      component.addLocal('seen');
+      expect(component.isSeen).toBe(true);
+      expect(component.isWished).toBe(false);
+    });
+
+    it('should set isWished to true when value is wish', () => {
+      component.addLocal('wish');
+      expect(component.isWished).toBe(true);
+      expect(component.isSeen).toBe(false);
+    });
+
+    it('should change none of isWished and isSeen when value is not wish or seen', () => {
+      component.addLocal('');
+      expect(component.isWished).toBe(false);
+      expect(component.isSeen).toBe(false);
+    });
+
+    it('should work even if the local storage is empty', () => {
+      localStorage.clear();
+      component.addLocal('');
+      expect(component.isWished).toBe(false);
+      expect(component.isSeen).toBe(false);
+    });
+  });
+
 });

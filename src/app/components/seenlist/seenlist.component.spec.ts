@@ -10,6 +10,7 @@ import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
 import { ByGenrePipe } from 'src/app/pipes/bygenre/bygenre.pipe';
 import { ByYearPipe } from 'src/app/pipes/byyear/byyear.pipe';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
+import { FormatTimePipe } from 'src/app/pipes/formatTime/formatTime.pipe';
 
 describe('SeenlistComponent', () => {
   let component: SeenlistComponent;
@@ -25,6 +26,7 @@ describe('SeenlistComponent', () => {
         MovieComponent,
         MovieCardComponent,
         FormatTitlePipe,
+        FormatTimePipe,
         ByGenrePipe,
         ByYearPipe,
       ],

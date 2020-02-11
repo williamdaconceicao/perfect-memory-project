@@ -9,6 +9,31 @@ body {
 
 
 @font-face {
-  font-family: "Avenir";
-  src: url("/app/assets/fonts/") format("otf");
- }
+  font-family: "Avenir Black";
+  src: url("/assets/fonts/Avenir\ Black.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Avenir Book";
+  src: url("/assets/fonts/Avenir\ Book.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Avenir Heavy";
+  src: url("/assets/fonts/Avenir\ Heavy.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Avenir Light";
+  src: url("/assets/fonts/Avenir\ Light.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Avenir Medium";
+  src: url("/assets/fonts/Avenir\ Medium.otf") format("opentype");
+}
+
+@font-face {
+  font-family: "Avenir Roman";
+  src: url("/assets/fonts/Avenir\ Roman.otf") format("opentype");
+}

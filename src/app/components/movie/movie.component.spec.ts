@@ -9,6 +9,7 @@ import { of } from 'rxjs';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { MockMovieService } from 'src/app/services/movie/movie.service.mock';
 import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
+import { FormatTimePipe } from 'src/app/pipes/formatTime/formatTime.pipe';
 
 describe('MovieComponent', () => {
   let component: MovieComponent;
@@ -22,6 +23,7 @@ describe('MovieComponent', () => {
         MovieComponent,
         MovieCardComponent,
         FormatTitlePipe,
+        FormatTimePipe,
       ],
       providers: [
         { provide: TheMovieDbService, useClass: MockTheMovieDbService },

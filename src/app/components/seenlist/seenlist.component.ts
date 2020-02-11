@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Genre } from 'src/model/Movie.model';
+import { Genre } from '@model/Movie.model';
 
 @Component({
   selector: 'app-seenlist',
   templateUrl: './seenlist.component.html',
-  styleUrls: ['./seenlist.component.css']
+  styleUrls: ['./../../../assets/stylesheet/Component/seenlist/seenlist.component.scss'],
 })
 export class SeenlistComponent implements OnInit {
   public movies: string[] = [];
@@ -37,9 +37,13 @@ export class SeenlistComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    const movieLocal = JSON.parse(localStorage.getItem('movie'));
+    try {
+      const movieLocal = JSON.parse(localStorage.getItem('movie'));
+      this.movies = Object.keys(movieLocal)
+        .filter(key => movieLocal[key] === 'seen');
+    } catch {
+      this.movies = [];
+    }
 
-    this.movies = Object.keys(movieLocal)
-      .filter(key => movieLocal[key] === 'seen');
   }
 }

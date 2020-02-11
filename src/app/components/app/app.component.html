@@ -1,22 +1,22 @@
 <!-- Here's the nav par-->
-<div class="topbar"></div>
-<div class="nav">
-  <a routerLink="/search"><img class="logo" src="./../../../assets/imgs/logo_movie-02.png"></a>
-  <button (click)="toggleNav()"><i class="fas fa-bars"></i></button>
-  <nav [hidden]=showNav>
-    <a class="navbutton" routerLink="/search"  routerLinkActive="active">
-      <i class="fas fa-home"></i>
-      <span class="homelink" i18n="Home Nav Button@@app.home-nav">Home</span>
-      <i class="fas fa-chevron-right"></i>
+<div class="app__topbar"></div>
+<div class="app__leftbar">
+  <a routerLink="/search"><img class="app__logo" src="./../../../assets/imgs/logo_movie-02.png"></a>
+  <button class="app__toogle-nav" (click)="toggleNav()"><i class="fas fa-bars"></i></button>
+  <nav [hidden]=showNav class="app__nav">
+    <a class="app__nav-button" routerLink="/search"  routerLinkActive="active">
+      <i class="app__nav-button-i fas fa-home"></i>
+      <span class="app_nav-button-link app__nav-homelink" i18n="Home Nav Button@@app.home-nav">Home</span>
+      <i class="app__nav-button-i fas fa-chevron-right"></i>
     </a><br/>
-    <a class="navbutton" routerLink="/seen"  routerLinkActive="active">
-      <i class="fas fa-check"></i>
-      <span i18n="SeenList Nav Button@@app.seen-nav">Seen List</span>
-      <i class="fas fa-chevron-right"></i></a><br/>
-    <a class="navbutton" routerLink="/wish" routerLinkActive="active">
-      <i class="fas fa-heart"></i>
-      <span i18n="WishList Nav Button@@app.wish-nav">Wish List</span>
-      <i class="fas fa-chevron-right"></i></a>
+    <a class="app__nav-button" routerLink="/seen"  routerLinkActive="active">
+      <i class="app__nav-button-i fas fa-check"></i>
+      <span class="app_nav-button-link" i18n="SeenList Nav Button@@app.seen-nav">Seen List</span>
+      <i class="app__nav-button-i fas fa-chevron-right"></i></a><br/>
+    <a class="app__nav-button" routerLink="/wish" routerLinkActive="active">
+      <i class="app__nav-button-i fas fa-heart"></i>
+      <span class="app_nav-button-link" i18n="WishList Nav Button@@app.wish-nav">Wish List</span>
+      <i class="app__nav-button-i fas fa-chevron-right"></i></a>
   </nav>
 </div>
 

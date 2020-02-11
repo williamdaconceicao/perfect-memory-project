@@ -6,7 +6,7 @@
     <p class="release">{{ movie.release_date | date:'longDate'}}</p>
     <h3 class="title">{{ movie.title | formatTitle }}</h3>
     <p class="director"><ng-container i18n="@@DirectedBy">Directed by</ng-container> {{ director$ | async }}</p>
-    <p class="runtime">{{ movie.runtime }}</p>
+    <p class="runtime">{{ movie.runtime | formatTime }}</p>
     <div class="choose">
       <a (click)="addLocal('seen')" [class.active]="isSeen">
         <i class="fas fa-check"></i>
@@ -21,19 +21,21 @@
         </span>
       </a>
     </div>
-    <div class="resume">
-      <h4>RESUME</h4>
-      <p>{{ movie.overview }}</p>
-    </div>
-  </div>
-  <div *ngIf="data$ | async as data">
-    <div class="casting">
-      <h4>CASTING</h4>
-      <ul>
-        <li *ngFor="let cast of data.cast | slice:0:10">
-          {{ cast.name }} <ng-container i18n="@@CastAsCharacter">as</ng-container>  {{ cast.character }}
-        </li>
-      </ul>
+    <div class="scroll">
+      <div class="resume">
+        <h4>RESUME</h4>
+        <p>{{ movie.overview }}</p>
+      </div>
+      <div *ngIf="data$ | async as data">
+        <div class="casting">
+          <h4>CASTING</h4>
+          <ul>
+            <li *ngFor="let cast of data.cast | slice:0:10">
+              {{ cast.name }}
+            </li>
+          </ul>
+        </div>
+      </div>
     </div>
   </div>
 </div>

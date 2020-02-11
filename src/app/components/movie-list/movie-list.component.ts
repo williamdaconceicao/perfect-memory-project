@@ -1,15 +1,15 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Observable } from 'rxjs';
-import { MovieService } from 'src/app/services/movie/movie.service';
-import { Movie, Genre } from 'src/model/Movie.model';
-import { map, filter, switchMap } from 'rxjs/operators';
-import { Router, NavigationStart, ActivatedRoute } from '@angular/router';
+import { MovieService } from '@app/services/movie/movie.service';
+import { Movie, Genre } from '@model/Movie.model';
+import { map, switchMap } from 'rxjs/operators';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
-  styleUrls: ['./movie-list.component.css'],
+  styleUrls: ['./../../../assets/stylesheet/Component/movie-list/movie-list.component.scss'],
 })
 
 export class MovieListComponent implements OnInit {
@@ -19,9 +19,12 @@ export class MovieListComponent implements OnInit {
    * @internal
    */
   public movies$: Observable<Movie[]>;
+
   public isSearching = false;
   public searchYear: string;
+
   public searchGenre: Genre;
+
   public genresList: Genre[] = [
     {id: 28, name: 'Action'},
     {id: 12, name: 'Adventure'},
@@ -49,7 +52,6 @@ export class MovieListComponent implements OnInit {
 
   constructor(
     private movieService: MovieService,
-    private router: Router,
     private activatedRoute: ActivatedRoute
   ) {}
 
@@ -62,17 +64,22 @@ export class MovieListComponent implements OnInit {
             this.isSearching = false;
             return this.getPopularMovies();
           }
-
           // search
           this.isSearching = true;
+          this.urlSearch = this.activatedRoute.snapshot.params.name;
           return this.performSearch(this.activatedRoute.snapshot.params.name);
         }),
         map(results => results.results)
       );
   }
 
-  public submit(value: string): void {
-    this.router.navigateByUrl('/search/' + value);
+  public onVoted(
+    event: {
+      type: string,
+      genre: Genre,
+      year: string,
+    }) {
+    event.type === 'genre' ? this.searchGenre = event.genre : this.searchYear = event.year;
   }
 
   private getPopularMovies(): Observable<{ results: Movie[] }> {

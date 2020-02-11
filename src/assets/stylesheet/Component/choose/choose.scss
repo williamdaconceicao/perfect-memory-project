@@ -1,0 +1,30 @@
+.choose>a.active>i {
+  color: #FFAD16 !important;
+  border: solid 1px #FFAD16;
+}
+
+.choose>a.active>span {
+  color: #FFAD16 !important;
+}
+
+.choose>a>i {
+  border: solid 1px white;
+  border-radius: 50%;
+  padding: 7px 8px;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+
+.choose>a>span {
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  position: absolute;
+  margin-top: -5px;
+  margin-left: -9px;
+}
+
+.choose>a:last-child {
+  margin-left: 20px;
+}

@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Genre } from 'src/model/Movie.model';
+import { Genre } from '@model/Movie.model';
 
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
-  styleUrls: ['./wishlist.component.css']
+  styleUrls: ['./../../../assets/stylesheet/Component/wishlist/wishlist.component.scss'],
 })
 export class WishlistComponent implements OnInit {
   public movies: string[] = [];
@@ -37,11 +37,12 @@ export class WishlistComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    const movieLocal = JSON.parse(localStorage.getItem('movie'));
-    for (const props in movieLocal) {
-      if (movieLocal[props] === 'wish') {
-        this.movies.push(props);
-      }
+    try {
+      const movieLocal = JSON.parse(localStorage.getItem('movie'));
+      this.movies = Object.keys(movieLocal)
+      .filter(key => movieLocal[key] === 'wish');
+    } catch {
+      this.movies = [];
     }
   }
 }

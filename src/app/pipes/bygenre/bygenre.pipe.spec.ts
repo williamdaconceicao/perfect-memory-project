@@ -77,7 +77,7 @@ describe('ByGenrePipe', () => {
     });
 
     it('should return an empty array when items are empty', () => {
-      expect(pipe.transform([], {id: 1, name: 'Romance'})).toEqual([]);
+      expect(pipe.transform(null, {id: 1, name: 'Romance'})).toEqual([]);
     });
 
     it('should return the list when searchGenre is not defined', () => {

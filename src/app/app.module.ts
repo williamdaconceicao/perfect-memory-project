@@ -18,7 +18,8 @@ import { WishlistComponent } from './components/wishlist/wishlist.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
 import { SeenlistComponent } from './components/seenlist/seenlist.component';
 import { ErrorComponent } from './components/error/error.component';
-import { FormatSubtitlePipe } from './pipes/formatSubtitle/formatSubtitle.pipe';
+import { SearchComponent } from './components/search/search.component';
+import { FormatTimePipe } from './pipes/formatTime/formatTime.pipe';
 
 
 
@@ -35,11 +36,12 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ByGenrePipe,
     ByYearPipe,
     FormatTitlePipe,
-    FormatSubtitlePipe,
+    FormatTimePipe,
     WishlistComponent,
     MovieListComponent,
     SeenlistComponent,
     ErrorComponent,
+    SearchComponent,
   ],
   imports: [
     BrowserModule,

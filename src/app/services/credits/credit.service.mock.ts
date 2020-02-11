@@ -1,6 +1,6 @@
 import { Injectable, } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { Credits } from 'src/model/Credits.model';
+import { Credits } from '@model/Credits.model';
 
 @Injectable({
   providedIn: 'root',

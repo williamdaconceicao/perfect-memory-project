@@ -26,10 +26,5 @@ describe('FormatTitlePipe', () => {
       const result = pipe.transform('test');
       expect(result).toEqual('test');
     });
-
-    it('can format a string with length > 18', () => {
-      const result = pipe.transform('Hello World, My name is');
-      expect(result).toEqual('Hello World, My n...');
-    });
   });
 });
