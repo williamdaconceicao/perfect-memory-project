@@ -1,139 +1,147 @@
-@import "../choose/choose.scss";
+@import 'Abstracts/abstracts.scss';
+@import 'Component/choose/choose.scss';
 
-.movie-card__director {
-  position: absolute;
-  top: 45%;
-  left: 35%;
-  font: 16px "Avenir Book";
-  letter-spacing: 0.1px;
-  color: #D5D5D5;
-}
-.runtime{
-  position: absolute;
-  top: 52%;
-  left: 35%;
-  color: #99999F;
-  font: 14px "Avenir Book";
-  letter-spacing: 0.08px;
-}
-.arrow {
-  color: #707070;
-  width: 100%;
-  font-size: 3.4em;
-  padding-top: 18px;
-  padding-bottom: 5px;
-}
-.title{
-  position: absolute;
-  top: 30%;
-  left: 35%;
-  font: 36px "Avenir Black";
-  letter-spacing: 0.22px;
-  color: #FFFFFF;
-}
-.release{
-  position: absolute;
-  top: 28%;
-  left: 35%;
-  text-align: left;
-  font: 18px "Avenir Book";
-  letter-spacing: 0.11px;
-  color: #FFFFFF;
-}
-.show {
+.movie-card {
   text-align: center;
-  z-index: 2 !important;
+  z-index: $topbar-z-index;
   opacity: 1;
   backdrop-filter: blur(30px);
   -webkit-backdrop-filter: blur(50px);
   width: 100vw;
-  height: 500px;
+  height: 50vh;
   position: fixed;
   bottom: 0;
   left: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  .movie-card__arrow {
+    color: $dark-grey-color;
+    width: 100%;
+    font-size: 3.4em;
+    padding-top: 18px;
+    padding-bottom: 5px;
+  }
+  .grid{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-auto-rows: minmax(100px, 42vh);
+    .movie-card__fixed{
+      grid-column: 1;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      text-align: left;
+      .movie-card__img {
+        grid-column: 2;
+        grid-row: 1 / 7;
+        width: 80%;
+        height: 80%;
+        margin-top: 5%;
+        display: block;
+      }
+      .movie-card__text-container{
+        grid-column: 3;
+        display: block;
+        padding-top: 50px;
+        .movie-card__release{
+          text-align: left;
+          font: 18px $font-avenir-book;
+          letter-spacing: 0.11px;
+          color: $text-color;
+        }
+        .movie-card__title{
+          font: 36px $font-avenir-black;
+          word-wrap: break-word;
+          letter-spacing: 0.22px;
+          color: $text-color;
+          margin: 0;
+        }
+        .movie-card__director {
+          font: 16px $font-avenir-book;
+          letter-spacing: 0.1px;
+          color: $light-color;
+          margin: 0;
+        }
+        .movie-card__runtime{
+          color: $dark-color;
+          font: 14px $font-avenir-book;
+          letter-spacing: 0.08px;
+          margin: 0;
+        }
+        .choose{
+          padding-top: 20px;
+        }
+      }
+    }
+    .movie-card__scroll{
+      overflow: auto;
+      grid-column: 2;
+      display: block;
+      .movie-card__resume-title, .movie-card__casting-title {
+        position: relative;
+        font: 14px $font-avenir-medium;
+        letter-spacing: 0.08px;
+        margin: 0;
+        color: $primary-color;
+        opacity: 1;
+        padding-bottom: 10px;
+      }
+      .movie-card__resume-title::after, .movie-card__casting-title::after{
+        content:"";
+        display: inline-block;
+        height: 0.5em;
+        vertical-align: middle;
+        width: 85%;
+        margin-left: 10px;
+        opacity: 0.36;
+        height: 0%;
+        border-top: 1px solid $black-color;
+        border-bottom: 1px solid $text-color;
+      }
+
+      .movie-card__resume{
+        width: 58%;
+        text-align: left;
+        position: relative;
+        top: 2%;
+        margin: 0;
+
+        .movie-card__resume-content{
+          position: relative;
+          left: 1%;
+          margin: 0 0 40px 0;
+          word-wrap: break-word;
+          font: 15px $font-avenir-book;
+          letter-spacing: 0.09px;
+          color: $text-color;
+          line-height: 32px;
+          width: 100%;
+        }
+      }
+
+      .movie-card__casting{
+        width: 58%;
+        .movie-card__casting-content {
+          margin: 0;
+          position: relative;
+        }
+        .movie-card__casting-content-items {
+          text-align: left;
+          font: 15px $font-avenir-book;
+          letter-spacing: 0.09px;
+          color: $text-color;
+          line-height: 32px;
+        }
+
+      }
+
+    }
+  }
 }
 
-
 @-moz-document url-prefix() {
-  .show {
+  .movie-card {
     background-color: rgba(0, 0, 0, 0.8) !important;
   }
 }
 
-img {
-  width: 252px;
-  height: 377px;
-  position: fixed;
-  bottom: 36px;
-  left: 330px;
-}
 
-h4 {
-  position: relative;
-  font: 14px "Avenir Medium";
-  letter-spacing: 0.08px;
-  margin: 0;
-  color: #FFAD16;
-  opacity: 1;
-  padding-bottom: 10px;
-}
-h4::after{
-  content:"";
-  display: inline-block;
-  height: 0.5em;
-  vertical-align: middle;
-  width: 90%;
-  margin-right: -100%;
-  margin-left: 10px;
-  opacity: 0.36;
-  height: 0%;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #FFF;;
-}
-
-.resume{
-  text-align: left;
-  position: relative;
-  top: 2%;
-  margin: 0;
-  left: 55%;
-  width: 28%;
-}
-
-.resume p{
-  position: relative;
-  left: 1%;
-  margin: 0 0 40px 0;
-  word-wrap: break-word;
-  font: 15px "Avenir Book";
-  letter-spacing: 0.09px;
-  color: #FFFFFF;
-  line-height: 32px;
-  width: 100%;
-}
-
-.casting h4{
-  left: 41%;
-  width: 28%;
-}
-
-ul {
-  margin: 0;
-  position: relative;
-  left: 55%;
-}
-
-li {
-  text-align: left;
-  font: 15px "Avenir Book";
-  letter-spacing: 0.09px;
-  color: #FFFFFF;
-  line-height: 32px;
-}
-
-.choose{
-  position: absolute;
-  top: 65%;
-  left: 35%;
-}
+@import "./movie-card.component.media.scss";

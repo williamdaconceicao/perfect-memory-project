@@ -1,39 +1,51 @@
+@import 'Abstracts/abstracts.scss';
+
 /*
  Here's the movie list part, with also css native grid
 */
-.container{
+.movie-list{
   position: relative;
-  margin-top: 6%;
-	width: 76%;
-  margin-left: 20%;
-  color: #ffffff;
+  margin-top: 11vh;
+	width: 77vw;
+  margin-left: 19vw;
+  color: $text-color;
+
+  .movie-list__title{
+    overflow: hidden;
+    font: 24px $font-avenir-roman;
+    letter-spacing: 0.24px;
+    .movie-list__spantitle {
+      color: $primary-color;
+      .movie-list__easter-egg {
+        text-decoration: none;
+        color: $primary-color;
+      }
+    }
+  }
+
+  .movie-list__title:after  {
+    content:"";
+    display: inline-block;
+    height: 0.5em;
+    vertical-align: middle;
+    width: 100%;
+    margin-right: -100%;
+    margin-left: 10px;
+    opacity: 0.36;
+    height: 0%;
+    border-top: 1px solid $black-color;
+    border-bottom: 1px solid $text-color;
+  }
+
+  .movie-list__grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(171px, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 0 37px;
+  }
 }
 
-.spantitle {
-  color:#FFAD16;
-}
 
-h2:after  {
-  content:"";
-  display: inline-block;
-  height: 0.5em;
-  vertical-align: middle;
-  width: 100%;
-  margin-right: -100%;
-  margin-left: 10px;
-  opacity: 0.36;
-  height: 0%;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #FFF;;
-}
 
-h2{
-  overflow: hidden;
-}
 
-.grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(171px, 1fr));
-  grid-template-rows: auto;
-	grid-gap: 0 37px;
-}
+

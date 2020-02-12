@@ -1,8 +1,10 @@
 <app-search [urlSearch]="urlSearch" #search></app-search>
 
-<div class="container">
-  <h2>S<span class="spantitle">e</span>en Li<span class="spantitle">s</span>t</h2>
-  <div class="grid">
+<div class="seenlist">
+  <h2 class="seenlist__title">
+    S<span class="seenlist__spantitle">e</span>en Li<span class="seenlist__spantitle">s</span>t
+  </h2>
+  <div class="seenlist__grid">
     <div *ngFor="let id of movies | bygenre: search.searchGenre | byyear: search.searchYear ;">
       <app-movie [id]="id"></app-movie>
     </div>

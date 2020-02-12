@@ -1,36 +1,44 @@
 <!-- Here's the movie-card component displayed with a boolean called "showMePartially" and filled with a variable called data -->
-<div class="show" *ngIf="showMePartially">
-  <i class="arrow fas fa-angle-down" (click)="toggleChild()"></i>
-  <div *ngIf="movie$ | async as movie">
-    <img src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}" i18n-alt [alt]="movie.original_title">
-    <p class="release">{{ movie.release_date | date:'longDate'}}</p>
-    <h3 class="title">{{ movie.title | formatTitle }}</h3>
-    <p class="director"><ng-container i18n="@@DirectedBy">Directed by</ng-container> {{ director$ | async }}</p>
-    <p class="runtime">{{ movie.runtime | formatTime }}</p>
-    <div class="choose">
-      <a (click)="addLocal('seen')" [class.active]="isSeen">
-        <i class="fas fa-check"></i>
-        <span>
-          <i class="fas fa-plus-circle"></i>
-        </span>
-      </a>
-      <a (click)="addLocal('wish')" [class.active]="isWished">
-        <i class="fas fa-heart"></i>
-        <span>
-          <i class="fas fa-plus-circle"></i>
-        </span>
-      </a>
+<div class="movie-card" *ngIf="showMePartially">
+  <i class="movie-card__arrow fas fa-angle-down" (click)="toggleChild()"></i>
+  <div class="grid" *ngIf="movie$ | async as movie">
+    <div class="movie-card__fixed">
+      <img
+        class="movie-card__img"
+        src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}"
+        i18n-alt [alt]="movie.original_title"
+      />
+      <div class="movie-card__text-container">
+        <p class="movie-card__release">{{ movie.release_date | date:'longDate'}}</p>
+        <h3 class="movie-card__title">{{ movie.title | formatTitle }}</h3>
+        <p class="movie-card__director"><ng-container i18n="@@DirectedBy">Directed by</ng-container> {{ director$ | async }}</p>
+        <p class="movie-card__runtime">{{ movie.runtime | formatTime }}</p>
+        <div class="choose">
+          <a (click)="addLocal('seen')" [class.active]="isSeen">
+            <i class="choose__icon fas fa-check"></i>
+            <span class="choose__icon-plus">
+              <i class="fas fa-plus-circle"></i>
+            </span>
+          </a>
+          <a class="choose__spacing" (click)="addLocal('wish')" [class.active]="isWished">
+            <i class="choose__icon fas fa-heart"></i>
+            <span class="choose__icon-plus">
+              <i class="fas fa-plus-circle"></i>
+            </span>
+          </a>
+        </div>
+      </div>
     </div>
-    <div class="scroll">
-      <div class="resume">
-        <h4>RESUME</h4>
-        <p>{{ movie.overview }}</p>
+    <div class="movie-card__scroll">
+      <div class="movie-card__resume">
+        <h4 class="movie-card__resume-title">RESUME</h4>
+        <p class="movie-card__resume-content">{{ movie.overview }}</p>
       </div>
       <div *ngIf="data$ | async as data">
-        <div class="casting">
-          <h4>CASTING</h4>
-          <ul>
-            <li *ngFor="let cast of data.cast | slice:0:10">
+        <div class="movie-card__casting">
+          <h4 class="movie-card__casting-title">CASTING</h4>
+          <ul class="movie-card__casting-content">
+            <li class="movie-card__casting-content-items" *ngFor="let cast of data.cast | slice:0:10">
               {{ cast.name }}
             </li>
           </ul>

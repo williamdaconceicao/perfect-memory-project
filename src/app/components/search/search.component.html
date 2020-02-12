@@ -1,16 +1,21 @@
 <!-- Here's the filtering part, with 2 filterer, one for the name and one for the year -->
-<div class="filterer">
-  <form class="search-box" (ngSubmit)="submit(name.value)">
-    <input class="search-text" i18n-placeholder autocomplete="off" placeholder="Search" #name type="text" name="name" [ngModel]="this.urlSearch">
-    <button class="search-button" type="button" for='name' [routerLink]="['/search', name.value]"><i class="fas fa-search"></i></button>
+<div class="search">
+  <form class="search__searching" (ngSubmit)="submit(name.value)">
+    <input class="search__searching-text" i18n-placeholder autocomplete="off" placeholder="Search" #name type="text" name="name" [ngModel]="this.urlSearch">
+    <button class="search__searching-button" type="button" for='name' [routerLink]="['/search', name.value]"><i class="fas fa-search"></i></button>
   </form>
-  <div class="searcher year">
-    <input [(ngModel)]="searchYear"  class="filter" i18n-placeholder placeholder="Filter By Year">
-  </div>
-  <div class="searcher category">
-    <select class="filter select" #genreSelect [(ngModel)]="searchGenre">
-      <option [ngValue]="null" selected>All Genres</option>
-      <option *ngFor="let genre of genresList" [ngValue]="genre">{{ genre.name }}</option>
-    </select>
+  <div class="search__filterer">
+    <div class="filterer filterer__year">
+      <input [(ngModel)]="searchYear"  class="filterer__filter" i18n-placeholder placeholder="Filter By Year">
+    </div>
+    <div class="filterer filterer__category">
+      <div class="filterer__form">
+        <select class="filterer__filter filterer__form-select" #genreSelect [(ngModel)]="searchGenre">
+          <option [ngValue]="null" [selected]="true" [disabled]="true">Filter By Category</option>
+          <option [ngValue]="null">All Category</option>
+          <option *ngFor="let genre of genresList" [ngValue]="genre">{{ genre.name }}</option>
+        </select>
+      </div>
+    </div>
   </div>
 </div>

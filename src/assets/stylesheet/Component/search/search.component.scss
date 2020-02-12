@@ -1,89 +1,105 @@
+@import 'Abstracts/abstracts.scss';
 /*
  Here's the search part
 */
-.search-box {
+
+.search{
   position: fixed;
-  border-radius: 8px;
-  border: 2px solid #C6C6C6;
-  margin-left: 55.5em;
-  width: 389px;
-  height: 38px;
-  background: none;
+  z-index: $topbar-z-index !important;
+  top: 3vh;
+  left: 48vw;
+  .search__searching {
+    position: fixed;
+    border-radius: 8px;
+    border: 2px solid $grey-color;
+    width: 22vw;
+    height: 38px;
+    background: none;
+    .search__searching-button {
+      color: $grey-color;
+      float: left;
+      width: 10%;
+      height: 100%;
+      border: none;
+      background: none;
+    }
+
+    .search__searching-text {
+      border: none;
+      background: none;
+      line-height: 23px;
+      text-align: left;
+      font: 17px "Avenir Book";
+      letter-spacing: 0;
+      width: 89%;
+      height: 100%;
+      color: $grey-color;
+    }
+
+    .search__searching-text::placeholder{
+      color: $grey-color;
+    }
+  }
+  .search__filterer {
+    .filterer{
+      text-align: center;
+      background: none;
+      border: 2px solid #C6C6C6;
+      border-radius: 8px;
+      height: 38px;
+      .filterer__filter{
+        border:none;
+        background: none;
+        outline: none;
+        color: #C6C6C6;
+        line-height: 23px;
+        text-align: left;
+        font: 17px "Avenir Book";
+        letter-spacing: 0;
+        height: 100%;
+        width: 95%;
+        margin-left: 5%;
+      }
+
+      .filterer__filter::placeholder{
+        color: #C6C6C6;
+      }
+    }
+    .filterer__year{
+      position: fixed;
+      left: 71.5vw;
+      width: 11vw;
+    }
+
+    .filterer__category{
+      left: 84vw;
+      position: fixed;
+      overflow: hidden;
+      vertical-align: middle;
+      width: 12vw;
+      .filterer__form{
+        height: 100%;
+
+        .filterer__form-select{
+          -webkit-appearance: none;
+          -moz-appearance: none;
+          appearance: none;
+          background: url('../../../imgs/down-arrow.png') no-repeat 96%;
+          background-size: 1em;
+          -webkit-appearance: none;
+          width: 90%;
+          height: 100%;
+        }
+      }
+    }
+  }
 }
 
-.search-button {
-  color: #9B9898;
-  float: left;
-  width: 10%;
-  height: 100%;
-  border: none;
-  background: none;
-}
-
-.search-text {
-  border: none;
-  background: none;
-  color: white;
-  line-height: 23px;
-  text-align: left;
-  font: 17px "Avenir Book";
-  letter-spacing: 0;
-  width: 89%;
-  height: 100%;
-  color: #9B9898;
-}
 
 
-.filterer{
-  position: fixed;
-  z-index: 2 !important;
-  top: 3%;
-}
-.searcher{
-  text-align: center;
-  background: none;
-  border: 2px solid #C6C6C6;
-  border-radius: 8px;
-  height: 38px;
-  width: 239px;
-}
-.searcher input{
-  width: 95%;
-  height: 100%;
-  margin-left: 5%;
-}
 
-.filter{
-  border:none;
-	background: none;
-	outline: none;
-  color: #9B9898;
-  line-height: 23px;
-  text-align: left;
-  font: 17px "Avenir Book";
-  letter-spacing: 0;
-}
 
-.category{
-  margin-left: 97em;
-  overflow: hidden;
-}
 
-.category select{
-  width: 90%;
-  height: 100%;
-}
 
-.select{
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  background: url('../../../imgs/down-arrow.png') no-repeat 96%;
-  background-size: 1em;
-  -webkit-appearance: none;
-}
 
-.year{
-  position: absolute;
-  margin-left: 81em;
-}
+

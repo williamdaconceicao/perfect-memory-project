@@ -1,0 +1,62 @@
+@import 'Abstracts/abstracts.scss';
+
+@media (max-width: $breakpoint-tablet-landscape) {
+  .app__leftbar{
+    .app__logo{
+      left: 10vw;
+      width: 18vw;
+      height: 3.5vh;
+    }
+    .app__nav{
+      z-index: $topbar-z-index;
+      width: 100vw;
+      height: 100vh;
+      margin-left: 0;
+      position: fixed;
+      top: 10vh;
+      backdrop-filter: blur(30px);
+      background-color: rgba(0, 0, 0, 0.5);
+      .app__nav-button{
+        width: 28vw;
+        margin-left: 3vw;
+        &:first-child{
+          margin-top: 3vh;
+        }
+      }
+    }
+    .app__toogle-nav {
+      opacity: 1;
+    }
+  }
+}
+
+@media (max-width: $breakpoint-tablet) {
+  .app__leftbar{
+    .app__logo{
+      width: 22vw;
+    }
+    .app__nav{
+      top: 10vh;
+      .app__nav-button{
+        width: 40vw;
+        margin-left: 5vw;
+      }
+    }
+  }
+}
+
+
+@media (max-width: $breakpoint-mobile) {
+  .app__leftbar{
+    .app__logo{
+      width: 40vw;
+    }
+    .app__nav{
+      top: 10vh;
+      .app__nav-button{
+        width: 50vw;
+        margin-left: 6vw;
+      }
+    }
+  }
+}

@@ -1,39 +1,43 @@
+@import 'Abstracts/abstracts.scss';
+
 /*
  Here's the movie list part, with also css native grid
 */
-.container{
+.wishlist{
   position: relative;
-  margin-top: 6%;
+  margin-top: 11vh;
 	width: 76%;
   margin-left: 20%;
-  color: #ffffff;
+  color: $text-color;
+
+  .wishlist__title{
+    overflow: hidden;
+    font: 24px $font-avenir-roman;
+    letter-spacing: 0.24px;
+    .wishlist__spantitle {
+      color: $primary-color;
+    }
+  }
+  .wishlist__title:after  {
+    content:"";
+    display: inline-block;
+    height: 0.5em;
+    vertical-align: middle;
+    width: 100%;
+    margin-right: -100%;
+    margin-left: 10px;
+    opacity: 0.36;
+    height: 0%;
+    border-top: 1px solid $black-color;
+    border-bottom: 1px solid $text-color;
+  }
+
+  .wishlist__grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(171px, 1fr));
+    grid-template-rows: auto;
+    grid-gap: 0 37px;
+  }
 }
 
-.spantitle {
-  color:#FFAD16;
-}
 
-.container>h2:after  {
-  content:"";
-  display: inline-block;
-  height: 0.5em;
-  vertical-align: middle;
-  width: 100%;
-  margin-right: -100%;
-  margin-left: 10px;
-  opacity: 0.36;
-  height: 0%;
-  border-top: 1px solid #000;
-  border-bottom: 1px solid #FFF;;
-}
-
-.container>h2{
-  overflow: hidden;
-}
-
-.grid{
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(171px, 1fr));
-  grid-template-rows: auto;
-	grid-gap: 0 37px;
-}

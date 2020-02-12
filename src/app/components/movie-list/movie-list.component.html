@@ -1,12 +1,16 @@
 <app-search [urlSearch]="urlSearch" #search></app-search>
 
 <!-- Here's the movie list part, and we use the value of the two filterer  -->
-<div class="container" *ngIf="movies$ | async as movies">
-  <h2>
-    <ng-container *ngIf="!isSearching; else searching">P<span class="spantitle">o</span>pular M<span class="spantitle">o</span>vies</ng-container>
-    <ng-template #searching >Search<span class="spantitle"> > </span>M<span class="spantitle">o</span>vie Results</ng-template>
+<div class="movie-list" *ngIf="movies$ | async as movies">
+  <h2 class="movie-list__title">
+    <ng-container *ngIf="!isSearching; else searching">
+      P<span class="movie-list__spantitle">o</span>pular M<span class="movie-list__spantitle">o</span>vies
+    </ng-container>
+    <ng-template #searching >
+      Search  <span class="movie-list__spantitle"><a class="movie-list__easter-egg" href="../../../assets/imgs/eva.jpg">></a></span> M<span class="movie-list__spantitle">o</span>vie Results
+    </ng-template>
   </h2>
-  <div class="grid">
+  <div class="movie-list__grid">
     <div *ngFor="let movie of movies | bygenre: search.searchGenre | byyear: search.searchYear ; let i=index ">
       <app-movie *ngIf="i < 45" [id]="movie.id"></app-movie>
     </div>

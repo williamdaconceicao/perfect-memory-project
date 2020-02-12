@@ -1,70 +1,76 @@
- @import "../choose/choose.scss";
+ @import "Component/choose/choose.scss";
+ @import "Abstracts/abstracts.scss";
 
 /* Here's the card part*/
-.card {
+.movie {
   text-align: left;
   margin-bottom: 40px;
   width: 185px;
-}
 
-.card:hover .card-image {
-  opacity: 0.5;
-}
+  &:hover .movie__image {
+    transition: 0.2s;
+    opacity: 0.5;
+  }
 
-.card:hover .hovered {
-  display: block;
-  z-index: 1;
-}
+  &:hover .movie__hovered {
+    display: block;
+    z-index: $seemore-z-index;
+  }
 
-.card-image {
-  margin: 0;
-}
+  .movie__hovered {
+    position: relative;
+    top: 125px;
+    display: none;
+    margin-left: 45px;
+    height: 0;
+    .movie__hovered-casts {
+      margin-left: 15px;
+      font: 14px $font-avenir-medium;
+      color: $primary-color;
+    }
+    .choose {
+      margin-top: 80px;
+    }
+  }
 
-.card-image img{
-  height: 274px;
-  width: 100%;
-  box-shadow: 0px 3px 6px #0000004E;
-}
 
-.card-text p {
-  color: #FFF;
-  font: 15px "Avenir Roman";
-  letter-spacing: 0.09px;
-  margin: 0;
-}
 
-.card-text h2 {
-  text-align: left;
-  font: 18px "Avenir Heavy";
-  letter-spacing: 0.11px;
-  margin: 0;
-  width: 100%;
-  color: #FFAD16;
-  display: inline-block;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
+  .movie__image {
+    margin: 0;
 
-.hovered {
-  position: relative;
-  top: 125px;
-  display: none;
-  margin-left: 45px;
-  height: 0;
-}
+    .movie__image-content{
+      height: 274px;
+      width: 100%;
+      box-shadow: 0px 3px 6px #0000004E;
+    }
 
-.enlightenment{
-  box-shadow: 0px 0px 20px #FFAD16 !important;
-}
+    .movie__image-enlightment{
+      box-shadow: 0px 0px 30px $primary-color;
+      background-color: $text-color;
+      border: 1px solid transparent;
+      opacity: 1;
+    }
 
-.choose {
-  margin-top: 80px;
-}
+  }
 
-/* Here's the casting part */
-.card-casts {
-  margin-left: 15px;
-  font: 14px "Avenir Medium";
-  color: #FFAD16;
+  .movie__text{
+    .movie__text-title {
+      text-align: left;
+      font: 18px $font-avenir-heavy;
+      letter-spacing: 0.11px;
+      margin: 0;
+      width: 100%;
+      color: $primary-color;
+      display: inline-block;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+    .movie__text-date {
+      color: $text-color;
+      font: 15px $font-avenir-roman;
+      letter-spacing: 0.09px;
+      margin: 0;
+    }
+  }
 }

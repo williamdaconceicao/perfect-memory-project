@@ -1,9 +1,11 @@
 <app-search [urlSearch]="urlSearch" #search></app-search>
 
 <!-- Here's the movie list part, and we use the value of the two filterer  -->
-<div class="container">
-  <h2>W<span class="spantitle">i</span>sh Li<span class="spantitle">s</span>t</h2>
-  <div class="grid">
+<div class="wishlist">
+  <h2 class="wishlist__title">
+    W<span class="wishlist__spantitle">i</span>sh Li<span class="wishlist__spantitle">s</span>t
+  </h2>
+  <div class="wishlist__grid">
     <div *ngFor="let id of movies | bygenre: search.searchGenre | byyear: search.searchYear">
       <app-movie [id]="id"></app-movie>
     </div>

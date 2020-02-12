@@ -1,30 +1,40 @@
 <!-- Here's the movie information part which is store in a variable called data -->
-<div class="card" *ngIf="data$ | async as movie">
-  <div class="hovered">
-    <div class="card-casts" >
-      <a i18n="Show the casting of a movie@@ShowCast" *ngIf="!showVar" (click)="toggleChild()">See More</a>
+<div class="movie" *ngIf="data$ | async as movie">
+  <div class="movie__hovered">
+    <div class="movie__hovered-casts" >
+      <a
+        i18n="Show the casting of a movie@@ShowCast"
+        *ngIf="!showVar"
+        (click)="toggleChild()">
+          See More
+      </a>
     </div>
     <div class="choose" *ngIf="!showVar">
       <a (click)="addLocal('seen')" [class.active]="isSeen">
-        <i class="fas fa-check"></i>
-        <span>
+        <i class="choose__icon fas fa-check"></i>
+        <span class="choose__icon-plus">
           <i class="fas fa-plus-circle"></i>
         </span>
       </a>
-      <a (click)="addLocal('wish')" [class.active]="isWished">
-        <i class="fas fa-heart"></i>
-        <span>
+      <a class="choose__spacing" (click)="addLocal('wish')" [class.active]="isWished">
+        <i class="choose__icon fas fa-heart"></i>
+        <span class="choose__icon-plus">
           <i class="fas fa-plus-circle"></i>
         </span>
       </a>
     </div>
   </div>
-	<div class="card-image" (click)="toggleChild()">
-    <img src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}" i18n-alt [alt]="movie.original_title" [class.enlightment]="showVar">
+	<div class="movie__image" (click)="toggleChild()">
+    <img
+      src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}"
+      i18n-alt [alt]="movie.original_title"
+      [class.movie__image-enlightment]="showVar"
+      class="movie__image-content"
+    />
 	</div>
-	<div class="card-text" (click)="toggleChild()">
-    <h2>{{ movie.title | formatTitle }}</h2>
-		<p>{{ movie.release_date | date:'longDate'  }}</p>
+	<div class="movie__text" (click)="toggleChild()">
+    <h2 class="movie__text-title">{{ movie.title | formatTitle }}</h2>
+		<p class="movie__text-date">{{ movie.release_date | date:'longDate'  }}</p>
   </div>
 </div>
 <app-movie-card [id]="id" [showMePartially]="showVar"></app-movie-card>

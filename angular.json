@@ -24,8 +24,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
+            "stylePreprocessorOptions": {
+              "includePaths": [
+                "src/assets/stylesheet"
+              ]
+            },
             "scripts": []
           },
           "configurations": {
@@ -109,7 +114,7 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.scss"
             ],
             "scripts": []
           }
@@ -141,6 +146,6 @@
         }
       }
     }},
-  "defaultProject": "perfect-memory-project",
+  "defaultProject": "perfect-memory-project"
 }
 

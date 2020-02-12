@@ -1,21 +1,11 @@
-@import '../../Abstracts/abstracts.scss';
-
-.app__logo {
-  top: 0;
-  margin: 0;
-  padding: 0;
-  position: fixed;
-  margin: 27px 0px 0px 60px;
-  width: 269px;
-  height: 51px;
-}
+@import 'Abstracts/abstracts.scss';
 
 .app__topbar{
   width: 100%;
-  height: 10%;
+  height: 10vh;
   position: fixed;
   top: 0;
-  z-index: $topbar-z-index !important;
+  z-index: $topbar-z-index;
   opacity: 1;
   backdrop-filter: blur(50px);
   -webkit-backdrop-filter: blur(50px);
@@ -32,42 +22,67 @@
   Here's the Nav part
 */
 .app__leftbar {
-  z-index: 2 !important;
+  z-index: $topbar-z-index ;
   position: fixed;
-  top: 11%;
+  top: 11vh;
+  .app__logo {
+    top: 3vh;
+    left: 3vw;
+    margin: 0;
+    padding: 0;
+    position: fixed;
+    width: 15vw;
+    height: 5vh;
+  }
   .app__nav{
-    margin-left: 60px;
+    margin-left: 3vw;
+    width: 14vw;
     .app__nav-button {
       text-decoration: none;
-      color: white;
+      color: $text-color;
       border-bottom: solid 1px $grey-color;
-      padding-bottom: 20px;
+      padding-bottom: 2vh;
       width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr;
       &:first-child {
         border-top: solid 1px $grey-color;
-        padding-top: 20px;
+        padding-top: 2vh;
       }
       .app__nav-button-i:first-child {
-        margin: 20px 56px 20px 0px;
+        grid-column: 1;
       }
       .app_nav-button-link {
-        padding: 20px 113px 20px 0px;
         font: 15px $font-avenir-light;
         letter-spacing: 0.09px;
+        grid-column: 2;
       }
-
+      .app__nav-button-i:last-child{
+        grid-column: 3;
+        justify-self: end;
+      }
     }
   }
   .app__toogle-nav {
     opacity: 0;
+    background-color: transparent;
+    color: $text-color;
+    border: solid 1px $text-color;
+    border-radius: 10%;
+    position: fixed;
+    top: 3vh;
+    left: 3vw;
+    height: 3.8vh;
+    width: 4vw;
+    font-size: 3vw;
+    text-align: center;
   }
 }
 
-.app__nav-homelink {
-  margin-right: 18px !important;
-}
 
 .active {
   color: $primary-color !important;
   font: 16px $font-avenir-heavy !important;
 }
+
+@import './app.component.media.scss';
