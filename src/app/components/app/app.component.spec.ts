@@ -3,7 +3,7 @@ import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { TranslateServiceMock } from 'src/app/services/translate/translate.service.mock';
+import { TranslateServiceMock } from '@app/services/translate/translate.service.mock';
 
 describe('AppComponent', () => {
   let component: AppComponent;

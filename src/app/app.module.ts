@@ -14,9 +14,9 @@ import { ByGenrePipe } from './pipes/bygenre/bygenre.pipe';
 import { ByYearPipe } from './pipes/byyear/byyear.pipe';
 import { FormatTitlePipe } from './pipes/formatTitle/formatTitle.pipe';
 import { API_BASE_URL, API_KEY } from './services/tokens';
-import { WishlistComponent } from './components/wishlist/wishlist.component';
+import { WishlistComponent } from './wish-list/component/wishlist.component';
 import { MovieListComponent } from './components/movie-list/movie-list.component';
-import { SeenlistComponent } from './components/seenlist/seenlist.component';
+import { SeenlistComponent } from './seen-list/component/seenlist.component';
 import { ErrorComponent } from './components/error/error.component';
 import { SearchComponent } from './components/search/search.component';
 import { FormatTimePipe } from './pipes/formatTime/formatTime.pipe';
@@ -31,17 +31,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
 @NgModule({
   declarations: [
     AppComponent,
-    MovieComponent,
-    MovieCardComponent,
-    ByGenrePipe,
-    ByYearPipe,
-    FormatTitlePipe,
-    FormatTimePipe,
-    WishlistComponent,
-    MovieListComponent,
-    SeenlistComponent,
     ErrorComponent,
-    SearchComponent,
   ],
   imports: [
     BrowserModule,
