@@ -22,7 +22,7 @@
   Here's the Nav part
 */
 .app__leftbar {
-  z-index: $topbar-z-index ;
+  z-index: $menu-z-index ;
   position: fixed;
   top: 11vh;
   .app__logo {
@@ -31,7 +31,7 @@
     margin: 0;
     padding: 0;
     position: fixed;
-    width: 15vw;
+    width: 15%;
     height: 5vh;
   }
   .app__nav{
@@ -63,18 +63,47 @@
       }
     }
   }
+  .app__nav-laptop{
+    margin-left: 3vw;
+    width: 14vw;
+    .app__nav-laptop-button {
+      text-decoration: none;
+      color: $text-color;
+      border-bottom: solid 1px $grey-color;
+      padding-bottom: 2vh;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 3fr 1fr;
+      &:first-child {
+        border-top: solid 1px $grey-color;
+        padding-top: 2vh;
+      }
+      .app__nav-laptop-button-i:first-child {
+        grid-column: 1;
+      }
+      .app_nav-laptop-button-link {
+        font: 15px $font-avenir-light;
+        letter-spacing: 0.09px;
+        grid-column: 2;
+      }
+      .app__nav-laptop-button-i:last-child{
+        grid-column: 3;
+        justify-self: end;
+      }
+    }
+  }
   .app__toogle-nav {
     opacity: 0;
     background-color: transparent;
-    color: $text-color;
-    border: solid 1px $text-color;
-    border-radius: 10%;
+    color: $grey-color;
+    border: none;
     position: fixed;
     top: 3vh;
     left: 3vw;
-    height: 3.8vh;
-    width: 4vw;
-    font-size: 3vw;
+    height: 3vw;
+    width: 3vw;
+    padding: 0;
+    font-size: 2.8vw;
     text-align: center;
   }
 }

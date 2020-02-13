@@ -15,6 +15,10 @@ export class SearchComponent {
   @Input()
   public urlSearch: string;
 
+  public showYear = true;
+  public showCategory = true;
+  public showSearch = true;
+
   public genresList: Genre[] = [
     {id: 28, name: 'Action'},
     {id: 12, name: 'Adventure'},
@@ -41,5 +45,14 @@ export class SearchComponent {
 
   public submit(value: string): void {
     this.router.navigateByUrl('/search/' + value);
+  }
+
+  public toogleFilter(value: string) {
+    switch (value) {
+      case 'search': { this.showSearch = !this.showSearch; break; }
+      case 'year': { this.showYear = !this.showYear; break; }
+      case 'category': { this.showCategory = !this.showCategory; break; }
+      default: { return null; }
+    }
   }
 }

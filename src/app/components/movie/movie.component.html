@@ -4,12 +4,11 @@
     <div class="movie__hovered-casts" >
       <a
         i18n="Show the casting of a movie@@ShowCast"
-        *ngIf="!showVar"
         (click)="toggleChild()">
           See More
       </a>
     </div>
-    <div class="choose" *ngIf="!showVar">
+    <div class="choose">
       <a (click)="addLocal('seen')" [class.active]="isSeen">
         <i class="choose__icon fas fa-check"></i>
         <span class="choose__icon-plus">

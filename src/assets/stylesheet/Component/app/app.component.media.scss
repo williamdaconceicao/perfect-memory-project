@@ -24,8 +24,14 @@
         }
       }
     }
+    .app__nav-laptop{
+      display: none;
+    }
     .app__toogle-nav {
       opacity: 1;
+      height: 4vw;
+      width: 4vw;
+      font-size: 3.8vw;
     }
   }
 }
@@ -33,7 +39,7 @@
 @media (max-width: $breakpoint-tablet) {
   .app__leftbar{
     .app__logo{
-      width: 22vw;
+      width: 30vw;
     }
     .app__nav{
       top: 10vh;
@@ -49,7 +55,7 @@
 @media (max-width: $breakpoint-mobile) {
   .app__leftbar{
     .app__logo{
-      width: 40vw;
+      width: 35vw;
     }
     .app__nav{
       top: 10vh;
@@ -58,5 +64,18 @@
         margin-left: 6vw;
       }
     }
+    .app__toogle-nav {
+      opacity: 1;
+      top: 3vh;
+      left: 3vw;
+      height: 6vw;
+      width: 6vw;
+      padding: 0;
+      font-size: 4.8vw;
+    }
   }
+  .app_topbar{
+    height: 20vh;
+  }
+
 }

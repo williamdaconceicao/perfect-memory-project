@@ -8,6 +8,18 @@
   z-index: $topbar-z-index !important;
   top: 3vh;
   left: 48vw;
+  width: 50vw;
+  display: grid;
+  grid-template-columns: 1.7fr 0.2fr 0.9fr 1.1fr 0.2fr;
+  justify-items: end;
+  .search__searching-icon{
+    border: 2px solid $grey-color;
+    border-radius: 30%;
+    padding: 1.1vh;
+    font-size: 2vh;
+    color: $grey-color;
+    display: none;
+  }
   .search__searching {
     position: fixed;
     border-radius: 8px;
@@ -15,6 +27,8 @@
     width: 22vw;
     height: 38px;
     background: none;
+    grid-column: 1;
+    justify-content: right;
     .search__searching-button {
       color: $grey-color;
       float: left;
@@ -29,7 +43,7 @@
       background: none;
       line-height: 23px;
       text-align: left;
-      font: 17px "Avenir Book";
+      font: 17px $font-avenir-book;
       letter-spacing: 0;
       width: 89%;
       height: 100%;
@@ -40,21 +54,21 @@
       color: $grey-color;
     }
   }
-  .search__filterer {
+  .search__filter-year, .search__filter-category {
     .filterer{
       text-align: center;
       background: none;
-      border: 2px solid #C6C6C6;
+      border: 2px solid $grey-color;
       border-radius: 8px;
       height: 38px;
       .filterer__filter{
         border:none;
         background: none;
         outline: none;
-        color: #C6C6C6;
+        color: $grey-color;
         line-height: 23px;
         text-align: left;
-        font: 17px "Avenir Book";
+        font: 17px $font-avenir-book;
         letter-spacing: 0;
         height: 100%;
         width: 95%;
@@ -62,44 +76,58 @@
       }
 
       .filterer__filter::placeholder{
-        color: #C6C6C6;
+        color: $grey-color;
       }
     }
+    .search__filter-year-icon{
+      border: 2px solid $grey-color;
+      border-radius: 30%;
+      padding: 1.1vh;
+      font-size: 2.2vh;
+      color: $grey-color;
+      display: none;
+      width: 2vh;
+    }
     .filterer__year{
-      position: fixed;
-      left: 71.5vw;
       width: 11vw;
     }
-
-    .filterer__category{
-      left: 84vw;
-      position: fixed;
+    .search__filter-category-icon{
+      border: 2px solid $grey-color;
+      border-radius: 30%;
+      padding: 1.1vh 1.2vh 1.1vh 1vh;
+      font-size: 2vh;
+      color: $grey-color;
+      display: none;
+      width: 2vh;
+    }
+    .filter__category{
       overflow: hidden;
       vertical-align: middle;
       width: 12vw;
-      .filterer__form{
+      .filter__form-select{
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        background: url('../../../imgs/down-arrow.png') no-repeat 96%;
+        background-size: 1em;
+        -webkit-appearance: none;
+        width: 90%;
         height: 100%;
-
-        .filterer__form-select{
-          -webkit-appearance: none;
-          -moz-appearance: none;
-          appearance: none;
-          background: url('../../../imgs/down-arrow.png') no-repeat 96%;
-          background-size: 1em;
-          -webkit-appearance: none;
-          width: 90%;
-          height: 100%;
-        }
       }
     }
   }
+
+  .search__filter-year {
+    grid-column: 3;
+  }
+  .search__filter-category {
+    grid-column: 4;
+  }
+
+
+  #search, #year, #category {
+    display: none;
+  }
 }
 
-
-
-
-
-
-
-
-
+@import './search.component.media.scss';

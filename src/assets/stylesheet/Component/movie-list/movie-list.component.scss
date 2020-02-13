@@ -6,7 +6,7 @@
 .movie-list{
   position: relative;
   margin-top: 11vh;
-	width: 77vw;
+	width: 75vw;
   margin-left: 19vw;
   color: $text-color;
 
@@ -39,8 +39,9 @@
 
   .movie-list__grid{
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(171px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
     grid-template-rows: auto;
+    grid-auto-flow: row;
     grid-gap: 0 37px;
   }
 }

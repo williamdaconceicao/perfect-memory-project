@@ -15,6 +15,7 @@ export class MovieComponent implements OnInit {
   public showVar = false;
   public isSeen: boolean;
   public isWished: boolean;
+  public height: number;
   @Input()
   public id: string;
   /**

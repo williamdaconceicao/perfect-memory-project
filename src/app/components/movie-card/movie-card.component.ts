@@ -20,6 +20,8 @@ export class MovieCardComponent implements OnInit {
   public id: string;
   public isSeen: boolean;
   public isWished: boolean;
+  @Input()
+  public height: number;
 
   public data$: Observable<Credits>;
   public director$: Observable<string>;

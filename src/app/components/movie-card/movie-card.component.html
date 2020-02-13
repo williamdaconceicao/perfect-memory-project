@@ -1,6 +1,6 @@
 <!-- Here's the movie-card component displayed with a boolean called "showMePartially" and filled with a variable called data -->
-<div class="movie-card" *ngIf="showMePartially">
-  <i class="movie-card__arrow fas fa-angle-down" (click)="toggleChild()"></i>
+<div class="movie-card" *ngIf="showMePartially" [style.height.vh]="height">
+  <i class="movie-card__arrow fas fa-angle-down" (click)="toggleChild()"  ></i>
   <div class="grid" *ngIf="movie$ | async as movie">
     <div class="movie-card__fixed">
       <img

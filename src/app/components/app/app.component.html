@@ -3,7 +3,7 @@
 <div class="app__leftbar">
   <a routerLink="/search"><img class="app__logo" src="./../../../assets/imgs/logo_movie-02.png"></a>
   <button class="app__toogle-nav" (click)="toggleNav()"><i class="fas fa-bars"></i></button>
-  <nav [hidden]=showNav class="app__nav">
+  <nav [hidden]=!showNav class="app__nav">
     <a class="app__nav-button" routerLink="/search"  routerLinkActive="active">
       <i class="app__nav-button-i fas fa-home"></i>
       <span class="app_nav-button-link" i18n="Home Nav Button@@app.home-nav">Home</span>
@@ -17,6 +17,21 @@
       <i class="app__nav-button-i fas fa-heart"></i>
       <span class="app_nav-button-link" i18n="WishList Nav Button@@app.wish-nav">Wish List</span>
       <i class="app__nav-button-i fas fa-chevron-right"></i></a>
+  </nav>
+  <nav class="app__nav-laptop">
+    <a class="app__nav-laptop-button" routerLink="/search"  routerLinkActive="active">
+      <i class="app__nav-laptop-button-i fas fa-home"></i>
+      <span class="app_nav-laptop-button-link" i18n="Home Nav Button@@app.home-nav">Home</span>
+      <i class="app__nav-laptop-button-i fas fa-chevron-right"></i>
+    </a><br/>
+    <a class="app__nav-laptop-button" routerLink="/seen"  routerLinkActive="active">
+      <i class="app__nav-laptop-button-i fas fa-check"></i>
+      <span class="app_nav-laptop-button-link" i18n="SeenList Nav Button@@app.seen-nav">Seen List</span>
+      <i class="app__nav-laptop-button-i fas fa-chevron-right"></i></a><br/>
+    <a class="app__nav-laptop-button" routerLink="/wish" routerLinkActive="active">
+      <i class="app__nav-laptop-button-i fas fa-heart"></i>
+      <span class="app_nav-laptop-button-link" i18n="WishList Nav Button@@app.wish-nav">Wish List</span>
+      <i class="app__nav-laptop-button-i fas fa-chevron-right"></i></a>
   </nav>
 </div>
 
