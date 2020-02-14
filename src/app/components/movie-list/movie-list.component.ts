@@ -62,6 +62,7 @@ export class MovieListComponent implements OnInit {
           if (!params.name) {
             // popular
             this.isSearching = false;
+            this.urlSearch = '';
             return this.getPopularMovies();
           }
           // search
@@ -71,15 +72,6 @@ export class MovieListComponent implements OnInit {
         }),
         map(results => results.results)
       );
-  }
-
-  public onVoted(
-    event: {
-      type: string,
-      genre: Genre,
-      year: string,
-    }) {
-    event.type === 'genre' ? this.searchGenre = event.genre : this.searchYear = event.year;
   }
 
   private getPopularMovies(): Observable<{ results: Movie[] }> {

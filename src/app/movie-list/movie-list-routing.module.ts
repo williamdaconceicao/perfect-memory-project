@@ -5,7 +5,6 @@ import { MovieListComponent } from '@app/components/movie-list/movie-list.compon
 
 const routes: Routes = [
   { path: '', component: MovieListComponent },
-  { path: '/:name', component: MovieListComponent },
 ];
 
 @NgModule({

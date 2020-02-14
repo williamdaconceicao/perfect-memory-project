@@ -2,7 +2,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { WishListRoutingModule } from './wish-list-routing.module';
-import { WishlistComponent } from './component/wishlist.component';
+import { WishlistComponent } from '@app/components/wishlist/wishlist.component';
 import { PipesModule } from '@app/pipes/pipes.module';
 import { ComponentsModule } from '@app/components/components.module';
 import { FormsModule } from '@angular/forms';

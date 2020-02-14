@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
-import { WishlistComponent } from './wishlist.component';
-import { MovieComponent } from '../../components/movie/movie.component';
-import { MovieCardComponent } from '../../components/movie-card/movie-card.component';
-import { TheMovieDbService } from '@app/services/themovidedb/themovidedb.service';
-import { MockTheMovieDbService } from '@app/services/themovidedb/themoviedb.service.mock';
+
+import { SeenlistComponent } from './seenlist.component';
+import { MovieCardComponent } from '../movie-card/movie-card.component';
+import { MovieComponent } from '../movie/movie.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
+import { TheMovieDbService } from 'src/app/services/themovidedb/themovidedb.service';
+import { MockTheMovieDbService } from 'src/app/services/themovidedb/themoviedb.service.mock';
 import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
-import { ByGenrePipe } from '@app/components/movie-list/node_modules/src/app/pipes/bygenre/bygenre.pipe';
-import { ByYearPipe } from '@app/components/movie-list/node_modules/src/app/pipes/byyear/byyear.pipe';
+import { ByGenrePipe } from 'src/app/pipes/bygenre/bygenre.pipe';
+import { ByYearPipe } from 'src/app/pipes/byyear/byyear.pipe';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
 import { FormatTimePipe } from 'src/app/pipes/formatTime/formatTime.pipe';
 
-describe('WishlistComponent', () => {
-  let component: WishlistComponent;
-  let fixture: ComponentFixture<WishlistComponent>;
+describe('SeenlistComponent', () => {
+  let component: SeenlistComponent;
+  let fixture: ComponentFixture<SeenlistComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -22,7 +22,7 @@ describe('WishlistComponent', () => {
         HttpClientTestingModule,
       ],
       declarations: [
-        WishlistComponent,
+        SeenlistComponent,
         MovieComponent,
         MovieCardComponent,
         FormatTitlePipe,
@@ -41,7 +41,7 @@ describe('WishlistComponent', () => {
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(WishlistComponent);
+    fixture = TestBed.createComponent(SeenlistComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
     localStorage.clear();
@@ -62,10 +62,10 @@ describe('WishlistComponent', () => {
       component.movies = [];
     });
 
-    it('should fill movies with the wish movies', () => {
+    it('should fill movies with the seen movies', () => {
       localStorage.setItem('movie', '{"495764":"seen","530915":"wish"}');
       component.ngOnInit();
-      expect(component.movies).toEqual(['530915']);
+      expect(component.movies).toEqual(['495764']);
     });
 
     it('should be possible to have no movie returned', () => {
