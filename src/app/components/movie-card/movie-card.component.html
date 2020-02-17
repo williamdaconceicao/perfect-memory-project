@@ -13,7 +13,7 @@
         <h3 class="movie-card__title">{{ movie.title | formatTitle }}</h3>
         <p class="movie-card__director"><ng-container i18n="@@DirectedBy">Directed by</ng-container> {{ director$ | async }}</p>
         <p class="movie-card__runtime">{{ movie.runtime | formatTime }}</p>
-        <div class="choose">
+        <div class="choose choose--movie-card">
           <a (click)="addLocal('seen')" [class.active]="isSeen">
             <i class="choose__icon fas fa-check"></i>
             <span class="choose__icon-plus">

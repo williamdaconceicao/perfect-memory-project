@@ -1,0 +1,137 @@
+/*
+ Here's the search part
+*/
+
+.search{
+  position: fixed;
+  z-index: $z-index-topbar;
+  top: 3vh;
+  left: 48vw;
+  width: 50vw;
+  display: grid;
+  grid-template-columns: 1.7fr 0.2fr 0.9fr 1.1fr 0.2fr;
+  justify-items: end;
+}
+
+.search__searching-icon{
+  border: 2px solid $color-grey;
+  border-radius: 30%;
+  padding: 1.1vh;
+  font-size: 2vh;
+  color: $color-grey;
+  display: none;
+}
+
+.search__searching {
+  position: fixed;
+  border-radius: 8px;
+  border: 2px solid $color-grey;
+  width: 22vw;
+  height: 38px;
+  background: none;
+  grid-column: 1;
+  justify-content: right;
+}
+
+.search__searching-button {
+  color: $color-grey;
+  float: left;
+  width: 10%;
+  height: 100%;
+  border: none;
+  background: none;
+}
+
+.search__searching-text {
+  border: none;
+  background: none;
+  line-height: 23px;
+  text-align: left;
+  font: 17px $font-avenir-book;
+  letter-spacing: 0;
+  width: 89%;
+  height: 100%;
+  color: $color-grey;
+  &::placeholder{
+    color: $color-grey;
+  }
+}
+
+.search__filter-year, .search__filter-category {
+  .filterer{
+    text-align: center;
+    background: none;
+    border: 2px solid $color-grey;
+    border-radius: 8px;
+    height: 38px;
+  }
+
+  .filterer__filter{
+    border:none;
+    background: none;
+    outline: none;
+    color: $color-grey;
+    line-height: 23px;
+    text-align: left;
+    font: 17px $font-avenir-book;
+    letter-spacing: 0;
+    height: 100%;
+    width: 95%;
+    margin-left: 5%;
+    &::placeholder{
+      color: $color-grey;
+    }
+  }
+
+  .search__filter-year-icon{
+    border: 2px solid $color-grey;
+    border-radius: 30%;
+    padding: 1.1vh;
+    font-size: 2.2vh;
+    color: $color-grey;
+    display: none;
+    width: 2vh;
+  }
+
+  .filterer__year{
+    width: 11vw;
+  }
+
+  .search__filter-category-icon{
+    border: 2px solid $color-grey;
+    border-radius: 30%;
+    padding: 1.1vh 1.2vh 1.1vh 1vh;
+    font-size: 2vh;
+    color: $color-grey;
+    display: none;
+    width: 2vh;
+  }
+
+  .filter__category{
+    overflow: hidden;
+    vertical-align: middle;
+    width: 12vw;
+  }
+
+  .filter__form-select{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background: url('assets/imgs/down-arrow.png') no-repeat 96%;
+    background-size: 1em;
+    -webkit-appearance: none;
+    width: 90%;
+    height: 100%;
+  }
+}
+
+.search__filter-year {
+  grid-column: 3;
+}
+.search__filter-category {
+  grid-column: 4;
+}
+
+#search, #year, #category {
+  display: none;
+}

@@ -5,11 +5,9 @@ import { Movie, Genre } from '@model/Movie.model';
 import { map, switchMap } from 'rxjs/operators';
 import { ActivatedRoute } from '@angular/router';
 
-
 @Component({
   selector: 'app-movie-list',
   templateUrl: './movie-list.component.html',
-  styleUrls: ['./../../../assets/stylesheet/Component/movie-list/movie-list.component.scss'],
 })
 
 export class MovieListComponent implements OnInit {

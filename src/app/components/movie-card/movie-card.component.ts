@@ -7,11 +7,9 @@ import { Movie } from '@model/Movie.model';
 import { MovieService } from '@app/services/movie/movie.service';
 import { LocalStorageService } from '@app/services/localstorage/localstorage.service';
 
-
 @Component({
   selector: 'app-movie-card',
   templateUrl: './movie-card.component.html',
-  styleUrls: ['./../../../assets/stylesheet/Component/movie-card/movie-card.component.scss'],
 })
 export class MovieCardComponent implements OnInit {
   @Input()

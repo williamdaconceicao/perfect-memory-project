@@ -5,7 +5,6 @@ import { MovieService } from '@app/services/movie/movie.service';
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
-  styleUrls: ['./../../../assets/stylesheet/Component/wishlist/wishlist.component.scss'],
 })
 export class WishlistComponent implements OnInit {
   public movies: string[] = [];

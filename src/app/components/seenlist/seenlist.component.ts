@@ -5,7 +5,6 @@ import { MovieService } from '@app/services/movie/movie.service';
 @Component({
   selector: 'app-seenlist',
   templateUrl: './seenlist.component.html',
-  styleUrls: ['./../../../assets/stylesheet/Component/seenlist/seenlist.component.scss'],
 })
 export class SeenlistComponent implements OnInit {
   public movies: string[] = [];

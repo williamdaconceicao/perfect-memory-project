@@ -8,7 +8,6 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-
 }
 
 @font-face {
@@ -40,3 +39,5 @@ body {
   font-family: "Avenir Roman";
   src: url("/assets/fonts/Avenir\ Roman.otf") format("opentype");
 }
+
+@import './assets/stylesheet/index';

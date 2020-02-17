@@ -4,11 +4,9 @@ import { MovieService } from '@app/services/movie/movie.service';
 import { Movie } from '@model/Movie.model';
 import { LocalStorageService } from '@app/services/localstorage/localstorage.service';
 
-
 @Component({
   selector: 'app-movie',
   templateUrl: './movie.component.html',
-  styleUrls: ['./../../../assets/stylesheet/Component/movie/movie.component.scss'],
 })
 export class MovieComponent implements OnInit {
   // this variable is use to show the movie-card component of a movie

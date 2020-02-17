@@ -1,36 +1,30 @@
-@import '../../Abstracts/abstracts.scss';
-
-.choose{
-  .choose__spacing{
-    margin-left: 20px;
-  }
-
-  .choose__icon {
-    border: solid 1px $text-color;
-    border-radius: 50%;
-    padding: 7px 8px;
-    color: $text-color;
-    text-align: center;
-    text-decoration: none;
-  }
-
-  .active .choose__icon {
-    color: $primary-color;
-    border: solid 1px $primary-color;
-  }
-
-  .choose__icon-plus {
-    font-size: 12px;
-    text-align: center;
-    text-decoration: none;
-    position: absolute;
-    margin-top: -5px;
-    margin-left: -9px;
-  }
-
-  .active .choose__icon-plus {
-    color: $primary-color;
-  }
+.choose__spacing{
+  margin-left: 20px;
 }
 
+.choose__icon {
+  border: solid 1px $color-text;
+  border-radius: 50%;
+  padding: 7px 8px;
+  color: $color-text;
+  text-align: center;
+  text-decoration: none;
+}
 
+.active .choose__icon {
+  color: $color-primary;
+  border: solid 1px $color-primary;
+}
+
+.choose__icon-plus {
+  font-size: 12px;
+  text-align: center;
+  text-decoration: none;
+  position: absolute;
+  margin-top: -5px;
+  margin-left: -9px;
+}
+
+.active .choose__icon-plus {
+  color: $color-primary;
+}

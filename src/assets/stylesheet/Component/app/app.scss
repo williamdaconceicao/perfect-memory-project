@@ -1,0 +1,138 @@
+.app__topbar{
+  width: 100%;
+  height: 10vh;
+  position: fixed;
+  top: 0;
+  z-index: $z-index-topbar;
+  opacity: 1;
+  backdrop-filter: blur(50px);
+  -webkit-backdrop-filter: blur(50px);
+}
+
+@-moz-document url-prefix() {
+  .app__topbar {
+    background-color: rgba(0, 0, 0, 0.5) !important;
+  }
+}
+
+/*
+  Here's the Nav part
+*/
+.app__leftbar {
+  z-index: $z-index-menu;
+  position: fixed;
+  top: 11vh;
+}
+
+.app__logo {
+  top: 3vh;
+  left: 3vw;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  width: 15%;
+  height: 5vh;
+}
+
+.app__nav{
+  margin-left: 3vw;
+  width: 14vw;
+}
+
+.app__nav-button {
+  text-decoration: none;
+  color: $color-text;
+  border-bottom: solid 1px $color-grey;
+  padding-bottom: 2vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 3fr 1fr;
+  &.app__nav-button--active {
+    color: $color-primary;
+  }
+
+  &:focus {
+    outline:0;
+  }
+
+  &:first-child {
+    border-top: solid 1px $color-grey;
+    padding-top: 2vh;
+  }
+
+  .app__nav-button-i {
+    &:first-child {
+      grid-column: 1;
+    }
+
+    &:last-child{
+      grid-column: 3;
+      justify-self: end;
+    }
+  }
+
+  .app__nav-button-link {
+    font: 15px $font-avenir-light;
+    letter-spacing: 0.09px;
+    grid-column: 2;
+  }
+}
+
+.app__nav--bkpt-landscape{
+  margin-left: 3vw;
+  width: 14vw;
+
+  .app__nav-button {
+    text-decoration: none;
+    color: $color-text;
+    border-bottom: solid 1px $color-grey;
+    padding-bottom: 2vh;
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 3fr 1fr;
+
+
+    &.app__nav-button--active {
+      color: $color-primary;
+      font: 16px $font-avenir-heavy;
+    }
+
+    &:first-child {
+      border-top: solid 1px $color-grey;
+      padding-top: 2vh;
+    }
+
+    .app__nav-button-i {
+      &:first-child {
+        grid-column: 1;
+      }
+
+      &:last-child{
+        grid-column: 3;
+        justify-self: end;
+      }
+    }
+
+    .app_nav-button-link {
+      font: 15px $font-avenir-light;
+      letter-spacing: 0.09px;
+      grid-column: 2;
+    }
+  }
+}
+
+.app__toogle-nav {
+  opacity: 0;
+  background-color: transparent;
+  color: $color-grey;
+  border: none;
+  position: fixed;
+  top: 3vh;
+  left: 3vw;
+  height: 3vw;
+  width: 3vw;
+  padding: 0;
+  font-size: 2.8vw;
+  text-align: center;
+}
+
