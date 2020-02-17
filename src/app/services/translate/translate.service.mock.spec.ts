@@ -2,7 +2,7 @@ import { TranslateServiceMock, TranslateMockPipe, TranslateMockDirective } from 
 import { ElementRef } from '@angular/core';
 
 
-describe('TranslateServiceMock', () =>{
+describe('TranslateServiceMock', () => {
   let service: TranslateServiceMock;
 
   beforeEach(() => {
@@ -24,6 +24,17 @@ describe('TranslateServiceMock', () =>{
     });
   });
 
+  it('should be able to use a lang', () => {
+    service.use('fr');
+    expect(service.currentLang).toEqual('fr');
+    expect(service.onLangChangeSubject).toBeDefined();
+  });
+
+  it('should be able to add languages', () => {
+    service.addLangs(['fr', 'en']);
+    expect(service.languages).toEqual(['de', 'fr', 'en']);
+  });
+
   it('should return the BrowserLang', () => {
     expect(service.getBrowserLang()).toEqual('');
   });
@@ -36,7 +47,12 @@ describe('TranslateServiceMock', () =>{
     expect(service.instant(['test', 'test'])).toEqual('i18ntest,test');
   });
 
-  it('shout get the languages', () =>{
+  it('should be able to set a DefaultLang', () => {
+    service.setDefaultLang('fr');
+    expect(service.onDefaultLangChangeSubject).toBeDefined();
+  });
+
+  it('shout get the languages', () => {
     expect(service.getLangs()).toEqual(['de']);
   });
 });
@@ -44,7 +60,7 @@ describe('TranslateServiceMock', () =>{
 describe('TranslateMockPipe', () => {
   let pipe: TranslateMockPipe;
 
-  describe('#transform',() =>{
+  describe('#transform', () => {
     beforeEach(() => {
       pipe = new TranslateMockPipe();
     });

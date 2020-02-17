@@ -38,8 +38,8 @@ export class MovieComponent implements OnInit {
     this.showData(this.movieId);
   }
 
-  public toggleChild(): void {
-    this.showVar = !this.showVar;
+  public toggleChild(value): void {
+    this.showVar = !value;
   }
 
   public addLocal(value: string): void {

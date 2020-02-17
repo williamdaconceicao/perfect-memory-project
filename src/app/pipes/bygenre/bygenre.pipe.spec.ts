@@ -1,5 +1,5 @@
 import { ByGenrePipe } from './bygenre.pipe';
-import { Movie } from 'src/model/Movie.model';
+import { Movie } from '@model/Movie.model';
 
 describe('ByGenrePipe', () => {
   let pipe: ByGenrePipe;

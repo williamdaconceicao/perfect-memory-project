@@ -4,6 +4,7 @@ export interface Movie {
   belongs_to_collection?: null;
   budget?: number;
   genre_ids: number[];
+  genres?: Genre[];
   homepage?: string;
   id: number;
   imdb_id?: string;

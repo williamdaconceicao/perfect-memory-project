@@ -4,13 +4,11 @@ import { SeenlistComponent } from './seenlist.component';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { MovieComponent } from '../movie/movie.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TheMovieDbService } from 'src/app/services/themovidedb/themovidedb.service';
-import { MockTheMovieDbService } from 'src/app/services/themovidedb/themoviedb.service.mock';
-import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
-import { ByGenrePipe } from 'src/app/pipes/bygenre/bygenre.pipe';
-import { ByYearPipe } from 'src/app/pipes/byyear/byyear.pipe';
+import { TheMovieDbService } from '@app/services/themovidedb/themovidedb.service';
+import { MockTheMovieDbService } from '@app/services/themovidedb/themoviedb.service.mock';
+import { FormatTitlePipe } from '@app/pipes/formatTitle/formatTitle.pipe';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { FormatTimePipe } from 'src/app/pipes/formatTime/formatTime.pipe';
+import { FormatTimePipe } from '@app/pipes/formatTime/formatTime.pipe';
 
 describe('SeenlistComponent', () => {
   let component: SeenlistComponent;
@@ -27,11 +25,10 @@ describe('SeenlistComponent', () => {
         MovieCardComponent,
         FormatTitlePipe,
         FormatTimePipe,
-        ByGenrePipe,
-        ByYearPipe,
       ],
       providers: [
         { provide: TheMovieDbService, useClass: MockTheMovieDbService },
+
       ],
       schemas: [
         NO_ERRORS_SCHEMA
@@ -46,6 +43,7 @@ describe('SeenlistComponent', () => {
     fixture.detectChanges();
     localStorage.clear();
     component.movies = [];
+
   });
 
   it('should create', () => {

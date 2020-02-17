@@ -93,7 +93,7 @@ describe('MovieService', () => {
 
   }),
 
-  describe('popular', () =>{
+  describe('popular', () => {
     it('should return an object containing equal to { results: Movie[] } containing the popular movie', done => {
       spyOn(dbService, 'get').and.returnValue(of({results: [{
         id: 1,

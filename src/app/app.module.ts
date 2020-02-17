@@ -24,7 +24,7 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     ErrorComponent,
   ],
   imports: [
-    BrowserModule,
+    BrowserModule.withServerTransition({ appId: 'serverApp' }),
     AppRoutingModule,
     HttpClientModule,
     FormsModule,
@@ -40,6 +40,6 @@ export function HttpLoaderFactory(httpClient: HttpClient) {
     { provide: API_BASE_URL, useValue: 'https://api.themoviedb.org/3' },
     { provide: API_KEY, useValue: '3d50a317456bb9c2c28d3f0956c86cc3' },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule { }

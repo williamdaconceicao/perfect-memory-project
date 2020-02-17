@@ -2,14 +2,14 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieCardComponent } from './movie-card.component';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TheMovieDbService } from 'src/app/services/themovidedb/themovidedb.service';
-import { MockTheMovieDbService } from 'src/app/services/themovidedb/themoviedb.service.mock';
+import { TheMovieDbService } from '@app/services/themovidedb/themovidedb.service';
+import { MockTheMovieDbService } from '@app/services/themovidedb/themoviedb.service.mock';
 import { DebugElement } from '@angular/core';
 import { of } from 'rxjs';
-import { CreditService } from 'src/app/services/credits/credits.service';
-import { MockCreditService } from 'src/app/services/credits/credit.service.mock';
-import { FormatTimePipe } from 'src/app/pipes/formatTime/formatTime.pipe';
-import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
+import { CreditService } from '@app/services/credits/credits.service';
+import { MockCreditService } from '@app/services/credits/credit.service.mock';
+import { FormatTimePipe } from '@app/pipes/formatTime/formatTime.pipe';
+import { FormatTitlePipe } from '@app/pipes/formatTitle/formatTitle.pipe';
 
 describe('MovieCardComponent', () => {
   let component: MovieCardComponent;
@@ -46,13 +46,13 @@ describe('MovieCardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should init with showMePartially at false', () => {
-    expect(component.showMePartially).toBeFalsy();
+  it('should init with showVar at false', () => {
+    expect(component.showVar).toBeFalsy();
   });
 
-  it('should be possible have showMePartially at true', () => {
-    component.showMePartially = true;
-    expect(component.showMePartially).toBeTruthy();
+  it('should be possible have showVar at true', () => {
+    component.showVar = true;
+    expect(component.showVar).toBeTruthy();
   });
 
   it('should init with id undefined', () => {
@@ -122,9 +122,9 @@ describe('MovieCardComponent', () => {
   });
 
   describe('#toogleChild', () => {
-    it('should change the value of showMePartially to his oposite', () => {
+    it('should change the value of showVar to his oposite', () => {
       component.toggleChild();
-      expect(component.showMePartially).toEqual(true);
+      expect(component.showVar).toEqual(false);
     });
   });
 

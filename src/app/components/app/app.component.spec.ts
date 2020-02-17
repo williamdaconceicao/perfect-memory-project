@@ -1,4 +1,4 @@
-import { TestBed, async, ComponentFixture } from '@angular/core/testing';
+import { TestBed, ComponentFixture } from '@angular/core/testing';
 import { RouterTestingModule } from '@angular/router/testing';
 import { AppComponent } from './app.component';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
@@ -8,8 +8,6 @@ import { TranslateServiceMock } from '@app/services/translate/translate.service.
 describe('AppComponent', () => {
   let component: AppComponent;
   let fixture: ComponentFixture<AppComponent>;
-  let translate: TranslateService;
-  let translateSpy: any;
 
   beforeEach(() => {
     TestBed.configureTestingModule({
@@ -27,21 +25,6 @@ describe('AppComponent', () => {
       ],
     });
 
-    translate = TestBed.get(TranslateService);
-    translateSpy = spyOn(translate, 'getBrowserLang');
-    jasmine.getEnv().allowRespy(true);
-  });
-
-  it('can have lang set to fr', () => {
-    translateSpy.and.returnValue('fr');
-    fixture = TestBed.createComponent(AppComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-    expect(translate.currentLang).toEqual('fr');
-  });
-
-  beforeEach(() => {
-    translateSpy.and.returnValue('de');
     fixture = TestBed.createComponent(AppComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
@@ -60,15 +43,6 @@ describe('AppComponent', () => {
   it('should init with showNav at false', () => {
     expect(component.showNav).toBeFalsy();
   });
-
-  it('should init with urlSearch as empty string', () => {
-    expect(component.urlSearch).toEqual('');
-  });
-
-  it('can have lang set to en', () => {
-    expect(translate.currentLang).toEqual('en');
-  });
-
 
   describe('#toggleNav', () => {
     it('should set showNav to true', () => {

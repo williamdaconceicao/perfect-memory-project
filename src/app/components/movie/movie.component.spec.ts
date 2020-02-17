@@ -1,15 +1,15 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { MovieComponent } from './movie.component';
-import { MovieService } from 'src/app/services/movie/movie.service';
+import { MovieService } from '@app/services/movie/movie.service';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TheMovieDbService } from 'src/app/services/themovidedb/themovidedb.service';
-import { MockTheMovieDbService } from 'src/app/services/themovidedb/themoviedb.service.mock';
+import { TheMovieDbService } from '@app/services/themovidedb/themovidedb.service';
+import { MockTheMovieDbService } from '@app/services/themovidedb/themoviedb.service.mock';
 import { of } from 'rxjs';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
-import { MockMovieService } from 'src/app/services/movie/movie.service.mock';
-import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
-import { FormatTimePipe } from 'src/app/pipes/formatTime/formatTime.pipe';
+import { MockMovieService } from '@app/services/movie/movie.service.mock';
+import { FormatTitlePipe } from '@app/pipes/formatTitle/formatTitle.pipe';
+import { FormatTimePipe } from '@app/pipes/formatTime/formatTime.pipe';
 
 describe('MovieComponent', () => {
   let component: MovieComponent;
@@ -119,7 +119,7 @@ describe('MovieComponent', () => {
 
   describe('#toggleChild', () => {
     it('should set the showVar value to true', () => {
-      component.toggleChild();
+      component.toggleChild(false);
       expect(component.showVar).toBeTruthy();
     });
   });

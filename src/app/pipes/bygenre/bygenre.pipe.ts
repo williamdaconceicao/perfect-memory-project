@@ -16,9 +16,8 @@ export class ByGenrePipe implements PipeTransform {
     return items.filter(item => {
       if (item.genre_ids.some(genre => genre === selectedGenre.id)) {
           return true;
-      } else {
-          return false;
       }
+      return false;
     });
   }
 }

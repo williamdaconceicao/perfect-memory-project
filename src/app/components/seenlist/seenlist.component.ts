@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Genre } from '@model/Movie.model';
+import { Genre, Movie } from '@model/Movie.model';
+import { MovieService } from '@app/services/movie/movie.service';
 
 @Component({
   selector: 'app-seenlist',
@@ -8,8 +9,6 @@ import { Genre } from '@model/Movie.model';
 })
 export class SeenlistComponent implements OnInit {
   public movies: string[] = [];
-  public searchYear: string;
-  public searchGenre: Genre;
   public genresList: Genre[] = [
     {id: 28, name: 'Action'},
     {id: 12, name: 'Adventure'},
@@ -34,7 +33,7 @@ export class SeenlistComponent implements OnInit {
   @Input()
   public urlSearch: string;
 
-  constructor() { }
+  constructor(private movieService: MovieService, ) {}
 
   ngOnInit() {
     try {
@@ -44,6 +43,5 @@ export class SeenlistComponent implements OnInit {
     } catch {
       this.movies = [];
     }
-
   }
 }

@@ -4,7 +4,7 @@
     <div class="movie__hovered-casts" >
       <a
         i18n="Show the casting of a movie@@ShowCast"
-        (click)="toggleChild()">
+        (click)="toggleChild(showVar)">
           See More
       </a>
     </div>
@@ -23,7 +23,7 @@
       </a>
     </div>
   </div>
-	<div class="movie__image" (click)="toggleChild()">
+	<div class="movie__image" (click)="toggleChild(showVar)">
     <img
       src="https://image.tmdb.org/t/p/w185//{{movie.poster_path}}"
       i18n-alt [alt]="movie.original_title"
@@ -31,10 +31,10 @@
       class="movie__image-content"
     />
 	</div>
-	<div class="movie__text" (click)="toggleChild()">
+	<div class="movie__text" (click)="toggleChild(showVar)">
     <h2 class="movie__text-title">{{ movie.title | formatTitle }}</h2>
 		<p class="movie__text-date">{{ movie.release_date | date:'longDate'  }}</p>
   </div>
 </div>
-<app-movie-card [id]="id" [showMePartially]="showVar"></app-movie-card>
+<app-movie-card [id]="id" [showVar]="showVar" (showChild)='toggleChild($event)'></app-movie-card>
 

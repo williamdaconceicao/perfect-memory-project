@@ -6,7 +6,7 @@
     W<span class="wishlist__spantitle">i</span>sh Li<span class="wishlist__spantitle">s</span>t
   </h2>
   <div class="wishlist__grid">
-    <div *ngFor="let id of movies | bygenre: search.searchGenre | byyear: search.searchYear">
+    <div *ngFor="let id of movies">
       <app-movie [id]="id"></app-movie>
     </div>
   </div>

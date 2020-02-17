@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { CreditService } from '@app/services/credits/credits.service';
 import { Observable, of } from 'rxjs';
 import { Credits } from '@model/Credits.model';
@@ -15,19 +15,20 @@ import { LocalStorageService } from '@app/services/localstorage/localstorage.ser
 })
 export class MovieCardComponent implements OnInit {
   @Input()
-  public showMePartially = false;
+  public showVar = false;
   @Input()
   public id: string;
   public isSeen: boolean;
   public isWished: boolean;
-  @Input()
-  public height: number;
+
+  @Output() showChild = new EventEmitter();
 
   public data$: Observable<Credits>;
   public director$: Observable<string>;
   public movie$: Observable<Movie>;
 
   private movieId: string;
+
 
   constructor(
     private creditService: CreditService,
@@ -45,7 +46,7 @@ export class MovieCardComponent implements OnInit {
   }
 
   public toggleChild() {
-    this.showMePartially = !this.showMePartially;
+    this.showChild.emit(this.showVar);
   }
 
   public addLocal(value: string): void {

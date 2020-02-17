@@ -1,5 +1,5 @@
 import { ByYearPipe } from './byyear.pipe';
-import { Movie } from 'src/model/Movie.model';
+import { Movie } from '@model/Movie.model';
 
 describe('ByYearPipe', () => {
   let pipe: ByYearPipe;

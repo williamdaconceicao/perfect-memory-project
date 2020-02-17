@@ -47,8 +47,7 @@ export class MovieListComponent implements OnInit {
     {id: 37, name: 'Western'},
   ];
 
-  @Input()
-  public urlSearch: string;
+  public urlSearch = '';
 
   constructor(
     private movieService: MovieService,

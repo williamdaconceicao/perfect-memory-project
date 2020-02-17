@@ -15,19 +15,10 @@ export class AppComponent {
    * @internal
    */
   public showNav = false;
-  public urlSearch  = '';
 
-  constructor(public translate: TranslateService) {
-    translate.addLangs(['en', 'fr']);
-    translate.setDefaultLang('en');
-
-    const browserLang = translate.getBrowserLang();
-    translate.use(browserLang.match(/en|fr/) ? browserLang : 'en');
-  }
+  constructor() {}
 
   public toggleNav(): void {
     this.showNav = !this.showNav;
   }
-
-
 }

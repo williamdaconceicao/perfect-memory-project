@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Genre } from '@model/Movie.model';
+import { Genre, Movie } from '@model/Movie.model';
+import { MovieService } from '@app/services/movie/movie.service';
 
 @Component({
   selector: 'app-wishlist',
@@ -8,8 +9,6 @@ import { Genre } from '@model/Movie.model';
 })
 export class WishlistComponent implements OnInit {
   public movies: string[] = [];
-  public searchYear: string;
-  public searchGenre: Genre;
   public genresList: Genre[] = [
     {id: 28, name: 'Action'},
     {id: 12, name: 'Adventure'},
@@ -34,13 +33,13 @@ export class WishlistComponent implements OnInit {
   @Input()
   public urlSearch: string;
 
-  constructor() {}
+  constructor(private movieService: MovieService, ) {}
 
   ngOnInit() {
     try {
       const movieLocal = JSON.parse(localStorage.getItem('movie'));
       this.movies = Object.keys(movieLocal)
-      .filter(key => movieLocal[key] === 'wish');
+        .filter(key => movieLocal[key] === 'wish');
     } catch {
       this.movies = [];
     }

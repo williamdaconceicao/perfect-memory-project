@@ -1,16 +1,13 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { HttpClientModule } from '@angular/common/http';
 import { WishlistComponent } from './wishlist.component';
 import { MovieComponent } from '../movie/movie.component';
 import { MovieCardComponent } from '../movie-card/movie-card.component';
 import { TheMovieDbService } from '@app/services/themovidedb/themovidedb.service';
 import { MockTheMovieDbService } from '@app/services/themovidedb/themoviedb.service.mock';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
-import { ByGenrePipe } from '@app/components/movie-list/node_modules/src/app/pipes/bygenre/bygenre.pipe';
-import { ByYearPipe } from '@app/components/movie-list/node_modules/src/app/pipes/byyear/byyear.pipe';
+import { FormatTitlePipe } from '@app/pipes/formatTitle/formatTitle.pipe';
 import { NO_ERRORS_SCHEMA } from '@angular/core';
-import { FormatTimePipe } from 'src/app/pipes/formatTime/formatTime.pipe';
+import { FormatTimePipe } from '@app/pipes/formatTime/formatTime.pipe';
 
 describe('WishlistComponent', () => {
   let component: WishlistComponent;
@@ -27,8 +24,6 @@ describe('WishlistComponent', () => {
         MovieCardComponent,
         FormatTitlePipe,
         FormatTimePipe,
-        ByGenrePipe,
-        ByYearPipe,
       ],
       providers: [
         { provide: TheMovieDbService, useClass: MockTheMovieDbService },
@@ -67,6 +62,7 @@ describe('WishlistComponent', () => {
       component.ngOnInit();
       expect(component.movies).toEqual(['530915']);
     });
+
 
     it('should be possible to have no movie returned', () => {
       component.ngOnInit();

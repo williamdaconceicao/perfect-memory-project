@@ -1,19 +1,20 @@
-import { async, ComponentFixture, TestBed, tick, fakeAsync } from '@angular/core/testing';
+import { ComponentFixture, TestBed, fakeAsync, tick, } from '@angular/core/testing';
 
 import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { TheMovieDbService } from 'src/app/services/themovidedb/themovidedb.service';
-import { MockTheMovieDbService } from 'src/app/services/themovidedb/themoviedb.service.mock';
+import { TheMovieDbService } from '@app/services/themovidedb/themovidedb.service';
+import { MockTheMovieDbService } from '@app/services/themovidedb/themoviedb.service.mock';
 import { DebugElement, NO_ERRORS_SCHEMA } from '@angular/core';
 import { of } from 'rxjs';
 import { MovieListComponent } from './movie-list.component';
-import { MovieService } from 'src/app/services/movie/movie.service';
-import { MockMovieService } from 'src/app/services/movie/movie.service.mock';
+import { MovieService } from '@app/services/movie/movie.service';
+import { MockMovieService } from '@app/services/movie/movie.service.mock';
 import { FormsModule } from '@angular/forms';
-import { ByYearPipe } from 'src/app/pipes/byyear/byyear.pipe';
-import { ByGenrePipe } from 'src/app/pipes/bygenre/bygenre.pipe';
+import { ByYearPipe } from '@app/pipes/byyear/byyear.pipe';
+import { ByGenrePipe } from '@app/pipes/bygenre/bygenre.pipe';
 import { RouterTestingModule } from '@angular/router/testing';
-import { Router } from '@angular/router';
-import { FormatTitlePipe } from 'src/app/pipes/formatTitle/formatTitle.pipe';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormatTitlePipe } from '@app/pipes/formatTitle/formatTitle.pipe';
+import { Location } from '@angular/common';
 
 describe('MovieListComponent', () => {
   let component: MovieListComponent;
@@ -21,8 +22,10 @@ describe('MovieListComponent', () => {
   let showEl: DebugElement;
   let movieService: MovieService;
   let router: Router;
+  let route: ActivatedRoute;
+  let location: Location;
 
-  beforeEach(async(() => {
+  beforeEach(() => {
     TestBed.configureTestingModule({
       imports: [
         HttpClientTestingModule,
@@ -53,16 +56,17 @@ describe('MovieListComponent', () => {
       ]
     })
     .compileComponents();
-  }));
-
-  beforeEach(() => {
     movieService = TestBed.get(MovieService);
     router = TestBed.get(Router);
+    location = TestBed.get(Location);
 
     fixture = TestBed.createComponent(MovieListComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
     showEl = fixture.debugElement;
+    router.initialNavigation();
+
+    route = TestBed.get(ActivatedRoute);
 
   });
 
@@ -72,7 +76,7 @@ describe('MovieListComponent', () => {
 
   describe('#ngOnInit', () => {
     it('should get the populars movies with route /', done => {
-      router.navigate(['/']);
+      router.navigate(['']);
       spyOn(movieService, 'popular').and.returnValue(of({results: [{
         id: 1,
         original_title: 'popular1',
@@ -115,58 +119,52 @@ describe('MovieListComponent', () => {
       });
     });
 
-    // it('should get a list of movies', fakeAsync(() => {
-    //   router.navigate(['/search/title']);
-    //   console.log('hi');
-    //   tick();
-    //   spyOn(movieService, 'search').and.returnValue(of({results: [{
-    //     id: 1,
-    //     original_title: 'title1',
-    //     poster_path: '',
-    //     release_date: '',
-    //     genre_ids: [1, 2],
-    //     runtime: 0,
-    //     vote_average: 0,
-    //   },
-    //   {
-    //     id: 2,
-    //     original_title: 'title2',
-    //     poster_path: '',
-    //     release_date: '',
-    //     genre_ids: [1, 2],
-    //     runtime: 0,
-    //     vote_average: 0,
-    //   }]}));
-    //   component.ngOnInit();
-    //   component.movies$.subscribe(result => {
-    //     expect(result).toEqual([{
-    //       id: 1,
-    //       original_title: 'title1',
-    //       poster_path: '',
-    //       release_date: '',
-    //       genre_ids: [1, 2],
-    //       runtime: 0,
-    //       vote_average: 0,
-    //     },
-    //     {
-    //       id: 2,
-    //       original_title: 'title2',
-    //       poster_path: '',
-    //       release_date: '',
-    //       genre_ids: [1, 2],
-    //       runtime: 0,
-    //       vote_average: 0,
-    //     }]);
-    //   });
-    // }));
-  });
-
-  describe('#submit', () => {
-    it('should navigate with to /search/value', () => {
-      const spy = spyOn(component, 'submit');
-      component.submit('test');
-      expect(spy).toHaveBeenCalled();
-      //expect(router.url).toEqual('/search/test');
+    it('should get a list of movies', done => {
+      route.params.subscribe(param => {
+        param.name = 'title';
+        router.navigateByUrl('/search/' + 'title').then(() => {
+          spyOn(movieService, 'search').and.returnValue(of({results: [{
+            id: 1,
+            original_title: 'title1',
+            poster_path: '',
+            release_date: '',
+            genre_ids: [1, 2],
+            runtime: 0,
+            vote_average: 0,
+          },
+          {
+            id: 2,
+            original_title: 'title2',
+            poster_path: '',
+            release_date: '',
+            genre_ids: [1, 2],
+            runtime: 0,
+            vote_average: 0,
+          }]}));
+          component.ngOnInit();
+          component.movies$.subscribe(result => {
+            expect(result).toEqual([{
+              id: 1,
+              original_title: 'title1',
+              poster_path: '',
+              release_date: '',
+              genre_ids: [1, 2],
+              runtime: 0,
+              vote_average: 0,
+            },
+            {
+              id: 2,
+              original_title: 'title2',
+              poster_path: '',
+              release_date: '',
+              genre_ids: [1, 2],
+              runtime: 0,
+              vote_average: 0,
+            }]);
+            done();
+          });
+        });
+      });
     });
   });
 });
