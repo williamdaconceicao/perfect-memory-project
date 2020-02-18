@@ -6,15 +6,13 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'PerfectMemoryProject';
+  public title = 'PerfectMemoryProject';
   /**
    * @internal
    */
   public showNav = false;
 
-  constructor() {}
-
-  public toggleNav(): void {
+  public toggleNav() {
     this.showNav = !this.showNav;
   }
 }

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { MovieService } from '@app/services/movie/movie.service';
 import { Movie, Genre } from '@model/Movie.model';
@@ -16,40 +16,19 @@ export class MovieListComponent implements OnInit {
   /**
    * @internal
    */
-  public movies$: Observable<Movie[]>;
-
   public isSearching = false;
+
   public searchYear: string;
+  public urlSearch = '';
 
   public searchGenre: Genre;
 
-  public genresList: Genre[] = [
-    {id: 28, name: 'Action'},
-    {id: 12, name: 'Adventure'},
-    {id: 16, name: 'Animation'},
-    {id: 35, name: 'Comedy'},
-    {id: 80, name: 'Crime'},
-    {id: 99, name: 'Documentary'},
-    {id: 18, name: 'Drama'},
-    {id: 10751, name: 'Family'},
-    {id: 14, name: 'Fantasy'},
-    {id: 36, name: 'History'},
-    {id: 27, name: 'Horror'},
-    {id: 10402, name: 'Music'},
-    {id: 9648, name: 'Mystery'},
-    {id: 10749, name: 'Romance'},
-    {id: 878, name: 'Science Fiction'},
-    {id: 10770, name: 'TV Movie'},
-    {id: 53, name: 'Thriller'},
-    {id: 10752, name: 'War'},
-    {id: 37, name: 'Western'},
-  ];
+  public movies$: Observable<Movie[]>;
 
-  public urlSearch = '';
 
   constructor(
     private movieService: MovieService,
-    private activatedRoute: ActivatedRoute
+    private activatedRoute: ActivatedRoute,
   ) {}
 
   public ngOnInit() {
@@ -57,15 +36,12 @@ export class MovieListComponent implements OnInit {
       .pipe(
         switchMap(params => {
           if (!params.name) {
-            // popular
-            this.isSearching = false;
-            this.urlSearch = '';
             return this.getPopularMovies();
           }
           // search
           this.isSearching = true;
-          this.urlSearch = this.activatedRoute.snapshot.params.name;
-          return this.performSearch(this.activatedRoute.snapshot.params.name);
+          this.urlSearch = params.name;
+          return this.performSearch(params.name);
         }),
         map(results => results.results)
       );

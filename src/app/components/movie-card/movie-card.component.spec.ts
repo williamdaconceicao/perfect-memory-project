@@ -46,13 +46,13 @@ describe('MovieCardComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should init with showVar at false', () => {
-    expect(component.showVar).toBeFalsy();
+  it('should init with isCardShown at false', () => {
+    expect(component.isCardShown).toBeFalsy();
   });
 
-  it('should be possible have showVar at true', () => {
-    component.showVar = true;
-    expect(component.showVar).toBeTruthy();
+  it('should be possible have isCardShown at true', () => {
+    component.isCardShown = true;
+    expect(component.isCardShown).toBeTruthy();
   });
 
   it('should init with id undefined', () => {
@@ -122,9 +122,9 @@ describe('MovieCardComponent', () => {
   });
 
   describe('#toogleChild', () => {
-    it('should change the value of showVar to his oposite', () => {
+    it('should change the value of isCardShown to his oposite', () => {
       component.toggleChild();
-      expect(component.showVar).toEqual(false);
+      expect(component.isCardShown).toEqual(false);
     });
   });
 
@@ -135,26 +135,26 @@ describe('MovieCardComponent', () => {
     });
 
     it('should set isSeen to true when value is seen', () => {
-      component.addLocal('seen');
+      component.addToList('seen');
       expect(component.isSeen).toBe(true);
       expect(component.isWished).toBe(false);
     });
 
     it('should set isWished to true when value is wish', () => {
-      component.addLocal('wish');
+      component.addToList('wish');
       expect(component.isWished).toBe(true);
       expect(component.isSeen).toBe(false);
     });
 
     it('should change none of isWished and isSeen when value is not wish or seen', () => {
-      component.addLocal('');
+      component.addToList('');
       expect(component.isWished).toBe(false);
       expect(component.isSeen).toBe(false);
     });
 
     it('should work even if the local storage is empty', () => {
       localStorage.clear();
-      component.addLocal('');
+      component.addToList('');
       expect(component.isWished).toBe(false);
       expect(component.isSeen).toBe(false);
     });

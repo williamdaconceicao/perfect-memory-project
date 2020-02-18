@@ -1,44 +1,24 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { Genre, Movie } from '@model/Movie.model';
-import { MovieService } from '@app/services/movie/movie.service';
+import { Genre } from '@model/Movie.model';
+import { GenreService } from '@app/services/genres/genres.service';
+import { LocalStorageService } from '@app/services/localstorage/localstorage.service';
 
 @Component({
   selector: 'app-seenlist',
   templateUrl: './seenlist.component.html',
 })
 export class SeenlistComponent implements OnInit {
-  public movies: string[] = [];
-  public genresList: Genre[] = [
-    {id: 28, name: 'Action'},
-    {id: 12, name: 'Adventure'},
-    {id: 16, name: 'Animation'},
-    {id: 35, name: 'Comedy'},
-    {id: 80, name: 'Crime'},
-    {id: 99, name: 'Documentary'},
-    {id: 18, name: 'Drama'},
-    {id: 10751, name: 'Family'},
-    {id: 14, name: 'Fantasy'},
-    {id: 36, name: 'History'},
-    {id: 27, name: 'Horror'},
-    {id: 10402, name: 'Music'},
-    {id: 9648, name: 'Mystery'},
-    {id: 10749, name: 'Romance'},
-    {id: 878, name: 'Science Fiction'},
-    {id: 10770, name: 'TV Movie'},
-    {id: 53, name: 'Thriller'},
-    {id: 10752, name: 'War'},
-    {id: 37, name: 'Western'},
-  ];
+
   @Input()
   public urlSearch: string;
 
-  constructor(private movieService: MovieService, ) {}
+  public movies: string[] = [];
+
+  constructor(private localStorageService: LocalStorageService) {}
 
   ngOnInit() {
     try {
-      const movieLocal = JSON.parse(localStorage.getItem('movie'));
-      this.movies = Object.keys(movieLocal)
-        .filter(key => movieLocal[key] === 'seen');
+      this.movies = this.localStorageService.initList('seen');
     } catch {
       this.movies = [];
     }

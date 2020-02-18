@@ -3,8 +3,8 @@
   <input type="checkbox" id="search">
   <label for="search"><i class="search__searching-icon fas fa-search"></i></label>
   <form class="search__searching" (ngSubmit)="submit(name.value)">
-    <input class="search__searching-text" i18n-placeholder autocomplete="off" placeholder="Search" #name type="text" name="name" [ngModel]="this.urlSearch">
-    <button class="search__searching-button" type="button" for='name' [routerLink]="['/search', name.value]"><i class="fas fa-search"></i></button>
+    <input class="search__searching-text" i18n-placeholder autocomplete="off" placeholder="Search" #name type="text" name="name" [ngModel]="urlSearch">
+    <button class="search__searching-button" type="button" for="name" [routerLink]="['/search', name.value]"><i class="fas fa-search"></i></button>
   </form>
 
   <div class="search__filter-year">
@@ -21,7 +21,7 @@
     <div class="filterer filter__category">
       <select class="filterer__filter filter__form-select" #genreSelect [(ngModel)]="searchGenre">
         <option [ngValue]="null" [selected]="true" [disabled]="true">Filter By Category</option>
-        <option [ngValue]="null">All Category</option>
+        <option [ngValue]="null">All Categories</option>
         <option *ngFor="let genre of genresList" [ngValue]="genre">{{ genre.name }}</option>
       </select>
     </div>

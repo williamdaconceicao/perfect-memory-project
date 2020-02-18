@@ -1,8 +1,8 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, OnChanges, OnInit } from '@angular/core';
 import { CreditService } from '@app/services/credits/credits.service';
-import { Observable, of } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Credits } from '@model/Credits.model';
-import { map, shareReplay, switchMap } from 'rxjs/operators';
+import { map, shareReplay } from 'rxjs/operators';
 import { Movie } from '@model/Movie.model';
 import { MovieService } from '@app/services/movie/movie.service';
 import { LocalStorageService } from '@app/services/localstorage/localstorage.service';
@@ -13,41 +13,38 @@ import { LocalStorageService } from '@app/services/localstorage/localstorage.ser
 })
 export class MovieCardComponent implements OnInit {
   @Input()
-  public showVar = false;
+  public isCardShown = false;
   @Input()
   public id: string;
+  @Output()
+  public showChild = new EventEmitter();
+
   public isSeen: boolean;
   public isWished: boolean;
 
-  @Output() showChild = new EventEmitter();
 
   public data$: Observable<Credits>;
   public director$: Observable<string>;
   public movie$: Observable<Movie>;
-
-  private movieId: string;
 
 
   constructor(
     private creditService: CreditService,
     private movieService: MovieService,
     private localStorageService: LocalStorageService,
-  ) {
-    this.movieId = '';
-  }
+  ) {}
 
-  ngOnInit() {
-    this.movieId = this.id;
+  public ngOnInit() {
     this.isSeen = this.localStorageService.getLocalStorage('seen', this.id);
     this.isWished = this.localStorageService.getLocalStorage('wish', this.id);
-    this.showData(this.movieId);
+    this.showData(this.id);
   }
 
   public toggleChild() {
-    this.showChild.emit(this.showVar);
+    this.showChild.emit(this.isCardShown);
   }
 
-  public addLocal(value: string): void {
+  public addToList(value: string): void {
     this.localStorageService.storeLocal(value, this.id);
     if (value === 'seen') {
       this.isSeen = true;
@@ -70,8 +67,8 @@ export class MovieCardComponent implements OnInit {
 
     this.director$ = this.data$.pipe(
       map(credits => credits.crew.find(member => member.job === 'Director')),
-      switchMap(director => {
-        return director ? of(director.name) : of('Unknown director');
+      map(director => {
+        return director ? director.name : 'Unknown director';
       })
     );
 

@@ -10,16 +10,17 @@ import { LocalStorageService } from '@app/services/localstorage/localstorage.ser
 })
 export class MovieComponent implements OnInit {
   // this variable is use to show the movie-card component of a movie
-  public showVar = false;
-  public isSeen: boolean;
-  public isWished: boolean;
-  public height: number;
   @Input()
   public id: string;
+
   /**
    * @internal
    */
   public data$: Observable<Movie>;
+  public isCardShown = false;
+  public isSeen: boolean;
+  public isWished: boolean;
+
   private movieId = '';
 
   constructor(
@@ -37,7 +38,7 @@ export class MovieComponent implements OnInit {
   }
 
   public toggleChild(value): void {
-    this.showVar = !value;
+    this.isCardShown = !value;
   }
 
   public addLocal(value: string): void {

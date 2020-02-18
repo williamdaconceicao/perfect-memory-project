@@ -11,7 +11,7 @@
   text-decoration: none;
 }
 
-.active .choose__icon {
+.choose__active .choose__icon {
   color: $color-primary;
   border: solid 1px $color-primary;
 }
@@ -25,6 +25,6 @@
   margin-left: -9px;
 }
 
-.active .choose__icon-plus {
+.choose__active .choose__icon-plus {
   color: $color-primary;
 }

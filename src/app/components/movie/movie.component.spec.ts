@@ -45,8 +45,8 @@ describe('MovieComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should init with showVar at false', () => {
-    expect(component.showVar).toBeFalsy();
+  it('should init with isCardShown at false', () => {
+    expect(component.isCardShown).toBeFalsy();
   });
 
   it('should init with isSeen defined', () => {
@@ -118,9 +118,9 @@ describe('MovieComponent', () => {
   });
 
   describe('#toggleChild', () => {
-    it('should set the showVar value to true', () => {
+    it('should set the isCardShown value to true', () => {
       component.toggleChild(false);
-      expect(component.showVar).toBeTruthy();
+      expect(component.isCardShown).toBeTruthy();
     });
   });
 });
